@@ -1,0 +1,60 @@
+{
+  "name": "svelte-jester",
+  "version": "1.0.0",
+  "description": "A Jest transformer for Svelte - compiles your components before importing them into tests",
+  "main": "src/transformer.js",
+  "license": "MIT",
+  "author": "Rahim Alwer <rahim_alwer@hotmail.com>",
+  "engines": {
+    "node": ">= 8"
+  },
+  "homepage": "https://github.com/mihar-22/svelte-jester#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mihar-22/svelte-jester"
+  },
+  "bugs": {
+    "url": "https://github.com/mihar-22/svelte-jester/issues"
+  },
+  "keywords": [
+    "svelte-jester",
+    "jest",
+    "svelte",
+    "compile",
+    "transformer",
+    "preprocess",
+    "test"
+  ],
+  "files": [
+    "src/transformer.js",
+    "src/preprocess.js"
+  ],
+  "scripts": {
+    "toc": "doctoc README.md",
+    "lint": "standard --fix --env jest",
+    "test": "jest src",
+    "test:watch": "yarn test --watch",
+    "test:update": "yarn test --updateSnapshot --coverage",
+    "setup": "yarn && yarn validate",
+    "validate": "yarn lint && yarn test",
+    "release": "yarn validate && standard-version"
+  },
+  "peerDependencies": {
+    "svelte": ">= 3"
+  },
+  "dependencies": {
+    "cosmiconfig": "^6.0.0",
+    "sync-rpc": "^1.3.6"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.18",
+    "doctoc": "^1.4.0",
+    "jest": "^24.9.0",
+    "node-sass": "^4.13.0",
+    "standard": "^14.3.1",
+    "standard-version": "^7.0.1",
+    "svelte": "^3.16.0",
+    "svelte-preprocess": "^3.2.6",
+    "typescript": "^3.7.3"
+  }
+}
