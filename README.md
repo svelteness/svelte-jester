@@ -9,7 +9,6 @@ Simply precompiles Svelte components before importing them into Jest tests.
 [![MIT License][license-badge]][license]
 </div>
 
-
 <hr />
 
 ## Table of Contents
@@ -132,8 +131,8 @@ Thanks to all contributors, inspired by:
 [MIT](LICENSE)
 
 <!-- prettier-ignore-start -->
-[package]: https://www.npmjs.com/package/mihar-22/svelte-jester
-[version-badge]: https://img.shields.io/npm/v/mihar-22/svelte-jester
+[package]: https://www.npmjs.com/package/svelte-jester
+[version-badge]: https://img.shields.io/npm/v/svelte-jester
 [license]: https://github.com/mihar-22/svelte-jester/blob/master/LICENSE
 [license-badge]: https://img.shields.io/github/license/mihar-22/svelte-jester?color=b
 <!-- prettier-ignore-end -->
