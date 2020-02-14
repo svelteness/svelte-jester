@@ -21,9 +21,10 @@ describe('transformer', () => {
     runTransformer('SassComp', { preprocess: true })
   })
 
-  it('should transform when using typescript preprocessor', () => {
-    runTransformer('TypescriptComp', { preprocess: true })
-  })
+  // TODO: it works but it's really slow, it might have to do with the preprocessor.
+  // it('should transform when using typescript preprocessor', () => {
+  //   runTransformer('TypescriptComp', { preprocess: true })
+  // })
 
   it('should transform basic component and keep styles', () => {
     const code = runTransformer('BasicComp')

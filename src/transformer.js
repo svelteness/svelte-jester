@@ -1,13 +1,19 @@
+// const log = require('why-is-node-running')
 const { basename } = require('path')
+const { execSync } = require('child_process')
 const svelte = require('svelte/compiler')
-const forceSync = require('sync-rpc')
-
-const syncPreprocess = forceSync(require.resolve('./preprocess.js'))
 
 const transformer = (options = {}) => (source, filename) => {
   const { debug, compilerOptions, preprocess } = options
 
-  const processed = !preprocess ? source : syncPreprocess({ source, filename })
+  let processed = source
+
+  if (preprocess) {
+    const preprocessor = require.resolve('./preprocess.js')
+    processed = execSync(`node ${preprocessor}`, {
+      env: { source, filename }
+    }).toString()
+  }
 
   const result = svelte.compile(processed, {
     filename: basename(filename),
