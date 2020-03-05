@@ -11,7 +11,7 @@ const transformer = (options = {}) => (source, filename) => {
   if (preprocess) {
     const preprocessor = require.resolve('./preprocess.js')
     processed = execSync(`node ${preprocessor}`, {
-      env: { source, filename }
+      env: { PATH: process.env.PATH, source, filename }
     }).toString()
   }
 
