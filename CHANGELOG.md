@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.6](https://github.com/mihar-22/svelte-jester/compare/v1.0.5...v1.0.6) (2020-05-18)
+
+
+### Bug Fixes
+
+* raise unhandled rejection on child process as uncaught exception ([ae64409](https://github.com/mihar-22/svelte-jester/commit/ae644094bcee93e17ecf3e02f38f29f485ea78c1)), closes [#5](https://github.com/mihar-22/svelte-jester/issues/5)
+
 ### [1.0.5](https://github.com/mihar-22/svelte-jester/compare/v1.0.4...v1.0.5) (2020-03-05)
 
 ### [1.0.4](https://github.com/mihar-22/svelte-jester/compare/v1.0.3...v1.0.4) (2020-02-14)
