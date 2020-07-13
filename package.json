@@ -51,7 +51,7 @@
     "jest": "^25.1.0",
     "node-sass": "^4.14.1",
     "standard": "^14.3.1",
-    "standard-version": "^7.1.0",
+    "standard-version": "^8.0.1",
     "svelte": "^3.18.2",
     "svelte-preprocess": "^3.4.0",
     "typescript": "^3.7.5",
