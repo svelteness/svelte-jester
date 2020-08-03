@@ -74,6 +74,48 @@ Create a `.babelrc` and add the following
 }
 ```
 
+### TypeScript
+
+To enable TypeScript support you'll need to setup [`svelte-preprocess`](https://github.com/sveltejs/svelte-preprocess) and [`ts-jest`](https://github.com/kulshekhar/ts-jest).
+
+1. Install `typescript`, `svelte-preprocess`, and `ts-jest`:
+
+   ```shell
+   npm install typescript svelte-preprocess ts-jest -D
+   ```
+
+1. Create a `svelte.config.js` at the root of your project:
+
+   ```js
+   const sveltePreprocess = require("svelte-preprocess");
+
+   module.exports = {
+     preprocess: sveltePreprocess({
+       // ...
+     }),
+   };
+   ```
+
+   To learn what options you can pass to `sveltePreprocess`, please refer to the [documentation](https://github.com/sveltejs/svelte-preprocess/blob/master/docs/preprocessing.md#typescript).
+
+1. In your Jest config, enable preprocessing for `svelte-jester`, and add `ts-jest` as a transform:
+
+   ```json
+   "transform": {
+     "^.+\\.svelte$": [
+       "svelte-jester",
+       {
+         "preprocess": true
+       }
+     ],
+     "^.+\\.ts$": "ts-jest"
+   }
+   ```
+
+Note that TypeScript supports ES modules, so if you were previously using babel-jest just for ES module transpilation, you can remove babel-jest, babel, and any associated presets and config.
+By default, ts-jest will only transpile .ts files though, so if you want to continue using ES modules in .js files, you'll need to configure ts-jest to process .js files as well.
+To do this, update the file glob above, and follow the instructions in the [ts-jest docs](https://kulshekhar.github.io/ts-jest/).
+
 ### Preprocess
 
 Preprocessors are loaded from `svelte.config.js`.
