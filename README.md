@@ -20,6 +20,7 @@ Simply precompiles Svelte components before importing them into Jest tests.
 - [Why not just use x?](#why-not-just-use-x)
 - [Installation](#installation)
   - [Babel](#babel)
+  - [TypeScript](#typescript)
   - [Preprocess](#preprocess)
 - [Options](#options)
 - [Testing Library](#testing-library)
