@@ -13,11 +13,9 @@ exports.getSvelteConfig = (rootMode, filename) => {
 const getConfigDir = (searchDir) => {
   if (fs.existsSync(path.join(searchDir, configFilename))) {
     return searchDir
-  }
-  else if (searchDir === process.cwd()) {
+  } else if (searchDir === process.cwd()) {
     throw Error(`Could not find ${configFilename}`)
-  }
-  else {
+  } else {
     return getConfigDir(path.resolve(searchDir, '..'))
   }
 }
