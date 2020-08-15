@@ -143,13 +143,16 @@ They are loaded from `svelte.config.js`.
 `compilerOptions` (default: {}): Use this to pass in 
 [Svelte compiler options](https://svelte.dev/docs#svelte_compile).
 
+`rootMode` (default: ""): Pass in `upward` to walk up from each file's directory and return the first `svelte.config.js` found, or throw an error if no config file is discovered. This is particularly useful in a monorepo using Jest projects as it allows each package to have it's own `svelte.config.js`, and is similar to Babel's `rootMode`. Default behaviour is to look for a `svelte.config.js` in the root directory.
+
 ```json
 "transform": {
   "^.+\\.js$": "babel-jest",
   "^.+\\.svelte$": ["svelte-jester", { 
     "preprocess": false,
     "debug": false,
-    "compilerOptions": {}
+    "compilerOptions": {},
+    "rootMode": ""
   }]
 }
 ```
