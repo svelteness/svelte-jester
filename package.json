@@ -27,7 +27,8 @@
   ],
   "files": [
     "src/transformer.js",
-    "src/preprocess.js"
+    "src/preprocess.js",
+    "src/svelteconfig.js"
   ],
   "scripts": {
     "toc": "doctoc README.md",
