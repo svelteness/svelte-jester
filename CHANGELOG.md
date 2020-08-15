@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/mihar-22/svelte-jester/compare/v1.0.6...v1.1.0) (2020-08-15)
+
+
+### Features
+
+* rootMode option ([531e7d7](https://github.com/mihar-22/svelte-jester/commit/531e7d7ca40a27e82a5bd66f3a8256d3a4325fae))
+
 ### [1.0.6](https://github.com/mihar-22/svelte-jester/compare/v1.0.5...v1.0.6) (2020-05-18)
 
 
