@@ -143,7 +143,14 @@ They are loaded from `svelte.config.js`.
 `compilerOptions` (default: {}): Use this to pass in 
 [Svelte compiler options](https://svelte.dev/docs#svelte_compile).
 
-`rootMode` (default: ""): Pass in `upward` to walk up from each file's directory and return the first `svelte.config.js` found, or throw an error if no config file is discovered. This is particularly useful in a monorepo using Jest projects as it allows each package to have it's own `svelte.config.js`, and is similar to Babel's `rootMode`. Default behaviour is to look for a `svelte.config.js` in the root directory.
+`rootMode` (default: ""): Pass in `upward` to walk up from the transforming file's directory and use the first `svelte.config.js` found, or throw an error if no config file is discovered. This is particularly useful in a monorepo as it allows you to:
+- Run tests from the worktree root using Jest projects where you only want to put `svelte.config.js` in workspace folders, and not in the root.
+- Run tests from the worktree root using Jest projects, but have different `svelte.config.js` configurations for individual workspaces.
+- Have one common `svelte.config.js` in your worktree root (or any directory above the file being transformed) without needing individual `svelte.config.js` files in each workspace. _Note - this root config file can be overriden if necessary by putting another config file into a workspace folder_
+
+The default mode is to load `svelte.config.js` from the current project root to avoid the risk of accidentally loading a `svelte.config.js` from outside the current project folder.
+
+When `upward` is set it will stop at the first config file it finds above the file being transformed, but will walk up the directory structure all the way to the filesystem root if it cannot find any config file. This means that if there is no `svelte.config.js` file in the project above the file being transformed, it is always possible that someone will have a forgotten `svelte.config.js` in their home directory which could cause unexpected errors in your builds.
 
 ```json
 "transform": {
