@@ -12,7 +12,7 @@ const transformer = (options = {}) => (source, filename) => {
 
   if (preprocess) {
     const preprocessor = require.resolve('./preprocess.js')
-    processed = execSync(`node --unhandled-rejections=strict --abort-on-uncaught-exception ${preprocessor}`, {
+    processed = execSync(`node --unhandled-rejections=strict --abort-on-uncaught-exception '${preprocessor}'`, {
       env: { PATH: process.env.PATH, source, filename, svelteConfig }
     }).toString()
   }
