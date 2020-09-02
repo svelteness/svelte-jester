@@ -6,11 +6,11 @@ const { getSvelteConfig } = require('./svelteconfig.js')
 
 const transformer = (options = {}) => (source, filename) => {
   const { debug, compilerOptions, preprocess, rootMode } = options
-  const svelteConfig = getSvelteConfig(rootMode, filename)
 
   let processed = source
 
   if (preprocess) {
+    const svelteConfig = getSvelteConfig(rootMode, filename)
     const preprocessor = require.resolve('./preprocess.js')
     processed = execSync(`node --unhandled-rejections=strict --abort-on-uncaught-exception "${preprocessor}"`, {
       env: { PATH: process.env.PATH, source, filename, svelteConfig }
