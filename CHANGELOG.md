@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.4](https://github.com/mihar-22/svelte-jester/compare/v1.1.3...v1.1.4) (2020-09-02)
+
+
+### Bug Fixes
+
+* use double quotes for windows ([e45313d](https://github.com/mihar-22/svelte-jester/commit/e45313d9680ac9ac14044f9f6d8c8babb49471d2))
+
 ### [1.1.3](https://github.com/mihar-22/svelte-jester/compare/v1.1.2...v1.1.3) (2020-08-31)
 
 
