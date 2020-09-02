@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.5](https://github.com/mihar-22/svelte-jester/compare/v1.1.4...v1.1.5) (2020-09-02)
+
+
+### Bug Fixes
+
+* svelte.config.js should not be required unless preprocessing ([6b3e567](https://github.com/mihar-22/svelte-jester/commit/6b3e56788010d3d00e1fce045470e7e270dad9eb))
+
 ### [1.1.4](https://github.com/mihar-22/svelte-jester/compare/v1.1.3...v1.1.4) (2020-09-02)
 
 
