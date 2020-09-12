@@ -110,7 +110,12 @@ To enable TypeScript support you'll need to setup [`svelte-preprocess`](https://
        }
      ],
      "^.+\\.ts$": "ts-jest"
-   }
+   },
+   "moduleFileExtensions": [
+    "js",
+    "ts",
+    "svelte"
+  ]
    ```
 
 Note that TypeScript supports ES modules, so if you were previously using babel-jest just for ES module transpilation, you can remove babel-jest, babel, and any associated presets and config.
