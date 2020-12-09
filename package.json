@@ -50,7 +50,7 @@
     "@types/jest": "^25.1.2",
     "doctoc": "^1.4.0",
     "jest": "^25.1.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^5.0.0",
     "standard": "^14.3.1",
     "standard-version": "^8.0.1",
     "svelte": "^3.18.2",

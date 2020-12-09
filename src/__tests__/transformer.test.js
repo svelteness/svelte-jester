@@ -48,7 +48,7 @@ describe('transformer', () => {
   it('should accept maxBuffer option for preprocess buffer limit', () => {
     expect(
       () => runTransformer('SassComp', { preprocess: true, maxBuffer: 1 })
-    ).toThrow('spawnSync /bin/sh ENOBUFS');
+    ).toThrow('spawnSync /bin/sh ENOBUFS')
     runTransformer('SassComp', { preprocess: true, maxBuffer: 5 * 1024 * 1024 })
   })
 })
