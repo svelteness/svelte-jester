@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/mihar-22/svelte-jester/compare/v1.1.5...v1.2.0) (2020-12-09)
+
+
+### Features
+
+* adds maxBuffer option that sets buffer limit for preprocess ([bd80185](https://github.com/mihar-22/svelte-jester/commit/bd80185d90d09b80989fb6e9af421754c0da938f)), closes [#20](https://github.com/mihar-22/svelte-jester/issues/20)
+
 ### [1.1.5](https://github.com/mihar-22/svelte-jester/compare/v1.1.4...v1.1.5) (2020-09-02)
 
 
