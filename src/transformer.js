@@ -5,7 +5,7 @@ const svelte = require('svelte/compiler')
 const { getSvelteConfig } = require('./svelteconfig.js')
 
 const transformer = (options = {}) => (source, filename) => {
-  const { debug, compilerOptions, preprocess, rootMode } = options
+  const { debug, compilerOptions, preprocess, rootMode, maxBuffer } = options
 
   let processed = source
 
@@ -13,7 +13,8 @@ const transformer = (options = {}) => (source, filename) => {
     const svelteConfig = getSvelteConfig(rootMode, filename)
     const preprocessor = require.resolve('./preprocess.js')
     processed = execSync(`node --unhandled-rejections=strict --abort-on-uncaught-exception "${preprocessor}"`, {
-      env: { PATH: process.env.PATH, source, filename, svelteConfig }
+      env: { PATH: process.env.PATH, source, filename, svelteConfig },
+      maxBuffer: maxBuffer || 10 * 1024 * 1024
     }).toString()
   }
 

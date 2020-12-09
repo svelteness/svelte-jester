@@ -158,6 +158,8 @@ The default mode is to load `svelte.config.js` from the current project root to 
 
 When `upward` is set it will stop at the first config file it finds above the file being transformed, but will walk up the directory structure all the way to the filesystem root if it cannot find any config file. This means that if there is no `svelte.config.js` file in the project above the file being transformed, it is always possible that someone will have a forgotten `svelte.config.js` in their home directory which could cause unexpected errors in your builds.
 
+`maxBuffer` (default: 10485760): Sets limit for buffer when `preprocess` is true. It defines the largest amount of data in bytes allowed on stdout or stderr for [child_process.spawnSync](https://nodejs.org/api/child_process.html#child_process_child_process_spawnsync_command_args_options). If exceeded, the child process is terminated and any output is truncated. The default value of 10Mb overrides Node's default value of 1Mb.
+
 ```json
 "transform": {
   "^.+\\.js$": "babel-jest",
@@ -165,7 +167,8 @@ When `upward` is set it will stop at the first config file it finds above the fi
     "preprocess": false,
     "debug": false,
     "compilerOptions": {},
-    "rootMode": ""
+    "rootMode": "",
+    "maxBuffer": 15000000
   }]
 }
 ```
