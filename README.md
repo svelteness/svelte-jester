@@ -117,7 +117,26 @@ To enable TypeScript support you'll need to setup [`svelte-preprocess`](https://
       "svelte"
     ]
   ```
+  However if you do not want to create a `svelte.config.js` at the root of your
+  project or you wish to use a custom config just for tests, you may pass the
+  path to the config file to the `preprocess` option thus:
 
+  ```json
+    "transform": {
+      "^.+\\.svelte$": [
+        "svelte-jester",
+        {
+          "preprocess": "/some/path/to/svelte.config.js"
+        }
+      ],
+      "^.+\\.ts$": "ts-jest"
+    },
+    "moduleFileExtensions": [
+      "js",
+      "ts",
+      "svelte"
+    ]
+  ```
 Note that TypeScript supports ES modules, so if you were previously using babel-jest just for ES module transpilation, you can remove babel-jest, babel, and any associated presets and config.
 
 By default, ts-jest will only transpile .ts files though, so if you want to continue using ES modules in .js files, you'll need to configure ts-jest to process .js files as well.

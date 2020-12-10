@@ -1,4 +1,5 @@
 const fs = require('fs')
+const path = require('path')
 const transformer = require('../transformer')
 
 const runTransformer = (filename, options) => {
@@ -19,6 +20,11 @@ describe('transformer', () => {
 
   it('should transform when using sass preprocessor', () => {
     runTransformer('SassComp', { preprocess: true })
+  })
+
+  it('should transform when using full path to preprocess', () => {
+    const preprocessPath = path.resolve(__dirname, '../../_svelte.config.js')
+    runTransformer('SassComp', { preprocess: preprocessPath })
   })
 
   // TODO: it works but it's really slow, it might have to do with the preprocessor.
