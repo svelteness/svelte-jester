@@ -3,11 +3,17 @@ const path = require('path')
 
 const configFilename = 'svelte.config.js'
 
-exports.getSvelteConfig = (rootMode, filename) => {
-  const configDir = rootMode === 'upward'
-    ? getConfigDir(path.dirname(filename))
-    : process.cwd()
-  const configFile = path.resolve(configDir, configFilename)
+exports.getSvelteConfig = (rootMode, filename, preprocess) => {
+  let configFile = ''
+
+  if ('boolean' === typeof preprocess) {
+    const configDir = rootMode === 'upward'
+      ? getConfigDir(path.dirname(filename))
+      : process.cwd()
+    configFile = path.resolve(configDir, configFilename)
+  } else if('string' === typeof preprocess) {
+    configFile = preprocess
+  }
 
   if (!fs.existsSync(configFile)) {
     throw Error(`Could not find ${configFilename}`)
