@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/mihar-22/svelte-jester/compare/v1.2.0...v1.3.0) (2020-12-10)
+
+
+### Features
+
+* allow user to specify `svelte.config` path ([540e986](https://github.com/mihar-22/svelte-jester/commit/540e986bf5bb0bf40eea72056cc5aea62e09f233))
+
 ## [1.2.0](https://github.com/mihar-22/svelte-jester/compare/v1.1.5...v1.2.0) (2020-12-09)
 
 
