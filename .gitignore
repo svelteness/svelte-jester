@@ -6,7 +6,4 @@ dist
 .DS_Store
 .eslintcache
 .idea
-
 yarn-error.log
-package-lock.json
-yarn.lock
