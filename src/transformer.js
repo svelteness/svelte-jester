@@ -44,7 +44,7 @@ const transformer = (options = {}) => (source, filename) => {
 
   return {
     code: result.js.code + esInterop,
-    map: result.js.map,
+    map: JSON.stringify(result.js.map),
   };
 };
 
