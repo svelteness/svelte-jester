@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.2](https://github.com/mihar-22/svelte-jester/compare/v1.3.1...v1.3.2) (2021-03-24)
+
+
+### Bug Fixes
+
+* use RawSourceMap for sourcemap ([b056107](https://github.com/mihar-22/svelte-jester/commit/b05610769b575c236e66c26e9f480cbb6e2c3ee8))
+
 ### [1.3.1](https://github.com/mihar-22/svelte-jester/compare/v1.3.0...v1.3.1) (2021-03-19)
 
 
