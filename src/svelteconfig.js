@@ -1,34 +1,45 @@
 const fs = require('fs')
 const path = require('path')
 
-const configFilename = 'svelte.config.js'
+const configFilenames = ['svelte.config.js', 'svelte.config.cjs']
 
 exports.getSvelteConfig = (rootMode, filename, preprocess) => {
-  let configFile = ''
+  let configFile = null
 
   if ('boolean' === typeof preprocess) {
-    const configDir = rootMode === 'upward'
-      ? getConfigDir(path.dirname(filename))
-      : process.cwd()
-    configFile = path.resolve(configDir, configFilename)
+    configFile = rootMode === 'upward'
+      ? findConfigFile(path.dirname(filename))
+      : getConfigFile(process.cwd())
   } else if('string' === typeof preprocess) {
     configFile = preprocess
   }
 
-  if (!fs.existsSync(configFile)) {
-    throw Error(`Could not find ${configFilename}`)
+  if (configFile === null || !fs.existsSync(configFile)) {
+    throw Error(`Could not find ${configFilenames.join(' or ')}`)
   }
 
   return configFile
 }
 
-const getConfigDir = (searchDir) => {
-  if (fs.existsSync(path.join(searchDir, configFilename))) {
-    return searchDir
+const getConfigFile = (searchDir) => {
+  for (const configFilename of configFilenames) {
+    const filePath = path.resolve(searchDir, configFilename)
+    if (fs.existsSync(filePath)) {
+      return filePath
+    }
+  }
+
+  return null
+}
+
+const findConfigFile = (searchDir) => {
+  const filePath = getConfigFile(searchDir)
+  if (filePath !== null) {
+    return filePath
   }
 
   const parentDir = path.resolve(searchDir, '..')
   return parentDir !== searchDir
-    ? getConfigDir(parentDir)
-    : searchDir // Stop walking at filesystem root
+    ? findConfigFile(parentDir)
+    : null // Stop walking at filesystem root
 }
