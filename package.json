@@ -44,7 +44,7 @@
     "svelte": ">= 3"
   },
   "dependencies": {
-    "cosmiconfig": "^6.0.0"
+    "cosmiconfig": "^7.0.0"
   },
   "devDependencies": {
     "@types/jest": "^25.1.2",
