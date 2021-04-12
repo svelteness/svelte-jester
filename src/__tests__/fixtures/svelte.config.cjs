@@ -1,7 +1,7 @@
-const { replace } = require("svelte-preprocess");
+const { replace } = require('svelte-preprocess')
 
 module.exports = {
   preprocess: [
-    replace([[/Hello/gi, "Bye"]]),
-  ],
-};
+    replace([[/Hello/gi, 'Bye']])
+  ]
+}

@@ -6,11 +6,11 @@ const configFilenames = ['svelte.config.js', 'svelte.config.cjs']
 exports.getSvelteConfig = (rootMode, filename, preprocess) => {
   let configFile = null
 
-  if ('boolean' === typeof preprocess) {
+  if (typeof preprocess === 'boolean') {
     configFile = rootMode === 'upward'
       ? findConfigFile(path.dirname(filename))
       : getConfigFile(process.cwd())
-  } else if('string' === typeof preprocess) {
+  } else if (typeof preprocess === 'string') {
     configFile = preprocess
   }
 

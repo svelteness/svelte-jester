@@ -28,7 +28,7 @@ describe('transformer', () => {
   })
 
   it('should search for "svelte.config.cjs" as well as "svelte.config.js"', () => {
-    const results = runTransformer('BasicComp', { preprocess: true, rootMode: "upward" })
+    const results = runTransformer('BasicComp', { preprocess: true, rootMode: 'upward' })
     // this is a little brittle, but it demonstrates that the replacements in
     // "svelte.config.cjs" are working
     expect(results).toContain('text("Bye ");')
