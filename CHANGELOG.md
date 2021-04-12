@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/mihar-22/svelte-jester/compare/v1.3.2...v1.4.0) (2021-04-12)
+
+
+### Features
+
+* allow svelte.config.cjs ([#37](https://github.com/mihar-22/svelte-jester/issues/37)) ([9e259c4](https://github.com/mihar-22/svelte-jester/commit/9e259c4b4d254ee163c67995cacf224e64c229d3)), closes [#35](https://github.com/mihar-22/svelte-jester/issues/35)
+
 ### [1.3.2](https://github.com/mihar-22/svelte-jester/compare/v1.3.1...v1.3.2) (2021-03-24)
 
 
