@@ -64,4 +64,11 @@ describe('transformer', () => {
     ).toThrow('spawnSync /bin/sh ENOBUFS')
     runTransformer('SassComp', { preprocess: true, maxBuffer: 5 * 1024 * 1024 })
   })
+
+  it('should pass and transform process.env.NODE_ENV variable', () => {
+    const code = runTransformer('BasicComp', { preprocess: true, rootMode: 'upward'})
+
+    // JEST sets NODE_ENV to test automatically
+    expect(code).toContain("test")
+  })
 })

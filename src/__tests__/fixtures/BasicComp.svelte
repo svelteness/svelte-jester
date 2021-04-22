@@ -1,7 +1,7 @@
 <h1>Hello {name}!</h1>
 
-<span 
-  class="counter" 
+<span
+  class="counter"
   class:active={isCounterActive}
   on:click={increment}
 >
@@ -9,6 +9,8 @@
 </span>
 
 <button on:click={toggle}>buttonTitle</button>
+
+<span>{nodeEnv}</span>
 
 <script>
   export let name
@@ -18,6 +20,7 @@
 
   const increment = () => { count += 1 }
   const toggle = () => { isCounterActive = !isCounterActive }
+  const nodeEnv = process.env.NODE_ENV
 
   $: buttonTitle = isCounterActive ? 'Show Counter' : 'Hide Counter'
 </script>
