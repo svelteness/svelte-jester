@@ -47,15 +47,15 @@
     "cosmiconfig": "^7.0.0"
   },
   "devDependencies": {
-    "@types/jest": "^25.1.2",
-    "doctoc": "^1.4.0",
-    "jest": "^25.1.0",
+    "@types/jest": "^26.0.22",
+    "doctoc": "^2.0.0",
+    "jest": "^26.6.3",
     "node-sass": "^5.0.0",
-    "standard": "^14.3.1",
-    "standard-version": "^9.1.1",
+    "standard": "^16.0.3",
+    "standard-version": "^9.2.0",
     "svelte": "^3.18.2",
-    "svelte-preprocess": "^3.4.0",
-    "typescript": "^3.7.5",
-    "why-is-node-running": "^2.1.0"
+    "svelte-preprocess": "^4.7.2",
+    "typescript": "^4.2.4",
+    "why-is-node-running": "^2.2.0"
   }
 }
