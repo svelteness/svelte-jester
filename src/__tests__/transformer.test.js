@@ -66,9 +66,9 @@ describe('transformer', () => {
   })
 
   it('should pass and transform process.env.NODE_ENV variable', () => {
-    const code = runTransformer('BasicComp', { preprocess: true, rootMode: 'upward'})
+    const code = runTransformer('BasicComp', { preprocess: true, rootMode: 'upward' })
 
     // JEST sets NODE_ENV to test automatically
-    expect(code).toContain("test")
+    expect(code).toContain('test')
   })
 })
