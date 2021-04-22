@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/mihar-22/svelte-jester/compare/v1.4.0...v1.5.0) (2021-04-22)
+
+
+### Features
+
+* all process env variables are passed down to child transform process  ([#40](https://github.com/mihar-22/svelte-jester/issues/40)) ([beecf48](https://github.com/mihar-22/svelte-jester/commit/beecf48f2677d5a294f851841896dd0e5779d078))
+
 ## [1.4.0](https://github.com/mihar-22/svelte-jester/compare/v1.3.2...v1.4.0) (2021-04-12)
 
 
