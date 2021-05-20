@@ -1,5 +1,5 @@
 const sharedTests = (dependencies) => {
-  const {path, runTransformer} = dependencies
+  const { path, runTransformer } = dependencies
 
   it('should transform basic component', () => {
     runTransformer('BasicComp')
@@ -22,7 +22,7 @@ const sharedTests = (dependencies) => {
   })
 
   it('should transform when using typescript preprocessor', () => {
-     runTransformer('TypescriptComp', { preprocess: true })
+    runTransformer('TypescriptComp', { preprocess: true })
   })
 
   it('should transform basic component and keep styles', () => {

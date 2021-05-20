@@ -5,50 +5,50 @@ const svelte = require('svelte/compiler')
 const { getSvelteConfig } = require('./svelteconfig')
 
 const transformer = (options = {}) => (source, filename) => {
-  const {preprocess, rootMode, maxBuffer } = options
+  const { preprocess, rootMode, maxBuffer } = options
 
   if (!preprocess) {
     return compiler(options, filename, source)
   }
 
-    const svelteConfig = getSvelteConfig(rootMode, filename, preprocess)
-    const preprocessor = require.resolve('./preprocess.js')
+  const svelteConfig = getSvelteConfig(rootMode, filename, preprocess)
+  const preprocessor = require.resolve('./preprocess.js')
 
-    const preprocessResult = execSync(
+  const preprocessResult = execSync(
         `node --unhandled-rejections=strict --abort-on-uncaught-exception ${preprocessor}`,
         {
           env: { ...process.env, source, filename, svelteConfig },
           maxBuffer: maxBuffer || 10 * 1024 * 1024
         }
-    ).toString()
+  ).toString()
 
-    const parsedPreprocessResult = JSON.parse(preprocessResult)
-    return compiler(options, filename, parsedPreprocessResult.code, parsedPreprocessResult.map);
+  const parsedPreprocessResult = JSON.parse(preprocessResult)
+  return compiler(options, filename, parsedPreprocessResult.code, parsedPreprocessResult.map)
 }
 
 const compiler = (options = {}, filename, processedCode, processedMap) => {
-  const { debug, compilerOptions} = options
+  const { debug, compilerOptions } = options
 
-    const result = svelte.compile(processedCode, {
-        filename: basename(filename),
-        css: true,
-        accessors: true,
-        dev: true,
-        format: 'cjs',
-        sourcemap: processedMap,
-        ...compilerOptions
-    })
+  const result = svelte.compile(processedCode, {
+    filename: basename(filename),
+    css: true,
+    accessors: true,
+    dev: true,
+    format: 'cjs',
+    sourcemap: processedMap,
+    ...compilerOptions
+  })
 
-    if (debug) {
-        console.log(result.js.code)
-    }
+  if (debug) {
+    console.log(result.js.code)
+  }
 
-    const esInterop = 'Object.defineProperty(exports, "__esModule", { value: true });'
+  const esInterop = 'Object.defineProperty(exports, "__esModule", { value: true });'
 
-    return {
-        code: result.js.code + esInterop,
-        map: JSON.stringify(result.js.map)
-    }
+  return {
+    code: result.js.code + esInterop,
+    map: JSON.stringify(result.js.map)
+  }
 }
 
 exports.createTransformer = (options) => ({

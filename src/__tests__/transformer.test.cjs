@@ -22,5 +22,5 @@ describe('CJS transformer', () => {
     expect(results).toContain('text("Bye ");')
   })
 
-  sharedTests({runTransformer, path})
+  sharedTests({ runTransformer, path })
 })

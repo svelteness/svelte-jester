@@ -23,5 +23,5 @@ describe('ESM transformer', () => {
     expect(results).toContain('text("Bye ");')
   })
 
-  sharedTests({runTransformer, path})
+  sharedTests({ runTransformer, path })
 })

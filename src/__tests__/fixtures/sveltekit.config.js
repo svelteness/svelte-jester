@@ -1,7 +1,7 @@
 import sveltePreprocess from 'svelte-preprocess'
 import adapter from '@sveltejs/adapter-static'
 
-const {replace} = sveltePreprocess
+const { replace } = sveltePreprocess
 
 const config = {
   kit: {
