@@ -15,7 +15,7 @@ exports.getSvelteConfig = (rootMode, filename, preprocess) => {
   }
 
   if (configFile === null || !fs.existsSync(configFile)) {
-    throw Error(`Could not find ${configFilenames.join(' or ')}`)
+    throw Error(`Could not find ${configFilenames.join(' or ')} or ${configFile}.`)
   }
 
   return configFile
