@@ -1,0 +1,11 @@
+{
+  // disable builtin validation
+  "javascript.validate.enable": false,
+
+  "standard.autoFixOnSave": true,
+
+  // SVELTE
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode"
+  }
+}
