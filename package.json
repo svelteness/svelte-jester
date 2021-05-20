@@ -28,9 +28,9 @@
     "test"
   ],
   "files": [
-    "src/transformer.js",
+    "src/transformer.cjs",
     "src/preprocess.js",
-    "src/svelteconfig.js"
+    "src/svelteconfig.cjs"
   ],
   "scripts": {
     "toc": "doctoc README.md",
