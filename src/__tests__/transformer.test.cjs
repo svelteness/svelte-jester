@@ -23,8 +23,16 @@ describe('transformer', () => {
   })
 
   it('should transform when using full path to preprocess', () => {
-    const preprocessPath = path.resolve(__dirname, '../../_svelte.config.js')
+    const preprocessPath = path.resolve(__dirname, '../../_svelte.config.cjs')
     runTransformer('SassComp', { preprocess: preprocessPath })
+  })
+
+  it.only('should transform with config in ESM format', () => {
+    const preprocessPath = path.resolve(__dirname, './_svelte.config.js')
+    const results = runTransformer('BasicComp', { preprocess: preprocessPath })
+    // this is a little brittle, but it demonstrates that the replacements in
+    // "svelte.config.js" are working
+    expect(results).toContain('text("Bye ");')
   })
 
   it('should search for "svelte.config.cjs" as well as "svelte.config.js"', () => {
