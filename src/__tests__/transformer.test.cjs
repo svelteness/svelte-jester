@@ -1,7 +1,7 @@
-import fs from 'fs'
-import path from 'path'
-import transformer from '../transformer'
-import sharedTests from './fixtures/shared/commonTransformerTests'
+const fs = require('fs')
+const path = require('path')
+const transformer = require('../transformer')
+const sharedTests = require('./fixtures/shared/commonTransformerTests').default
 
 const runTransformer = (filename, options) => {
   const process = transformer.createTransformer(options).process
@@ -14,12 +14,11 @@ const runTransformer = (filename, options) => {
   return result.code
 }
 
-describe('ESM transformer', () => {
-  it('should transform with config in ESM format', () => {
-    const svelteKitConfig = path.resolve(__dirname, './fixtures/sveltekit.config.js')
-    const results = runTransformer('BasicComp', { preprocess: svelteKitConfig })
+describe('CJS transformer', () => {
+  it('should search for "svelte.config.cjs" as well as "svelte.config.js"', () => {
+    const results = runTransformer('BasicComp', { preprocess: true, rootMode: 'upward' })
     // this is a little brittle, but it demonstrates that the replacements in
-    // "sveltekit.config.js" are working
+    // "svelte.config.cjs" are working
     expect(results).toContain('text("Bye ");')
   })
 

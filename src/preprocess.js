@@ -1,9 +1,11 @@
-const svelte = require('svelte/compiler')
-const { cosmiconfigSync } = require('cosmiconfig')
+import { preprocess } from 'svelte/compiler'
 
 const { source, filename, svelteConfig } = process.env
-const config = cosmiconfigSync().load(svelteConfig).config
+import(svelteConfig).then(configImport => {
+  // ESM or CommonJS
+  const config = configImport.default ? configImport.default : configImport
 
-svelte.preprocess(source, config.preprocess || {}, { filename }).then((r) => {
-  process.stdout.write(JSON.stringify(r))
-})
+  preprocess(source, config.preprocess || {}, { filename }).then((r) => {
+    process.stdout.write(JSON.stringify(r))
+  })
+}).catch(err => process.stderr.write(err))
