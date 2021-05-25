@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/mihar-22/svelte-jester/compare/v1.5.0...v1.6.0) (2021-05-25)
+
+
+### Features
+
+* initial SvelteKit support ([#46](https://github.com/mihar-22/svelte-jester/issues/46)) ([0c008d7](https://github.com/mihar-22/svelte-jester/commit/0c008d7e56e03da7d402406655a9edd80dc719cb))
+
 ## [1.5.0](https://github.com/mihar-22/svelte-jester/compare/v1.4.0...v1.5.0) (2021-04-22)
 
 
