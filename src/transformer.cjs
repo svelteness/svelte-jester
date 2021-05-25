@@ -2,7 +2,7 @@
 const { basename } = require('path')
 const { execSync } = require('child_process')
 const svelte = require('svelte/compiler')
-const { getSvelteConfig } = require('./svelteconfig')
+const { getSvelteConfig } = require('./svelteconfig.cjs')
 
 const transformer = (options = {}) => (source, filename) => {
   const { preprocess, rootMode, maxBuffer } = options
