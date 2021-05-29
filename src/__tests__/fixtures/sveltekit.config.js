@@ -1,6 +1,8 @@
 import sveltePreprocess from 'svelte-preprocess'
 import adapter from '@sveltejs/adapter-static'
 
+console.log('This should not influence the compiler/preprocessor')
+
 const { replace } = sveltePreprocess
 
 const config = {
