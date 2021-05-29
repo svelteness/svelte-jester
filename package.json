@@ -43,7 +43,8 @@
     "release": "yarn validate && standard-version"
   },
   "peerDependencies": {
-    "svelte": ">= 3"
+    "svelte": ">= 3",
+    "jest": "<= 26"
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "^1.0.0-next.10",
