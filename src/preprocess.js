@@ -1,7 +1,8 @@
 import { preprocess } from 'svelte/compiler'
+import { pathToFileURL } from 'url'
 
 const { source, filename, svelteConfig } = process.env
-import(svelteConfig).then(configImport => {
+import(pathToFileURL(svelteConfig)).then(configImport => {
   // ESM or CommonJS
   const config = configImport.default ? configImport.default : configImport
 
