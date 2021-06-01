@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.7.0](https://github.com/mihar-22/svelte-jester/compare/v1.6.0...v1.7.0) (2021-06-01)
+
+
+### Features
+
+* hide console log in preprocess ([#50](https://github.com/mihar-22/svelte-jester/issues/50)) ([91d3cc6](https://github.com/mihar-22/svelte-jester/commit/91d3cc6ab6c44771117513175a6c24eb22470a83))
+* support Windows ([#49](https://github.com/mihar-22/svelte-jester/issues/49)) ([48a7506](https://github.com/mihar-22/svelte-jester/commit/48a75061f7ebcaae1d30c514f8775725047d82a8))
+
 ## [1.6.0](https://github.com/mihar-22/svelte-jester/compare/v1.5.0...v1.6.0) (2021-05-25)
 
 
