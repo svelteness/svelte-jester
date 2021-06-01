@@ -1,5 +1,7 @@
 const { replace } = require('svelte-preprocess')
 
+console.log('This should not influence the compiler/preprocessor')
+
 module.exports = {
   preprocess: [
     replace([

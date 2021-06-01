@@ -1,7 +1,8 @@
 import sveltePreprocess from 'svelte-preprocess'
 import adapter from '@sveltejs/adapter-static'
-
 const { replace } = sveltePreprocess
+
+console.log('This should not influence the compiler/preprocessor')
 
 const config = {
   kit: {
