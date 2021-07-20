@@ -5,8 +5,7 @@ const svelte = require('svelte/compiler')
 const { getSvelteConfig } = require('./svelteconfig.cjs')
 
 const transformer = (options = {}) => (source, filename) => {
-  const { preprocess, rootMode, maxBuffer } = options
-
+  const { preprocess, rootMode, maxBuffer, showConsoleLog } = options
   if (!preprocess) {
     return compiler(options, filename, source)
   }
@@ -17,7 +16,7 @@ const transformer = (options = {}) => (source, filename) => {
   const preprocessResult = execSync(
         `node --unhandled-rejections=strict --abort-on-uncaught-exception ${preprocessor}`,
         {
-          env: { ...process.env, source, filename, svelteConfig },
+          env: { ...process.env, source, filename, svelteConfig, showConsoleLog },
           maxBuffer: maxBuffer || 10 * 1024 * 1024
         }
   ).toString()
