@@ -1,6 +1,6 @@
 {
   "name": "svelte-jester",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "description": "A Jest transformer for Svelte - compile your components before importing them into tests",
   "main": "src/transformer.cjs",
   "type": "module",
@@ -43,23 +43,23 @@
     "release": "yarn validate && standard-version"
   },
   "peerDependencies": {
-    "jest": "<= 26",
+    "jest": "<= 27",
     "svelte": ">= 3"
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "^1.0.0-next.10",
-    "@types/jest": "^26.0.23",
-    "doctoc": "^2.0.1",
+    "@types/jest": "^26.0.0",
+    "doctoc": "^1.3.1",
     "esbuild": "^0.12.8",
     "esbuild-jest": "^0.5.0",
-    "jest": "^26.6.3",
-    "jest-circus": "^26.6.3",
+    "jest": "^27.0.0",
+    "jest-circus": "^27.0.0",
     "node-sass": "^6.0.0",
     "standard": "^16.0.3",
     "standard-version": "^9.3.0",
-    "svelte": "^3.18.2",
-    "svelte-preprocess": "^4.7.3",
-    "typescript": "^4.3.2",
+    "svelte": "^3.0.0",
+    "svelte-preprocess": "^4.0.0",
+    "typescript": "^4.0.0",
     "why-is-node-running": "^2.2.0"
   }
 }
