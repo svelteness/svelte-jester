@@ -1,18 +1,20 @@
-// const log = require('why-is-node-running')
-const { basename } = require('path')
-const { execSync } = require('child_process')
-const svelte = require('svelte/compiler')
-const { getSvelteConfig } = require('./svelteconfig.cjs')
+import { basename } from 'path'
+import { fileURLToPath, pathToFileURL } from 'url';
+import svelte from 'svelte/compiler'
+
+import { getSvelteConfig } from './svelteconfig'
+
+const dynamicImport = async (filename, basepath) => import(pathToFileURL(`${basepath ? basepath + "/" : "" }${filename}`))
 
 const transformer = (options = {}) => async (source, filename) => {
-  const { preprocess, rootMode, maxBuffer, showConsoleLog } = options
+  const { preprocess, rootMode } = options
   if (!preprocess) {
     return compiler(options, filename, source)
   }
 
-  const svelteConfig = getSvelteConfig(rootMode, filename, preprocess)
-
-  const processed = await svelte.preprocess(source, svelteConfig.preprocess || {}, { filename })
+  const svelteConfigPath = getSvelteConfig(rootMode, filename, preprocess);
+  const svelteConfig = await dynamicImport(svelteConfigPath)
+  const processed = await svelte.preprocess(source, svelteConfig.default.preprocess || {}, { filename })
 
   return compiler(options, filename, processed.code, processed.map)
 }
@@ -25,7 +27,7 @@ const compiler = (options = {}, filename, processedCode, processedMap) => {
     css: true,
     accessors: true,
     dev: true,
-    format: 'cjs',
+    format: 'esm',
     sourcemap: processedMap,
     ...compilerOptions
   })
@@ -42,6 +44,8 @@ const compiler = (options = {}, filename, processedCode, processedMap) => {
   }
 }
 
-exports.createTransformer = (options) => ({
+const createTransformer = (options) => ({
   processAsync: transformer(options)
 })
+
+export default createTransformer
