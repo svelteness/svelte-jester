@@ -8,15 +8,12 @@ export default {
   moduleFileExtensions: ['js', 'ts', 'cjs'],
 
   testMatch: [
-    '**/__tests__/**/*.?(c)[jt]s?(x)',
     '**/?(*.)+(spec|test).?(c)[tj]s?(x)',
-    '!**/fixtures/**'
   ],
 
   testRunner: 'jest-circus/runner',
 
   transform: {
     '^.+\\.ts$': 'esbuild-jest',
-    '^.+\\.js$': 'esbuild-jest'
   }
 }
