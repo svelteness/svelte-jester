@@ -4,25 +4,17 @@ const { execSync } = require('child_process')
 const svelte = require('svelte/compiler')
 const { getSvelteConfig } = require('./svelteconfig.cjs')
 
-const transformer = (options = {}) => (source, filename) => {
+const transformer = (options = {}) => async (source, filename) => {
   const { preprocess, rootMode, maxBuffer, showConsoleLog } = options
   if (!preprocess) {
     return compiler(options, filename, source)
   }
 
   const svelteConfig = getSvelteConfig(rootMode, filename, preprocess)
-  const preprocessor = require.resolve('./preprocess.js')
 
-  const preprocessResult = execSync(
-        `node --unhandled-rejections=strict --abort-on-uncaught-exception ${preprocessor}`,
-        {
-          env: { ...process.env, source, filename, svelteConfig, showConsoleLog },
-          maxBuffer: maxBuffer || 10 * 1024 * 1024
-        }
-  ).toString()
+  const processed = await svelte.preprocess(source, svelteConfig.preprocess || {}, { filename })
 
-  const parsedPreprocessResult = JSON.parse(preprocessResult)
-  return compiler(options, filename, parsedPreprocessResult.code, parsedPreprocessResult.map)
+  return compiler(options, filename, processed.code, processed.map)
 }
 
 const compiler = (options = {}, filename, processedCode, processedMap) => {
@@ -51,5 +43,5 @@ const compiler = (options = {}, filename, processedCode, processedMap) => {
 }
 
 exports.createTransformer = (options) => ({
-  process: transformer(options)
+  processAsync: transformer(options)
 })

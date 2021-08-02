@@ -163,8 +163,6 @@ Create a `svelte.config.js` file and configure it, see
 `preprocess` (default: false): Pass in `true` if you are using Svelte preprocessors. 
 They are loaded from `svelte.config.js` or `svelte.config.cjs`.
 
-`showConsoleLog` (default: false): If you'd like to see console.logs of the preprocessors then pass in `true`. Otherwise these will be surpressed, because the compiler could complain about unexpected tokens.
-
 `debug` (default: false): If you'd like to see the output of the compiled code then pass in `true`.
 
 `compilerOptions` (default: {}): Use this to pass in 
