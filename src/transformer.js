@@ -1,10 +1,10 @@
 import { basename } from 'path'
-import { fileURLToPath, pathToFileURL } from 'url';
+import { pathToFileURL } from 'url'
 import svelte from 'svelte/compiler'
 
 import { getSvelteConfig } from './svelteconfig'
 
-const dynamicImport = async (filename, basepath) => import(pathToFileURL(`${basepath ? basepath + "/" : "" }${filename}`))
+const dynamicImport = async (filename) => import(pathToFileURL(filename))
 
 const transformer = (options = {}) => async (source, filename) => {
   const { preprocess, rootMode } = options
@@ -12,7 +12,7 @@ const transformer = (options = {}) => async (source, filename) => {
     return compiler(options, filename, source)
   }
 
-  const svelteConfigPath = getSvelteConfig(rootMode, filename, preprocess);
+  const svelteConfigPath = getSvelteConfig(rootMode, filename, preprocess)
   const svelteConfig = await dynamicImport(svelteConfigPath)
   const processed = await svelte.preprocess(source, svelteConfig.default.preprocess || {}, { filename })
 

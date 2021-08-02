@@ -4,7 +4,7 @@
 import { readFileSync } from 'fs'
 import { dirname } from 'path'
 import { fileURLToPath } from 'url'
-import {jest} from '@jest/globals'
+import { jest } from '@jest/globals'
 
 import createTransformer from '../transformer'
 
@@ -88,7 +88,7 @@ describe('ESM transformer', () => {
 
   it('should pass, if console.logs are disabled during preprocessing and there is a console.log statement in the svelte config', async () => {
     await runTransformer('BasicComp', { preprocess: true, rootMode: 'upward', showConsoleLog: false })
-    await runTransformer('BasicComp', { preprocess: true, rootMode: 'upward', showConsoleLog: "false" })
+    await runTransformer('BasicComp', { preprocess: true, rootMode: 'upward', showConsoleLog: 'false' })
   })
 
   it('should pass and transform process.env.NODE_ENV variable', async () => {
