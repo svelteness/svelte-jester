@@ -1,6 +1,6 @@
 {
   "name": "svelte-jester",
-  "version": "1.8.0",
+  "version": "1.7.0",
   "description": "A Jest transformer for Svelte - compile your components before importing them into tests",
   "main": "src/transformer.cjs",
   "type": "module",
@@ -43,13 +43,13 @@
     "release": "yarn validate && standard-version"
   },
   "peerDependencies": {
-    "jest": "<= 27",
+    "jest": ">= 27",
     "svelte": ">= 3"
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "^1.0.0-next.10",
     "@types/jest": "^26.0.0",
-    "doctoc": "^1.3.1",
+    "doctoc": "^2.0.1",
     "esbuild": "^0.12.8",
     "esbuild-jest": "^0.5.0",
     "jest": "^27.0.0",
