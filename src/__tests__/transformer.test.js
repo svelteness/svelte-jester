@@ -8,7 +8,7 @@ import { jest } from '@jest/globals'
 
 import createTransformer from '../transformer'
 
-// Node API __dirname is missing in Jest
+// Node API __dirname is missing in ESM
 export const __dirname = dirname(fileURLToPath(import.meta.url))
 
 const runTransformer = async (filename, options) => {
