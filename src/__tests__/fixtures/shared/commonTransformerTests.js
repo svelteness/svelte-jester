@@ -51,21 +51,6 @@ const sharedTests = (dependencies) => {
     runTransformer('SassComp', { preprocess: true, maxBuffer: 5 * 1024 * 1024 })
   })
 
-  it('should fail, if console.logs are enabled during preprocessing and there is a console.log statement in the svelte config', () => {
-    expect(
-      () => runTransformer('BasicComp', { preprocess: true, rootMode: 'upward',  showConsoleLog: true })
-    ).toThrow(/^Unexpected token T in JSON at position 0$/)
-  })
-
-  it('should pass, if console.logs are disabled (default) during preprocessing and there is a console.log statement in the svelte config', () => {
-    runTransformer('BasicComp', { preprocess: true, rootMode: 'upward' })
-  })
-
-  it.only('should pass, if console.logs are disabled during preprocessing and there is a console.log statement in the svelte config', () => {
-    runTransformer('BasicComp', { preprocess: true, rootMode: 'upward', showConsoleLog: false })
-    runTransformer('BasicComp', { preprocess: true, rootMode: 'upward', showConsoleLog: "false" })
-  })
-
   it('should pass and transform process.env.NODE_ENV variable', () => {
     const code = runTransformer('BasicComp', { preprocess: true, rootMode: 'upward' })
 
