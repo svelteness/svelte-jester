@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.8.0](https://github.com/mihar-22/svelte-jester/compare/v1.7.0...v1.8.0) (2021-08-04)
+
+
+### Features
+
+* avoid creating new node processes by leveraging processAsync ([#57](https://github.com/mihar-22/svelte-jester/issues/57)) ([d5be238](https://github.com/mihar-22/svelte-jester/commit/d5be238e2ecbaca615947859339a7e5f76eb5abc))
+* provide option to show console.logs from preprocessors ([#53](https://github.com/mihar-22/svelte-jester/issues/53)) ([173620a](https://github.com/mihar-22/svelte-jester/commit/173620a7312af994a626d62597ae3971c978bd4f))
+
 ## [1.7.0](https://github.com/mihar-22/svelte-jester/compare/v1.6.0...v1.7.0) (2021-06-01)
 
 
