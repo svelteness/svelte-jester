@@ -3,15 +3,15 @@
  * https://jestjs.io/docs/en/configuration.html
  */
 export default {
-  coverageProvider: "v8",
+  coverageProvider: 'v8',
 
-  moduleFileExtensions: ["js", "ts", "cjs"],
+  moduleFileExtensions: ['js', 'ts', 'cjs'],
 
-  testMatch: ["**/?(*.)+(spec|test).?(c)[tj]s?(x)"],
+  testMatch: ['**/?(*.)+(spec|test).?(c)[tj]s?(x)'],
 
-  testRunner: "jest-circus/runner",
+  testRunner: 'jest-circus/runner',
 
   transform: {
-    "^.+\\.ts$": "esbuild-jest",
-  },
-};
+    '^.+\\.ts$': 'esbuild-jest'
+  }
+}
