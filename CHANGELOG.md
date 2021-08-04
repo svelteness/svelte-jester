@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.8.2](https://github.com/mihar-22/svelte-jester/compare/v1.8.1...v1.8.2) (2021-08-04)
+
+
+### Bug Fixes
+
+* actually revert async changes -_- ([64c3d4d](https://github.com/mihar-22/svelte-jester/commit/64c3d4dc5a0a9f1f18868ef139686cf10bf70022))
+
 ### [1.8.1](https://github.com/mihar-22/svelte-jester/compare/v1.8.0...v1.8.1) (2021-08-04)
 
 
