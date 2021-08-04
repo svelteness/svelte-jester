@@ -2,10 +2,7 @@
   "name": "svelte-jester",
   "version": "1.8.0",
   "description": "A Jest transformer for Svelte - compile your components before importing them into tests",
-  "main": "src/transformer.js",
-  "exports": {
-    "import": "./src/transformer.js"
-  },
+  "main": "src/transformer.cjs",
   "type": "module",
   "license": "MIT",
   "author": "Rahim Alwer <rahim_alwer@hotmail.com>",
@@ -31,13 +28,14 @@
     "test"
   ],
   "files": [
-    "src/transformer.js",
+    "src/transformer.cjs",
+    "src/preprocess.js",
     "src/svelteconfig.cjs"
   ],
   "scripts": {
     "toc": "doctoc README.md",
     "lint": "standard --fix --env jest",
-    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest src",
+    "test": "jest src",
     "test:watch": "yarn test --watch",
     "test:update": "yarn test --updateSnapshot --coverage",
     "setup": "yarn && yarn validate",
@@ -51,9 +49,8 @@
   "devDependencies": {
     "@sveltejs/adapter-static": "^1.0.0-next.10",
     "@types/jest": "^26.0.0",
-    "cross-env": "^7.0.3",
-    "doctoc": "^2.0.0",
-    "esbuild": "^0.12.0",
+    "doctoc": "^2.0.1",
+    "esbuild": "^0.12.8",
     "esbuild-jest": "^0.5.0",
     "jest": "^27.0.0",
     "jest-circus": "^27.0.0",
@@ -62,6 +59,7 @@
     "standard-version": "^9.3.0",
     "svelte": "^3.0.0",
     "svelte-preprocess": "^4.0.0",
-    "typescript": "^4.0.0"
+    "typescript": "^4.0.0",
+    "why-is-node-running": "^2.2.0"
   }
 }
