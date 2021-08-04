@@ -1,8 +1,8 @@
-<div class="active">Hello {name}</div>
-
 <script>
-  export let name
+  export let name;
 </script>
+
+<div class="active">Hello {name}</div>
 
 <style type="text/scss">
   div {

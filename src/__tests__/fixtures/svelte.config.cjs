@@ -1,13 +1,13 @@
-const { replace } = require('svelte-preprocess')
+const { replace } = require("svelte-preprocess");
 
-console.log('This should not influence the compiler/preprocessor')
+console.log("This should not influence the compiler/preprocessor");
 
 module.exports = {
   preprocess: [
     replace([
-      [/Hello/gi, 'Bye'],
+      [/Hello/gi, "Bye"],
       // replace env var
-      [/process\.env\.NODE_ENV/gi, JSON.stringify(process.env.NODE_ENV)]
-    ])
-  ]
-}
+      [/process\.env\.NODE_ENV/gi, JSON.stringify(process.env.NODE_ENV)],
+    ]),
+  ],
+};

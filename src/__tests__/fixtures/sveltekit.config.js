@@ -1,21 +1,21 @@
-import sveltePreprocess from 'svelte-preprocess'
-import adapter from '@sveltejs/adapter-static'
-const { replace } = sveltePreprocess
+import sveltePreprocess from "svelte-preprocess";
+import adapter from "@sveltejs/adapter-static";
+const { replace } = sveltePreprocess;
 
-console.log('This should not influence the compiler/preprocessor')
+console.log("This should not influence the compiler/preprocessor");
 
 const config = {
   kit: {
-    adapter: adapter
+    adapter: adapter,
   },
   preprocess: [
     replace([
       // strip style tag
-      [/<!--[^]*?-->|<style(\s[^]*?)?(?:>([^]*?)<\/style>|\/>)/gi, ''],
-      [/Hello/gi, 'Bye'],
+      [/<!--[^]*?-->|<style(\s[^]*?)?(?:>([^]*?)<\/style>|\/>)/gi, ""],
+      [/Hello/gi, "Bye"],
       // replace env var
-      [/process\.env\.NODE_ENV/gi, JSON.stringify(process.env.NODE_ENV)]
-    ])
-  ]
-}
-export default config
+      [/process\.env\.NODE_ENV/gi, JSON.stringify(process.env.NODE_ENV)],
+    ]),
+  ],
+};
+export default config;
