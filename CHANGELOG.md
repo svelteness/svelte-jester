@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/mihar-22/svelte-jester/compare/v1.8.2...v2.0.0) (2021-08-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* async transformers are only supported in Jest `>=27`.
+
+### Features
+
+* avoid creating new node processes by leveraging processAsync ([#57](https://github.com/mihar-22/svelte-jester/issues/57)) ([92760dd](https://github.com/mihar-22/svelte-jester/commit/92760dd821e7685d67ed3d0f0ebff84484db4361))
+
 ### [1.8.2](https://github.com/mihar-22/svelte-jester/compare/v1.8.1...v1.8.2) (2021-08-04)
 
 
