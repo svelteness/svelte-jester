@@ -1,29 +1,29 @@
 import { basename } from 'path'
 import { pathToFileURL } from 'url'
-import svelte from 'svelte/compiler'
+import * as svelte from 'svelte/compiler'
 
-import { getSvelteConfig } from './svelteconfig'
+import { getSvelteConfig } from './svelteconfig.cjs'
 
 const dynamicImport = async (filename) => import(pathToFileURL(filename))
 
-const transformer =
-  (options = {}) =>
-    async (source, filename) => {
-      const { preprocess, rootMode } = options
-      if (!preprocess) {
-        return compiler(options, filename, source)
-      }
+export const processAsync = async (source, filename, jestOptions) => {
+  const options = jestOptions?.transformerConfig ?? {}
+  const { preprocess, rootMode } = options
 
-      const svelteConfigPath = getSvelteConfig(rootMode, filename, preprocess)
-      const svelteConfig = await dynamicImport(svelteConfigPath)
-      const processed = await svelte.preprocess(
-        source,
-        svelteConfig.default.preprocess || {},
-        { filename }
-      )
+  if (!preprocess) {
+    return compiler(options, filename, source)
+  }
 
-      return compiler(options, filename, processed.code, processed.map)
-    }
+  const svelteConfigPath = getSvelteConfig(rootMode, filename, preprocess)
+  const svelteConfig = await dynamicImport(svelteConfigPath)
+  const processed = await svelte.preprocess(
+    source,
+    svelteConfig.default.preprocess || {},
+    { filename }
+  )
+
+  return compiler(options, filename, processed.code, processed.map)
+}
 
 const compiler = (options = {}, filename, processedCode, processedMap) => {
   const { debug, compilerOptions } = options
@@ -42,17 +42,12 @@ const compiler = (options = {}, filename, processedCode, processedMap) => {
     console.log(result.js.code)
   }
 
-  const esInterop =
-    'Object.defineProperty(exports, "__esModule", { value: true });'
-
   return {
-    code: result.js.code + esInterop,
+    code: result.js.code,
     map: JSON.stringify(result.js.map)
   }
 }
 
-const createTransformer = (options) => ({
-  processAsync: transformer(options)
-})
-
-export default createTransformer
+export default {
+  processAsync
+}

@@ -5,11 +5,11 @@
 export default {
   coverageProvider: 'v8',
 
+  extensionsToTreatAsEsm: ['.ts'],
+
   moduleFileExtensions: ['js', 'ts', 'cjs'],
 
   testMatch: ['**/?(*.)+(spec|test).?(c)[tj]s?(x)'],
-
-  testRunner: 'jest-circus/runner',
 
   transform: {
     '^.+\\.ts$': 'esbuild-jest'

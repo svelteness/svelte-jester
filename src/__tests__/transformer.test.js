@@ -6,16 +6,15 @@ import { dirname } from 'path'
 import { fileURLToPath } from 'url'
 import { jest } from '@jest/globals'
 
-import createTransformer from '../transformer'
+import processAsync from '../transformer'
 
 // Node API __dirname is missing in ESM
 export const __dirname = dirname(fileURLToPath(import.meta.url))
 
 const runTransformer = async (filename, options) => {
-  const processAsync = createTransformer(options).processAsync
   const path = `${__dirname}/fixtures/${filename}.svelte`
   const source = readFileSync(path).toString()
-  const result = await processAsync(source, path)
+  const result = await processAsync.processAsync(source, path, { transformerConfig: options })
   expect(result.code).toBeDefined()
   expect(result.code).toContain('SvelteComponent')
   expect(result.map).toBeDefined()
