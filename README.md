@@ -150,24 +150,21 @@ Add the following to your Jest config
 
 ```json
 "transform": {
-  "^.+\\.js$": "babel-jest",
   "^.+\\.svelte$": ["svelte-jester", { "preprocess": true }]
 }
 ```
 
-Create a `svelte.config.js` file and configure it, see 
+Create a `svelte.config.js` file and configure it, see
 [svelte-preprocess](https://github.com/kaisermann/svelte-preprocess) for more information.
 
 ## Options
 
-`preprocess` (default: false): Pass in `true` if you are using Svelte preprocessors. 
+`preprocess` (default: false): Pass in `true` if you are using Svelte preprocessors.
 They are loaded from `svelte.config.js` or `svelte.config.cjs`.
-
-`showConsoleLog` (default: false): If you'd like to see console.logs of the preprocessors then pass in `true`. Otherwise these will be surpressed, because the compiler could complain about unexpected tokens.
 
 `debug` (default: false): If you'd like to see the output of the compiled code then pass in `true`.
 
-`compilerOptions` (default: {}): Use this to pass in 
+`compilerOptions` (default: {}): Use this to pass in
 [Svelte compiler options](https://svelte.dev/docs#svelte_compile).
 
 `rootMode` (default: ""): Pass in `upward` to walk up from the transforming file's directory and use the first `svelte.config.js` or `svelte.config.cjs` found, or throw an error if no config file is discovered. This is particularly useful in a monorepo as it allows you to:
@@ -179,26 +176,11 @@ The default mode is to load `svelte.config.js` or `svelte.config.cjs` from the c
 
 When `upward` is set it will stop at the first config file it finds above the file being transformed, but will walk up the directory structure all the way to the filesystem root if it cannot find any config file. This means that if there is no `svelte.config.js` or `svelte.config.cjs` file in the project above the file being transformed, it is always possible that someone will have a forgotten config file in their home directory which could cause unexpected errors in your builds.
 
-`maxBuffer` (default: 10485760): Sets limit for buffer when `preprocess` is true. It defines the largest amount of data in bytes allowed on stdout or stderr for [child_process.spawnSync](https://nodejs.org/api/child_process.html#child_process_child_process_spawnsync_command_args_options). If exceeded, the child process is terminated and any output is truncated. The default value of 10Mb overrides Node's default value of 1Mb.
-
-```json
-"transform": {
-  "^.+\\.js$": "babel-jest",
-  "^.+\\.svelte$": ["svelte-jester", { 
-    "preprocess": false,
-    "debug": false,
-    "compilerOptions": {},
-    "rootMode": "",
-    "maxBuffer": 15000000
-  }]
-}
-```
-
 ## Testing Library
 
-This package is required when using Svelte with the [Testing Library](https://testing-library.com/). 
-If you'd like to avoid including implementation details in your tests, and making them more 
-maintainble in the long run, then consider checking out 
+This package is required when using Svelte with the [Testing Library](https://testing-library.com/).
+If you'd like to avoid including implementation details in your tests, and making them more
+maintainble in the long run, then consider checking out
 [@testing-library/svelte](https://github.com/testing-library/svelte-testing-library).
 
 ## Credits
