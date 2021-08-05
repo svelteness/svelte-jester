@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.1](https://github.com/mihar-22/svelte-jester/compare/v2.0.0...v2.0.1) (2021-08-05)
+
+
+### Bug Fixes
+
+* module not found error ([#60](https://github.com/mihar-22/svelte-jester/issues/60)) ([3748f49](https://github.com/mihar-22/svelte-jester/commit/3748f49949fd8bdf8edf25bb7d7d0a72a27f2950)), closes [#59](https://github.com/mihar-22/svelte-jester/issues/59)
+
 ## [2.0.0](https://github.com/mihar-22/svelte-jester/compare/v1.8.2...v2.0.0) (2021-08-04)
 
 
