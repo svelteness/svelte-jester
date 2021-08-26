@@ -1,9 +1,9 @@
-const fs = require('fs')
-const path = require('path')
+import fs from 'fs'
+import path from 'path'
 
 const configFilenames = ['svelte.config.js', 'svelte.config.cjs']
 
-exports.getSvelteConfig = (rootMode, filename, preprocess) => {
+export function getSvelteConfig(rootMode, filename, preprocess) {
   let configFile = null
 
   if (typeof preprocess === 'boolean') {

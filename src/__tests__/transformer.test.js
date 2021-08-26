@@ -6,7 +6,7 @@ import { dirname } from 'path'
 import { fileURLToPath } from 'url'
 import { jest } from '@jest/globals'
 
-import processAsync from '../transformer'
+import processAsync from '../../dist/transformer.mjs'
 
 // Node API __dirname is missing in ESM
 export const __dirname = dirname(fileURLToPath(import.meta.url))

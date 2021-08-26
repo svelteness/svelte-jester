@@ -2,9 +2,12 @@
   "name": "svelte-jester",
   "version": "2.0.1",
   "description": "A Jest transformer for Svelte - compile your components before importing them into tests",
-  "main": "src/transformer.js",
+  "main": "src/transformer.cjs",
+  "module": "src/transformer.mjs",
   "exports": {
-    "import": "./src/transformer.js"
+    "import": "./src/transformer.mjs",
+    "require": "./src/transformer.cjs",
+    "./package.json": "./package.json"
   },
   "type": "module",
   "license": "MIT",
@@ -31,10 +34,11 @@
     "test"
   ],
   "files": [
-    "src/transformer.js",
-    "src/svelteconfig.cjs"
+    "dist/transformer.mjs",
+    "dist/transformer.cjs"
   ],
   "scripts": {
+    "build": "rollup -c rollup.config.js",
     "toc": "doctoc README.md",
     "lint": "standard --fix --env jest",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest src",
@@ -49,6 +53,7 @@
     "svelte": ">= 3"
   },
   "devDependencies": {
+    "@rollup/plugin-node-resolve": "^13.0.4",
     "@sveltejs/adapter-static": "^1.0.0-next.10",
     "@types/jest": "^26.0.0",
     "cross-env": "^7.0.3",
@@ -58,6 +63,7 @@
     "jest": "^27.0.0",
     "jest-circus": "^27.0.0",
     "node-sass": "^6.0.0",
+    "rollup": "^2.56.3",
     "standard": "^16.0.3",
     "standard-version": "^9.3.0",
     "svelte": "^3.0.0",
