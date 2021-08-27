@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/mihar-22/svelte-jester/compare/v2.0.1...v2.1.0) (2021-08-27)
+
+
+### Features
+
+* build CJS and ESM versions of the library ([#68](https://github.com/mihar-22/svelte-jester/issues/68)) ([d93f2dc](https://github.com/mihar-22/svelte-jester/commit/d93f2dc155820ff0b2843143037d23c2934fc55d))
+
 ### [2.0.1](https://github.com/mihar-22/svelte-jester/compare/v2.0.0...v2.0.1) (2021-08-05)
 
 
