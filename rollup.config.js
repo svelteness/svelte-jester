@@ -1,12 +1,12 @@
-const resolve = require('@rollup/plugin-node-resolve').default;
-const pkg = require('./package.json');
+const resolve = require('@rollup/plugin-node-resolve').default
+const pkg = require('./package.json')
 
 const external = [].concat(
   Object.keys(pkg.peerDependencies),
   'svelte/compiler'
-);
+)
 
-const input = 'src/transformer.js';
+const input = 'src/transformer.js'
 
 module.exports = [
   {
@@ -31,4 +31,4 @@ module.exports = [
       resolve()
     ]
   }
-];
+]
