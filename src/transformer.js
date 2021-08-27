@@ -2,7 +2,7 @@ import { basename } from 'path'
 import { pathToFileURL } from 'url'
 import * as svelte from 'svelte/compiler'
 
-import { getSvelteConfig } from './svelteconfig.cjs'
+import { getSvelteConfig } from './svelteconfig.js'
 
 const dynamicImport = async (filename) => import(pathToFileURL(filename))
 
