@@ -156,6 +156,10 @@ Add the following to your Jest config
 Create a `svelte.config.js` file and configure it, see
 [svelte-preprocess](https://github.com/kaisermann/svelte-preprocess) for more information.
 
+In CJS mode, `svelte-jester` must start a new a process for each file needing to be preprocessed, which adds a performance overheads.
+
+In ESM mode, this isn't necessary. You can set `NODE_OPTIONS=--experimental-vm-modules` and `"extensionsToTreatAsEsm": [".svelte"]` to run in ESM mode. However, [Jest does not yet support mocking in ESM mode](https://github.com/facebook/jest/issues/10025).
+
 ## Options
 
 `preprocess` (default: false): Pass in `true` if you are using Svelte preprocessors.
@@ -175,6 +179,25 @@ They are loaded from `svelte.config.js` or `svelte.config.cjs`.
 The default mode is to load `svelte.config.js` or `svelte.config.cjs` from the current project root to avoid the risk of accidentally loading a config file from outside the current project folder.
 
 When `upward` is set it will stop at the first config file it finds above the file being transformed, but will walk up the directory structure all the way to the filesystem root if it cannot find any config file. This means that if there is no `svelte.config.js` or `svelte.config.cjs` file in the project above the file being transformed, it is always possible that someone will have a forgotten config file in their home directory which could cause unexpected errors in your builds.
+
+### CJS mode options
+
+`showConsoleLog` (default: false): If you'd like to see console.logs of the preprocessors then pass in `true`. Otherwise these will be surpressed, because the compiler could complain about unexpected tokens.
+
+`maxBuffer` (default: 10485760): Sets limit for buffer when `preprocess` is true. It defines the largest amount of data in bytes allowed on stdout or stderr for [child_process.spawnSync](https://nodejs.org/api/child_process.html#child_process_child_process_spawnsync_command_args_options). If exceeded, the child process is terminated and any output is truncated. The default value of 10Mb overrides Node's default value of 1Mb.
+
+```json
+"transform": {
+  "^.+\\.js$": "babel-jest",
+  "^.+\\.svelte$": ["svelte-jester", { 
+    "preprocess": false,
+    "debug": false,
+    "compilerOptions": {},
+    "rootMode": "",
+    "maxBuffer": 15000000
+  }]
+}
+```
 
 ## Testing Library
 

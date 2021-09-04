@@ -38,7 +38,7 @@
     "dist/transformer.cjs"
   ],
   "scripts": {
-    "build": "rollup -c rollup.config.js",
+    "build": "rollup -c rollup.config.js && cp src/preprocess.js dist/",
     "toc": "doctoc README.md",
     "lint": "standard --fix --env jest",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest src",

@@ -1,3 +1,4 @@
+import { execSync } from 'child_process'
 import { basename } from 'path'
 import { pathToFileURL } from 'url'
 import * as svelte from 'svelte/compiler'
@@ -6,12 +7,15 @@ import { getSvelteConfig } from './svelteconfig.js'
 
 const dynamicImport = async (filename) => import(pathToFileURL(filename))
 
+/**
+ * Jest will only call this method when running in ESM mode.
+ */
 export const processAsync = async (source, filename, jestOptions) => {
   const options = jestOptions?.transformerConfig ?? {}
   const { preprocess, rootMode } = options
 
   if (!preprocess) {
-    return compiler(options, filename, source)
+    return compiler('esm', options, filename, source)
   }
 
   const svelteConfigPath = getSvelteConfig(rootMode, filename, preprocess)
@@ -22,10 +26,36 @@ export const processAsync = async (source, filename, jestOptions) => {
     { filename }
   )
 
-  return compiler(options, filename, processed.code, processed.map)
+  return compiler('esm', options, filename, processed.code, processed.map)
 }
 
-const compiler = (options = {}, filename, processedCode, processedMap) => {
+/**
+ * Starts a new process, so is higher overhead than processAsync.
+ * However, Jest calls this method in CJS mode.
+ */
+export const process = (source, filename, jestOptions) => {
+  const options = jestOptions?.transformerConfig ?? {}
+  const { preprocess, rootMode, maxBuffer, showConsoleLog } = options
+  if (!preprocess) {
+    return compiler('cjs', options, filename, source)
+  }
+
+  const svelteConfig = getSvelteConfig(rootMode, filename, preprocess)
+  const preprocessor = require.resolve('./preprocess.js')
+
+  const preprocessResult = execSync(
+        `node --unhandled-rejections=strict --abort-on-uncaught-exception ${preprocessor}`,
+        {
+          env: { ...process.env, source, filename, svelteConfig, showConsoleLog },
+          maxBuffer: maxBuffer || 10 * 1024 * 1024
+        }
+  ).toString()
+
+  const parsedPreprocessResult = JSON.parse(preprocessResult)
+  return compiler('cjs', options, filename, parsedPreprocessResult.code, parsedPreprocessResult.map)
+}
+
+const compiler = (format, options = {}, filename, processedCode, processedMap) => {
   const { debug, compilerOptions } = options
 
   const result = svelte.compile(processedCode, {
@@ -33,7 +63,7 @@ const compiler = (options = {}, filename, processedCode, processedMap) => {
     css: true,
     accessors: true,
     dev: true,
-    format: 'esm',
+    format,
     sourcemap: processedMap,
     ...compilerOptions
   })
@@ -49,5 +79,6 @@ const compiler = (options = {}, filename, processedCode, processedMap) => {
 }
 
 export default {
+  process,
   processAsync
 }
