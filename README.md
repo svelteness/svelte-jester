@@ -158,7 +158,7 @@ Create a `svelte.config.js` file and configure it, see
 
 In CJS mode, `svelte-jester` must start a new a process for each file needing to be preprocessed, which adds a performance overheads.
 
-In ESM mode, this isn't necessary. You can set `NODE_OPTIONS=--experimental-vm-modules` and `"extensionsToTreatAsEsm": [".svelte"]` to run in ESM mode. However, [Jest does not yet support mocking in ESM mode](https://github.com/facebook/jest/issues/10025).
+In ESM mode, this isn't necessary. You can set `NODE_OPTIONS=--experimental-vm-modules` and `"extensionsToTreatAsEsm": [".svelte"]` to run in ESM mode. However, [mocking support is limited, experimental, and undocumented in ESM mode with `unstable_mockModule`](https://github.com/facebook/jest/issues/10025).
 
 ## Options
 
