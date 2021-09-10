@@ -6,8 +6,7 @@
   "module": "dist/transformer.mjs",
   "exports": {
     "import": "./dist/transformer.mjs",
-    "require": "./dist/transformer.cjs",
-    "./package.json": "./package.json"
+    "require": "./dist/transformer.cjs"
   },
   "type": "module",
   "license": "MIT",
