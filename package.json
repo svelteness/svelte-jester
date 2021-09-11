@@ -40,7 +40,7 @@
     "build": "rollup -c rollup.config.cjs && cp src/preprocess.js dist/",
     "toc": "doctoc README.md",
     "lint": "standard --fix --env jest",
-    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest src",
+    "test": "npm run build && cross-env NODE_OPTIONS=--experimental-vm-modules jest src",
     "test:nocache": "npm install && jest --clearCache && npm test -- --noCache",
     "test:watch": "npm test -- --watch",
     "test:update": "npm test -- --updateSnapshot --coverage",
