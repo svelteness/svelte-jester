@@ -1,6 +1,6 @@
 const {readFileSync} = require('fs')
 const {resolve} = require('path')
-const createTransformer = require('../../dist/transformer.cjs').default
+const {createTransformer} = require('../../dist/transformer.cjs')
 
 const runTransformer = (filename, options) => {
   const path = require.resolve(`./fixtures/${filename}.svelte`)

@@ -13,7 +13,8 @@ module.exports = [
     input,
     output: {
       file: 'dist/transformer.cjs',
-      format: 'cjs'
+      format: 'cjs',
+      exports: 'named'
     },
     external,
     plugins: [
