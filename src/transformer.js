@@ -33,7 +33,7 @@ export const processAsync = async (source, filename, jestOptions) => {
  * Starts a new process, so is higher overhead than processAsync.
  * However, Jest calls this method in CJS mode.
  */
-export const processSync = (source, filename, jestOptions) => {
+const processSync = (source, filename, jestOptions) => {
   const options = jestOptions?.transformerConfig ?? {}
   const { preprocess, rootMode, maxBuffer, showConsoleLog } = options
   if (!preprocess) {
@@ -58,8 +58,6 @@ export const processSync = (source, filename, jestOptions) => {
 const compiler = (format, options = {}, filename, processedCode, processedMap) => {
   const { debug, compilerOptions } = options
 
-  console.log(processedCode)
-
   const result = svelte.compile(processedCode, {
     filename: basename(filename),
     css: true,
@@ -74,15 +72,17 @@ const compiler = (format, options = {}, filename, processedCode, processedMap) =
     console.log(result.js.code)
   }
 
-  const esInterop = 'Object.defineProperty(exports, "__esModule", { value: true });'
+  const esInterop = format === 'cjs' ? 'Object.defineProperty(exports, "__esModule", { value: true });' : ''
 
   return {
-    code: result.js.code + '123',
+    code: result.js.code + esInterop,
     map: JSON.stringify(result.js.map)
   }
 }
 
-export default {
+export const createTransformer = () => ({
   process: processSync,
   processAsync
-}
+})
+
+export default createTransformer
