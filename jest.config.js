@@ -8,8 +8,4 @@ export default {
   moduleFileExtensions: ['js', 'cjs'],
 
   testMatch: ['**/?(*.)+(spec|test).?(c)[j]s?(x)'],
-
-  transform: {
-    //'^.+\\.js$': ['esbuild-jest', {sourcemap: true}]
-  }
 }
