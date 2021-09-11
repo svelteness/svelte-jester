@@ -1,6 +1,3 @@
-/**
- * @jest-environment jsdom
- */
 import { readFileSync } from 'fs'
 import { dirname } from 'path'
 import { fileURLToPath } from 'url'
