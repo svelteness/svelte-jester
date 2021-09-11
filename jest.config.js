@@ -5,13 +5,7 @@
 export default {
   coverageProvider: 'v8',
 
-  extensionsToTreatAsEsm: ['.ts'],
+  moduleFileExtensions: ['js', 'cjs'],
 
-  moduleFileExtensions: ['js', 'ts', 'cjs'],
-
-  testMatch: ['**/?(*.)+(spec|test).?(c)[tj]s?(x)'],
-
-  transform: {
-    '^.+\\.ts$': 'esbuild-jest'
-  }
+  testMatch: ['**/?(*.)+(spec|test).?(c)[j]s?(x)'],
 }

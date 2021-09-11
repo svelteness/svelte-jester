@@ -1,12 +1,9 @@
-/**
- * @jest-environment jsdom
- */
 import { readFileSync } from 'fs'
 import { dirname } from 'path'
 import { fileURLToPath } from 'url'
 import { jest } from '@jest/globals'
 
-import processAsync from '../../dist/transformer.mjs'
+import {processAsync} from '../../dist/transformer.mjs'
 
 // Node API __dirname is missing in ESM
 export const __dirname = dirname(fileURLToPath(import.meta.url))
@@ -14,7 +11,7 @@ export const __dirname = dirname(fileURLToPath(import.meta.url))
 const runTransformer = async (filename, options) => {
   const path = `${__dirname}/fixtures/${filename}.svelte`
   const source = readFileSync(path).toString()
-  const result = await processAsync.processAsync(source, path, { transformerConfig: options })
+  const result = await processAsync(source, path, { transformerConfig: options })
   expect(result.code).toBeDefined()
   expect(result.code).toContain('SvelteComponent')
   expect(result.map).toBeDefined()
@@ -29,16 +26,6 @@ describe('ESM transformer', () => {
     })
     // this is a little brittle, but it demonstrates that the replacements in
     // "sveltekit.config.js" are working
-    expect(results).toContain('text("Bye ");')
-  })
-
-  it('should search for "svelte.config.cjs" as well as "svelte.config.js"', async () => {
-    const results = await runTransformer('BasicComp', {
-      preprocess: true,
-      rootMode: 'upward'
-    })
-    // this is a little brittle, but it demonstrates that the replacements in
-    // "svelte.config.cjs" are working
     expect(results).toContain('text("Bye ");')
   })
 

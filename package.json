@@ -5,8 +5,10 @@
   "main": "dist/transformer.cjs",
   "module": "dist/transformer.mjs",
   "exports": {
-    "import": "./dist/transformer.mjs",
-    "require": "./dist/transformer.cjs",
+    ".": {
+      "import": "./dist/transformer.mjs",
+      "require": "./dist/transformer.cjs"
+    },
     "./package.json": "./package.json"
   },
   "type": "module",
@@ -38,14 +40,15 @@
     "dist/transformer.cjs"
   ],
   "scripts": {
-    "build": "rollup -c rollup.config.js",
+    "build": "rollup -c rollup.config.cjs && cp src/preprocess.js dist/",
     "toc": "doctoc README.md",
     "lint": "standard --fix --env jest",
-    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest src",
-    "test:watch": "npm run test -- --watch",
-    "test:update": "npm run test -- --updateSnapshot --coverage",
-    "setup": "npm i && npm run validate",
-    "validate": "npm run lint && npm run test",
+    "test": "npm run build && cross-env NODE_OPTIONS=--experimental-vm-modules jest src",
+    "test:nocache": "npm install && jest --clearCache && npm test -- --noCache",
+    "test:watch": "npm test -- --watch",
+    "test:update": "npm test -- --updateSnapshot --coverage",
+    "setup": "npm install && npm run validate",
+    "validate": "npm run lint && npm test:nocache",
     "release": "npm run validate && standard-version"
   },
   "peerDependencies": {
@@ -54,12 +57,10 @@
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^13.0.4",
-    "@sveltejs/adapter-static": "^1.0.0-next.10",
-    "@types/jest": "^26.0.0",
+    "@sveltejs/adapter-static": "^1.0.0-next.18",
+    "@types/jest": "^27.0.0",
     "cross-env": "^7.0.3",
     "doctoc": "^2.0.0",
-    "esbuild": "^0.12.0",
-    "esbuild-jest": "^0.5.0",
     "jest": "^27.0.0",
     "jest-circus": "^27.0.0",
     "node-sass": "^6.0.0",
@@ -67,7 +68,7 @@
     "standard": "^16.0.3",
     "standard-version": "^9.3.0",
     "svelte": "^3.0.0",
-    "svelte-preprocess": "^4.0.0",
+    "svelte-preprocess": "4.8.0",
     "typescript": "^4.0.0"
   }
 }
