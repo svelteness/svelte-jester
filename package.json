@@ -41,10 +41,11 @@
     "toc": "doctoc README.md",
     "lint": "standard --fix --env jest",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest src",
+    "test:nocache": "npm install && jest --clearCache && npm test -- --noCache",
     "test:watch": "npm test -- --watch",
     "test:update": "npm test -- --updateSnapshot --coverage",
     "setup": "npm install && npm run validate",
-    "validate": "npm run lint && npm test",
+    "validate": "npm run lint && npm test:nocache",
     "release": "npm run validate && standard-version"
   },
   "peerDependencies": {
