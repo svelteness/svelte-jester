@@ -1,6 +1,6 @@
 import sveltePreprocess from 'svelte-preprocess'
 import adapter from '@sveltejs/adapter-static'
-const { replace, typescript } = sveltePreprocess
+const { replace } = sveltePreprocess
 
 console.log('This should not influence the compiler/preprocessor')
 
@@ -9,7 +9,6 @@ const config = {
     adapter: adapter
   },
   preprocess: [
-    typescript(),
     replace([
       // strip style tag
       [/<!--[^]*?-->|<style(\s[^]*?)?(?:>([^]*?)<\/style>|\/>)/gi, ''],
