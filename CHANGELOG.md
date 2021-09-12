@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.2](https://github.com/mihar-22/svelte-jester/compare/v2.1.1...v2.1.2) (2021-09-12)
+
+
+### Bug Fixes
+
+* add back process method for CJS support ([#71](https://github.com/mihar-22/svelte-jester/issues/71)) ([6ee7c5c](https://github.com/mihar-22/svelte-jester/commit/6ee7c5c6c15c5f92cf59ee1acaacbf94a3450a05))
+
 ### [2.1.1](https://github.com/mihar-22/svelte-jester/compare/v2.1.0...v2.1.1) (2021-08-31)
 
 
