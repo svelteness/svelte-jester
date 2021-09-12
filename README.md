@@ -36,6 +36,14 @@ have proper licensing.
 
 ## Installation
 
+If you're using SvelteKit, you can setup and install with [svelte-add-jest](https://github.com/rossyman/svelte-add-jest) by running:
+
+```
+npx apply rossyman/svelte-add-jest
+```
+
+### Manual install
+
 This library has `peerDependencies` listings for `svelte >= 3`.
 
 `npm install svelte-jester -D`
