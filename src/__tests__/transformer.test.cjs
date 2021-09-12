@@ -1,6 +1,6 @@
-const {readFileSync} = require('fs')
-const {resolve} = require('path')
-const {createTransformer} = require('../../dist/transformer.cjs')
+const { readFileSync } = require('fs')
+const { resolve } = require('path')
+const { createTransformer } = require('../../dist/transformer.cjs')
 
 const runTransformer = (filename, options) => {
   const path = require.resolve(`./fixtures/${filename}.svelte`)
@@ -65,7 +65,7 @@ describe('CJS transformer', () => {
 
   it('should fail, if console.logs are enabled during preprocessing and there is a console.log statement in the svelte config', () => {
     expect(
-      () => runTransformer('BasicComp', { preprocess: true, rootMode: 'upward',  showConsoleLog: true })
+      () => runTransformer('BasicComp', { preprocess: true, rootMode: 'upward', showConsoleLog: true })
     ).toThrow(/^Unexpected token T in JSON at position 0$/)
   })
 
@@ -75,7 +75,7 @@ describe('CJS transformer', () => {
 
   it('should pass, if console.logs are disabled during preprocessing and there is a console.log statement in the svelte config', () => {
     runTransformer('BasicComp', { preprocess: true, rootMode: 'upward', showConsoleLog: false })
-    runTransformer('BasicComp', { preprocess: true, rootMode: 'upward', showConsoleLog: "false" })
+    runTransformer('BasicComp', { preprocess: true, rootMode: 'upward', showConsoleLog: 'false' })
   })
 
   it('should pass and transform process.env.NODE_ENV variable', () => {

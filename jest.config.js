@@ -7,5 +7,5 @@ export default {
 
   moduleFileExtensions: ['js', 'cjs'],
 
-  testMatch: ['**/?(*.)+(spec|test).?(c)[j]s?(x)'],
+  testMatch: ['**/?(*.)+(spec|test).?(c)[j]s?(x)']
 }
