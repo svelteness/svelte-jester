@@ -1,11 +1,11 @@
 const { readFileSync } = require('fs')
 const { resolve } = require('path')
-const { createTransformer } = require('../../dist/transformer.cjs')
+const transformer = require('../../dist/transformer.cjs')
 
 const runTransformer = (filename, options) => {
   const path = require.resolve(`./fixtures/${filename}.svelte`)
   const source = readFileSync(path).toString()
-  const result = createTransformer().process(source, path, { transformerConfig: options })
+  const result = transformer.process(source, path, { transformerConfig: options })
   expect(result.code).toBeDefined()
   expect(result.code).toContain('SvelteComponent')
   expect(result.map).toBeDefined()
