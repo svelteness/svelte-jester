@@ -33,7 +33,7 @@ const processAsync = async (source, filename, jestOptions) => {
  * Starts a new process, so is higher overhead than processAsync.
  * However, Jest calls this method in CJS mode.
  */
-const process = (source, filename, jestOptions) => {
+const processSync = (source, filename, jestOptions) => {
   const options = jestOptions?.transformerConfig ?? {}
   const { preprocess, rootMode, maxBuffer, showConsoleLog } = options
   if (!preprocess) {
@@ -92,6 +92,6 @@ const compiler = (format, options = {}, filename, processedCode, processedMap) =
 }
 
 export default {
-  process,
+  process: processSync,
   processAsync
 }
