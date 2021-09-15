@@ -1,0 +1,37 @@
+{
+  "transform": {
+    "^.+\\.js$": "babel-jest",
+    "^.+\\.svelte$": [
+      "../../dist/transformer.mjs",
+      {
+        "preprocess": true
+      }
+    ],
+    "^.+\\.ts$": "ts-jest"
+  },
+  "moduleNameMapper": {
+    "^\\$lib(.*)$": "<rootDir>/src/lib$1",
+    "^\\$app(.*)$": [
+      "<rootDir>/.svelte-kit/dev/runtime/app$1",
+      "<rootDir>/.svelte-kit/build/runtime/app$1"
+    ]
+  },
+  "extensionsToTreatAsEsm": [
+    ".svelte",
+    ".ts"
+  ],
+  "moduleFileExtensions": [
+    "js",
+    "svelte",
+    "ts"
+  ],
+  "setupFilesAfterEnv": [
+    "@testing-library/jest-dom/extend-expect"
+  ],
+  "globals": {
+    "ts-jest": {
+      "tsconfig": "tsconfig.spec.json",
+      "useESM": true
+    }
+  }
+}
