@@ -1,9 +1,8 @@
-import { render, RenderResult } from '@testing-library/svelte';
-import Index from './index.svelte';
-
 /**
  * @jest-environment jsdom
  */
+import { render, RenderResult } from '@testing-library/svelte';
+import Index from './index.svelte';
 
 /**
  * An example test suite outlining the usage of
