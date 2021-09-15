@@ -58,15 +58,26 @@ const process = (source, filename, jestOptions) => {
 const compiler = (format, options = {}, filename, processedCode, processedMap) => {
   const { debug, compilerOptions } = options
 
-  const result = svelte.compile(processedCode, {
-    filename: basename(filename),
-    css: true,
-    accessors: true,
-    dev: true,
-    format,
-    sourcemap: processedMap,
-    ...compilerOptions
-  })
+  let result;
+
+  try {
+    result = svelte.compile(processedCode, {
+      filename: basename(filename),
+      css: true,
+      accessors: true,
+      dev: true,
+      format,
+      sourcemap: processedMap,
+      ...compilerOptions
+    })
+  } catch(error) {
+    let msg = error.message;
+    if (error.frame) {
+      msg += '\n' + error.frame;
+    }
+    console.error(msg);
+    throw error;
+  }
 
   if (debug) {
     console.log(result.js.code)
