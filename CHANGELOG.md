@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.3](https://github.com/mihar-22/svelte-jester/compare/v2.1.2...v2.1.3) (2021-09-19)
+
+
+### Bug Fixes
+
+* invalid transformer export ([#75](https://github.com/mihar-22/svelte-jester/issues/75)) ([4729f0b](https://github.com/mihar-22/svelte-jester/commit/4729f0b65cd0f6d3140551a969a564913ffb9972))
+* surface frame on failed Svelte compilation ([a747d96](https://github.com/mihar-22/svelte-jester/commit/a747d9665e180f4365bead8a93b9596d217692e1))
+
 ### [2.1.2](https://github.com/mihar-22/svelte-jester/compare/v2.1.1...v2.1.2) (2021-09-12)
 
 
