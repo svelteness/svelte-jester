@@ -58,7 +58,7 @@ const processSync = (source, filename, jestOptions) => {
 const compiler = (format, options = {}, filename, processedCode, processedMap) => {
   const { debug, compilerOptions } = options
 
-  let result;
+  let result
 
   try {
     result = svelte.compile(processedCode, {
@@ -70,13 +70,13 @@ const compiler = (format, options = {}, filename, processedCode, processedMap) =
       sourcemap: processedMap,
       ...compilerOptions
     })
-  } catch(error) {
-    let msg = error.message;
+  } catch (error) {
+    let msg = error.message
     if (error.frame) {
-      msg += '\n' + error.frame;
+      msg += '\n' + error.frame
     }
-    console.error(msg);
-    throw error;
+    console.error(msg)
+    throw error
   }
 
   if (debug) {
