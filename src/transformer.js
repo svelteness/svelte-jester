@@ -11,7 +11,7 @@ const dynamicImport = async (filename) => import(pathToFileURL(filename))
  * Jest will only call this method when running in ESM mode.
  */
 const processAsync = async (source, filename, jestOptions) => {
-  const options = jestOptions?.transformerConfig ?? {}
+  const options = jestOptions && jestOptions.transformerConfig ? jestOptions.transformerConfig : {}
   const { preprocess, rootMode } = options
 
   if (!preprocess) {
@@ -34,7 +34,7 @@ const processAsync = async (source, filename, jestOptions) => {
  * However, Jest calls this method in CJS mode.
  */
 const processSync = (source, filename, jestOptions) => {
-  const options = jestOptions?.transformerConfig ?? {}
+  const options = jestOptions && jestOptions.transformerConfig ? jestOptions.transformerConfig : {}
   const { preprocess, rootMode, maxBuffer, showConsoleLog } = options
   if (!preprocess) {
     return compiler('cjs', options, filename, source)
