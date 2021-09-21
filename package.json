@@ -37,10 +37,11 @@
   ],
   "files": [
     "dist/transformer.mjs",
-    "dist/transformer.cjs"
+    "dist/transformer.cjs",
+    "dist/preprocess.js"
   ],
   "scripts": {
-    "build": "rollup -c rollup.config.cjs && cp src/preprocess.js dist/",
+    "build": "rollup -c rollup.config.cjs",
     "toc": "doctoc README.md",
     "lint": "standard --fix --env jest",
     "test": "npm run build && cross-env NODE_OPTIONS=--experimental-vm-modules jest src/__tests__",
@@ -68,6 +69,7 @@
     "jest-circus": "^27.0.0",
     "node-sass": "^6.0.0",
     "rollup": "^2.56.3",
+    "rollup-plugin-copy-assets": "^2.0.3",
     "standard": "^16.0.3",
     "standard-version": "^9.3.0",
     "svelte": "^3.0.0",
