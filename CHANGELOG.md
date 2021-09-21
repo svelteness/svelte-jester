@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.4](https://github.com/mihar-22/svelte-jester/compare/v2.1.3...v2.1.4) (2021-09-21)
+
+
+### Bug Fixes
+
+* add back Node 12 support ([#83](https://github.com/mihar-22/svelte-jester/issues/83)) ([e5de1c6](https://github.com/mihar-22/svelte-jester/commit/e5de1c6c6c2e82b0dffb3fc1892abdaa3dc7d414))
+* unpin svelte-preprocess ([#82](https://github.com/mihar-22/svelte-jester/issues/82)) ([a48d909](https://github.com/mihar-22/svelte-jester/commit/a48d90913993eb271ac40ee009110d48e39255ba))
+
 ### [2.1.3](https://github.com/mihar-22/svelte-jester/compare/v2.1.2...v2.1.3) (2021-09-19)
 
 
