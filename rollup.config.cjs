@@ -1,4 +1,5 @@
 const resolve = require('@rollup/plugin-node-resolve').default
+const copy = require("rollup-plugin-copy-assets")
 const pkg = require('./package.json')
 
 const external = [].concat(
@@ -18,7 +19,12 @@ module.exports = [
     },
     external,
     plugins: [
-      resolve()
+      resolve(),
+      copy({
+        assets: [
+          "src/preprocess.js"
+        ],
+      }),
     ]
   },
   {

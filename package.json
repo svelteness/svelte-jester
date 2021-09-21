@@ -36,18 +36,17 @@
     "test"
   ],
   "files": [
-    "dist/transformer.mjs",
-    "dist/transformer.cjs"
+    "dist/**/*"
   ],
   "scripts": {
-    "build": "rollup -c rollup.config.cjs && cp src/preprocess.js dist/",
+    "build": "rollup -c rollup.config.cjs",
     "toc": "doctoc README.md",
     "lint": "standard --fix --env jest",
     "test": "npm run build && cross-env NODE_OPTIONS=--experimental-vm-modules jest src/__tests__",
     "e2e": "npm run e2e:svelte && npm run e2e:sveltekit",
     "e2e:svelte": "cd e2e/svelte && npm install && npm run test",
     "e2e:sveltekit": "cd e2e/sveltekit && npm install && npm run test",
-    "test:nocache": "npm install && jest --clearCache && npm test -- --no-cache",
+    "test:nocache": "npm install && jest --clearCache && npm run test -- --no-cache",
     "test:watch": "npm test -- --watch",
     "test:update": "npm test -- --updateSnapshot --coverage",
     "setup": "npm install && npm run validate",
@@ -68,6 +67,7 @@
     "jest-circus": "^27.0.0",
     "node-sass": "^6.0.0",
     "rollup": "^2.56.3",
+    "rollup-plugin-copy-assets": "^2.0.3",
     "standard": "^16.0.3",
     "standard-version": "^9.3.0",
     "svelte": "^3.0.0",
