@@ -36,9 +36,7 @@
     "test"
   ],
   "files": [
-    "dist/transformer.mjs",
-    "dist/transformer.cjs",
-    "dist/preprocess.js"
+    "dist/**/*"
   ],
   "scripts": {
     "build": "rollup -c rollup.config.cjs",
@@ -48,7 +46,7 @@
     "e2e": "npm run e2e:svelte && npm run e2e:sveltekit",
     "e2e:svelte": "cd e2e/svelte && npm install && npm run test",
     "e2e:sveltekit": "cd e2e/sveltekit && npm install && npm run test",
-    "test:nocache": "npm install && jest --clearCache && npm test -- --no-cache",
+    "test:nocache": "npm install && jest --clearCache && npm run test -- --no-cache",
     "test:watch": "npm test -- --watch",
     "test:update": "npm test -- --updateSnapshot --coverage",
     "setup": "npm install && npm run validate",
