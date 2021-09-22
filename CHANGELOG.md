@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.5](https://github.com/mihar-22/svelte-jester/compare/v2.1.4...v2.1.5) (2021-09-22)
+
+
+### Bug Fixes
+
+* add preprocess to published files array ([#84](https://github.com/mihar-22/svelte-jester/issues/84)) ([4a10e92](https://github.com/mihar-22/svelte-jester/commit/4a10e923e688727b3a415daa8595e7a03b8f681b))
+* allow installation on Node 12 ([7093aee](https://github.com/mihar-22/svelte-jester/commit/7093aeed66dc36d6d61cd15b50a49ee54b6ffcc8))
+
 ### [2.1.4](https://github.com/mihar-22/svelte-jester/compare/v2.1.3...v2.1.4) (2021-09-21)
 
 
