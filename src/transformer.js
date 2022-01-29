@@ -5,7 +5,7 @@ import * as svelte from 'svelte/compiler'
 
 import { getSvelteConfig } from './svelteconfig.js'
 
-const dynamicImport = async (filename) => import(pathToFileURL(filename))
+const dynamicImport = async (filename) => import(pathToFileURL(filename).toString())
 
 /**
  * Jest will only call this method when running in ESM mode.
