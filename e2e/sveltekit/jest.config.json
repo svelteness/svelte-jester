@@ -1,13 +1,13 @@
 {
   "transform": {
     "^.+\\.js$": "babel-jest",
+    "^.+\\.ts$": "ts-jest",
     "^.+\\.svelte$": [
       "../../dist/transformer.mjs",
       {
         "preprocess": true
       }
-    ],
-    "^.+\\.ts$": "ts-jest"
+    ]
   },
   "moduleNameMapper": {
     "^\\$lib(.*)$": "<rootDir>/src/lib$1",
@@ -22,8 +22,8 @@
   ],
   "moduleFileExtensions": [
     "js",
-    "svelte",
-    "ts"
+    "ts",
+    "svelte"
   ],
   "setupFilesAfterEnv": [
     "@testing-library/jest-dom/extend-expect"
@@ -33,5 +33,6 @@
       "tsconfig": "tsconfig.spec.json",
       "useESM": true
     }
-  }
+  },
+  "testEnvironment": "jsdom"
 }
