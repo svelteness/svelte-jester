@@ -5,7 +5,7 @@
 export default {
   coverageProvider: 'v8',
 
-  moduleFileExtensions: ['js', 'cjs'],
+  moduleFileExtensions: ['js', 'mjs', 'cjs'],
 
   testMatch: ['**/?(*.)+(spec|test).?(c)[j]s?(x)']
 }
