@@ -1,5 +1,5 @@
 import { execSync } from 'child_process'
-import { basename } from 'path'
+import { basename, extname } from 'path'
 import { pathToFileURL } from 'url'
 import * as svelte from 'svelte/compiler'
 
@@ -7,12 +7,18 @@ import { getSvelteConfig } from './svelteconfig.js'
 
 const dynamicImport = async (filename) => import(pathToFileURL(filename).toString())
 
+const currentFileExtension = (global.__dirname !== undefined ? extname(__filename) : extname(pathToFileURL(import.meta.url).toString())).replace(".", "")
+
 /**
  * Jest will only call this method when running in ESM mode.
  */
 const processAsync = async (source, filename, jestOptions) => {
   const options = jestOptions && jestOptions.transformerConfig ? jestOptions.transformerConfig : {}
-  const { preprocess, rootMode } = options
+  const { preprocess, rootMode, debug } = options
+
+  if (debug) {
+    console.debug(`Running svelte-jester-transformer async in mode ${currentFileExtension}.`)
+  }
 
   if (!preprocess) {
     return compiler('esm', options, filename, source)
@@ -30,12 +36,17 @@ const processAsync = async (source, filename, jestOptions) => {
 }
 
 /**
- * Starts a new process, so is higher overhead than processAsync.
+ * Starts a new process, so it has a higher overhead than processAsync.
  * However, Jest calls this method in CJS mode.
  */
 const processSync = (source, filename, jestOptions) => {
   const options = jestOptions && jestOptions.transformerConfig ? jestOptions.transformerConfig : {}
-  const { preprocess, rootMode, maxBuffer, showConsoleLog } = options
+  const { preprocess, rootMode, maxBuffer, showConsoleLog, debug } = options
+
+  if (debug) {
+    console.debug(`Running svelte-jester-transformer async in mode ${currentFileExtension}.`)
+  }
+
   if (!preprocess) {
     return compiler('cjs', options, filename, source)
   }
