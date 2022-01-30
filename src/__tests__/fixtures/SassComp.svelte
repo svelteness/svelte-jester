@@ -4,7 +4,7 @@
 
 <div class="active">Hello {name}</div>
 
-<style type="text/scss">
+<style lang="scss">
   div {
     opacity: 0;
 
