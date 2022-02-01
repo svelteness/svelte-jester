@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.2.0](https://github.com/mihar-22/svelte-jester/compare/v2.1.5...v2.2.0) (2022-02-01)
+
+
+### Features
+
+* bump min node version to `14` ([526d3ed](https://github.com/mihar-22/svelte-jester/commit/526d3edffd1a55f66faf21a7b7f3f31426ba195d))
+
+
+### Bug Fixes
+
+* [ERR_INVALID_ARG_TYPE]: The "id" argument must be of type string. Received an instance of URL ([1384839](https://github.com/mihar-22/svelte-jester/commit/1384839dac8bb87d2a62ef903b4a7587683ef35e))
+
 ### [2.1.5](https://github.com/mihar-22/svelte-jester/compare/v2.1.4...v2.1.5) (2021-09-22)
 
 
