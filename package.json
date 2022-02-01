@@ -15,7 +15,7 @@
   "license": "MIT",
   "author": "Rahim Alwer <rahim_alwer@hotmail.com>",
   "engines": {
-    "node": ">= 12"
+    "node": ">= 14"
   },
   "homepage": "https://github.com/mihar-22/svelte-jester#readme",
   "repository": {
@@ -73,5 +73,8 @@
     "svelte": "^3.0.0",
     "svelte-preprocess": "^4.9.5",
     "typescript": "^4.0.0"
+  },
+  "volta": {
+    "node": "14.18.3"
   }
 }
