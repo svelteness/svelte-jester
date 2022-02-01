@@ -1,6 +1,6 @@
 {
   "name": "svelte-jester",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "description": "A Jest transformer for Svelte - compile your components before importing them into tests",
   "main": "dist/transformer.cjs",
   "module": "dist/transformer.mjs",

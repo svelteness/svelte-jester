@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.3.1](https://github.com/mihar-22/svelte-jester/compare/v2.3.0...v2.3.1) (2022-02-01)
+
+
+### Bug Fixes
+
+* drop min node version to `14` for `node-sass` ([aa4508d](https://github.com/mihar-22/svelte-jester/commit/aa4508dd9dcfb68c99c492239c6400bcbab69e5e))
+
 ## [2.3.0](https://github.com/mihar-22/svelte-jester/compare/v2.2.0...v2.3.0) (2022-02-01)
 
 
