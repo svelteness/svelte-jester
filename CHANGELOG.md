@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.3.0](https://github.com/mihar-22/svelte-jester/compare/v2.2.0...v2.3.0) (2022-02-01)
+
+
+### Features
+
+* bump min node version to `16` ([9172250](https://github.com/mihar-22/svelte-jester/commit/917225044ffe0d534da6c60b4650df3b50163ced))
+
 ## [2.2.0](https://github.com/mihar-22/svelte-jester/compare/v2.1.5...v2.2.0) (2022-02-01)
 
 
