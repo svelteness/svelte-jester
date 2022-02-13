@@ -61,5 +61,8 @@ npm install
       ]`
 # move jsdom comment to the top in `src/lib/routes/index-dom.spec.ts`
 npm run test
+# add cross-env
+npm install -D cross-env
+# prefix NODE_OPTIONS with cross-env in the package.json
 ```
 
