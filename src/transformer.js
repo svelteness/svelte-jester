@@ -9,12 +9,18 @@ const dynamicImport = async (filename) => import(pathToFileURL(filename).toStrin
 
 const currentFileExtension = (global.__dirname !== undefined ? extname(__filename) : extname(pathToFileURL(import.meta.url).toString())).replace('.', '')
 
+const inCommonJs = typeof module !== 'undefined';
+
 /**
  * Jest will only call this method when running in ESM mode.
  */
 const processAsync = async (source, filename, jestOptions) => {
   const options = jestOptions && jestOptions.transformerConfig ? jestOptions.transformerConfig : {}
   const { preprocess, rootMode, debug } = options
+
+  if (inCommonJs) {
+    throw new Error("Running svelte-jester-transformer async in unsupported CJS mode")
+  }
 
   if (debug) {
     console.debug(`Running svelte-jester-transformer async in mode ${currentFileExtension}.`)
@@ -42,6 +48,10 @@ const processAsync = async (source, filename, jestOptions) => {
 const processSync = (source, filename, jestOptions) => {
   const options = jestOptions && jestOptions.transformerConfig ? jestOptions.transformerConfig : {}
   const { preprocess, rootMode, maxBuffer, showConsoleLog, debug } = options
+
+  if (!inCommonJs) {
+    throw new Error("Running svelte-jester-transformer sync in unsupported ESM mode")
+  }
 
   if (debug) {
     console.debug(`Running svelte-jester-transformer async in mode ${currentFileExtension}.`)
