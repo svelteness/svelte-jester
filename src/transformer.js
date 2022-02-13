@@ -5,7 +5,7 @@ import * as svelte from 'svelte/compiler'
 
 import { getSvelteConfig } from './svelteconfig.js'
 
-const dynamicImport = async (filename) => import(pathToFileURL(filename).toString())
+const dynamicImport = async (filename) => import(pathToFileURL(filename))
 
 const currentFileExtension = (global.__dirname !== undefined ? extname(__filename) : extname(pathToFileURL(import.meta.url).toString())).replace('.', '')
 
