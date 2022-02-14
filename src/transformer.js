@@ -54,7 +54,7 @@ const processSync = (source, filename, jestOptions) => {
   }
 
   if (debug) {
-    console.debug(`Running svelte-jester-transformer async in mode ${currentFileExtension}.`)
+    console.debug(`Running svelte-jester-transformer sync in mode ${currentFileExtension}.`)
   }
 
   if (!preprocess) {
