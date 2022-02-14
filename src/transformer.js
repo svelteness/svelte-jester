@@ -12,7 +12,11 @@ const dynamicImport = async (filename) => import(pathToFileURL(filename).toStrin
  */
 const processAsync = async (source, filename, jestOptions) => {
   const options = jestOptions && jestOptions.transformerConfig ? jestOptions.transformerConfig : {}
-  const { preprocess, rootMode } = options
+  const { preprocess, rootMode, debug } = options
+
+  if (debug) {
+    console.debug(`Running svelte-jester-transformer async in mode ${currentFileExtension}.`)
+  }
 
   if (!preprocess) {
     return compiler('esm', options, filename, source)
@@ -35,7 +39,12 @@ const processAsync = async (source, filename, jestOptions) => {
  */
 const processSync = (source, filename, jestOptions) => {
   const options = jestOptions && jestOptions.transformerConfig ? jestOptions.transformerConfig : {}
-  const { preprocess, rootMode, maxBuffer, showConsoleLog } = options
+  const { preprocess, rootMode, maxBuffer, showConsoleLog, debug } = options
+
+  if (debug) {
+    console.debug(`Running svelte-jester-transformer sync in mode ${currentFileExtension}.`)
+  }
+
   if (!preprocess) {
     return compiler('cjs', options, filename, source)
   }
