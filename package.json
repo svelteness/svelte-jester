@@ -65,7 +65,7 @@
     "doctoc": "^2.0.0",
     "jest": "^27.0.0",
     "jest-circus": "^27.0.0",
-    "node-sass": "^6.0.0",
+    "node-sass": "^7.0.0",
     "rollup": "^2.56.3",
     "rollup-plugin-copy-assets": "^2.0.3",
     "standard": "^16.0.3",
