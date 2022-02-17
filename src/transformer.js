@@ -2,10 +2,10 @@ import { execSync } from 'child_process'
 import { basename } from 'path'
 import { pathToFileURL } from 'url'
 import * as svelte from 'svelte/compiler'
-
+import { platform } from 'os'
 import { getSvelteConfig } from './svelteconfig.js'
 
-const dynamicImport = async (filename) => import(pathToFileURL(filename).toString())
+const dynamicImport = async (filename) => import(platform() === "win32" ? pathToFileURL(filename).toString() : filename)
 
 /**
  * Jest will only call this method when running in ESM mode.
