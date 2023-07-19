@@ -271,8 +271,6 @@ Add the following to your Jest config:
 }
 ```
 
-For CJS, replace `"svelte-jester"` with `"svelte-jester/dist/transformer.cjs"`.
-
 Create a `svelte.config.js` file and configure it, see
 [svelte-preprocess](https://github.com/kaisermann/svelte-preprocess) for more information.
 
