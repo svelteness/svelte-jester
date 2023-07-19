@@ -6,7 +6,7 @@ console.log('This should not influence the compiler/preprocessor')
 
 const config = {
   kit: {
-    adapter: adapter
+    adapter: adapter()
   },
   preprocess: [
     replace([
