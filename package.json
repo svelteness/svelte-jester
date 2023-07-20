@@ -44,7 +44,7 @@
     "lint": "standard --fix --env jest",
     "test": "npm run build && cross-env NODE_OPTIONS=--experimental-vm-modules jest src/__tests__",
     "e2e": "npm run e2e:svelte && npm run e2e:sveltekit",
-    "e2e:svelte": "cd e2e/svelte && npm install && npm run test",
+    "e2e:svelte": "cd e2e/svelte && npm install && npx jest src",
     "e2e:sveltekit": "cd e2e/sveltekit && npm install && npm run test",
     "test:nocache": "npm install && jest --clearCache && npm run test -- --no-cache",
     "test:watch": "npm test -- --watch",
