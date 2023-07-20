@@ -30,10 +30,16 @@ The following steps were executed to create the source for this test.
     "presets": [["@babel/preset-env", {"targets": {"node": "current"}}]]
   }
 
-# add basic component from https://testing-library.com/docs/svelte-testing-library/example#test under __src/__
+# remove `type: "module",` from `package.json`
+
+# add basic component from https://testing-library.com/docs/svelte-testing-library/example/#component under __src/__
 # add basic sample from https://testing-library.com/docs/svelte-testing-library/example#test under __src/test/__
 # add svelte.config.js (CJS-style) from https://github.com/sveltejs/language-tools/blob/master/docs/preprocessors/in-general.md#generic-setup
 ```
+
+### Run the tests
+
+Start the tests with `npm run e2e:svelte`
 
 ## SvelteKit (ESM)
 
