@@ -1,11 +1,8 @@
 import { execSync } from 'child_process'
 import { basename } from 'path'
-import { pathToFileURL } from 'url'
 import * as svelte from 'svelte/compiler'
 
 import { getSvelteConfig } from './svelteconfig.js'
-
-const dynamicImport = async (filename) => import(pathToFileURL(filename).toString())
 
 /**
  * Jest will only call this method when running in ESM mode.
@@ -19,7 +16,7 @@ const processAsync = async (source, filename, jestOptions) => {
   }
 
   const svelteConfigPath = getSvelteConfig(rootMode, filename, preprocess)
-  const svelteConfig = await dynamicImport(svelteConfigPath)
+  const svelteConfig = await import(svelteConfigPath)
   const processed = await svelte.preprocess(
     source,
     svelteConfig.default.preprocess || {},
