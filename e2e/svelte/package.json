@@ -2,11 +2,12 @@
   "name": "svelte-app",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "start": "sirv public --no-clear",
-    "test": "jest src",
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest src",
     "test:watch": "npm run test -- --watch"
   },
   "devDependencies": {
@@ -32,12 +33,15 @@
     "transform": {
       "^.+\\.js$": "babel-jest",
       "^.+\\.svelte$": [
-        "../../dist/transformer.cjs",
+        "../../dist/transformer.mjs",
         {
           "preprocess": true
         }
       ]
     },
+    "extensionsToTreatAsEsm": [
+      ".svelte"
+    ],
     "moduleFileExtensions": [
       "js",
       "svelte"
