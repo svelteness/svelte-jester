@@ -11,7 +11,7 @@ export const __dirname = dirname(fileURLToPath(import.meta.url))
 const runTransformer = async (filename, options) => {
   const path = `${__dirname}/fixtures/${filename}.svelte`
   const source = readFileSync(path).toString()
-  const result = await transformer.processAsync(source, path, { transformerConfig: options })
+  const result = await transformer.processAsync(source, path, { extensionsToTreatAsEsm: '.svelte', transformerConfig: options })
   expect(result.code).toBeDefined()
   expect(result.code).toContain('SvelteComponent')
   expect(result.map).toBeDefined()

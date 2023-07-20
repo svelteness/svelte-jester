@@ -8,14 +8,18 @@ import { getSvelteConfig } from './svelteconfig.js'
 const dynamicImport = async (filename) => import(pathToFileURL(filename).toString())
 
 /**
- * Jest will only call this method when running in ESM mode.
+ * Jest will only call this method when running tests in ESM mode.
  */
 const processAsync = async (source, filename, jestOptions) => {
-  const options = jestOptions && jestOptions.transformerConfig ? jestOptions.transformerConfig : {}
-  const { preprocess, rootMode } = options
+  const format = (jestOptions?.extensionsToTreatAsEsm || []).includes('.svelte') ? 'esm' : 'cjs'
+  if (format !== 'esm') {
+    throw new Error("jest is calling svelte-jester's processAsync method, but .svelte was not found in extensionsToTreatAsEsm. This is unexpected.")
+  }
+  const compilerOptions = jestOptions?.transformerConfig || {}
+  const { preprocess, rootMode } = compilerOptions
 
   if (!preprocess) {
-    return compiler('esm', options, filename, source)
+    return compiler(format, compilerOptions, filename, source)
   }
 
   const svelteConfigPath = getSvelteConfig(rootMode, filename, preprocess)
@@ -26,18 +30,22 @@ const processAsync = async (source, filename, jestOptions) => {
     { filename }
   )
 
-  return compiler('esm', options, filename, processed.code, processed.map)
+  return compiler(format, compilerOptions, filename, processed.code, processed.map)
 }
 
 /**
  * Starts a new process, so is higher overhead than processAsync.
- * However, Jest calls this method in CJS mode.
+ * Jest calls this method when running tests in CJS mode.
  */
 const processSync = (source, filename, jestOptions) => {
-  const options = jestOptions && jestOptions.transformerConfig ? jestOptions.transformerConfig : {}
-  const { preprocess, rootMode, maxBuffer, showConsoleLog } = options
+  const format = (jestOptions?.extensionsToTreatAsEsm || []).includes('.svelte') ? 'esm' : 'cjs'
+  if (format !== 'cjs') {
+    throw new Error("jest is calling svelte-jester's processSync method, but .svelte was found in extensionsToTreatAsEsm. This is unexpected.")
+  }
+  const compilerOptions = jestOptions?.transformerConfig || {}
+  const { preprocess, rootMode, maxBuffer, showConsoleLog } = compilerOptions
   if (!preprocess) {
-    return compiler('cjs', options, filename, source)
+    return compiler(format, compilerOptions, filename, source)
   }
 
   const svelteConfig = getSvelteConfig(rootMode, filename, preprocess)
@@ -52,7 +60,7 @@ const processSync = (source, filename, jestOptions) => {
   ).toString()
 
   const parsedPreprocessResult = JSON.parse(preprocessResult)
-  return compiler('cjs', options, filename, parsedPreprocessResult.code, parsedPreprocessResult.map)
+  return compiler(format, compilerOptions, filename, parsedPreprocessResult.code, parsedPreprocessResult.map)
 }
 
 const compiler = (format, options = {}, filename, processedCode, processedMap) => {
