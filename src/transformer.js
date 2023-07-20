@@ -1,5 +1,5 @@
 import { execSync } from 'child_process'
-import { basename } from 'path'
+import { basename, extname } from 'path'
 import { pathToFileURL } from 'url'
 import * as svelte from 'svelte/compiler'
 
