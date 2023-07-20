@@ -50,25 +50,34 @@ The following steps were executed to create the source for this test.
 (mostly from https://github.com/rossyman/svelte-add-jest)
 
 ```
+mkdir sveltekit
 cd sveltekit
-npm init svelte@next
-# choose Demo App, typescript, no linter, no formatter
+npm init svelte
+# choose Demo App, typescript, no linter, no formatter, no Playwright, no Vitest
 npm install
 
+# remove comments from `tsconfig.json` or svelte-add-jest will fail with `SyntaxError: Unexpected token / in JSON at position 271`
 # add Jest
 npx apply rossyman/svelte-add-jest
 # choose Jest DOM, typescript, sample file, jsdom by default
-npm install
+
+# downgrade some versions
+npm install --save-dev typescript@4 svelte@3
 # change path for svelte-jester in `jest.config.json` to `[
         "../../dist/transformer.mjs",
         {
           "preprocess": true
         }
       ]`
-# move jsdom comment to the top in `src/lib/routes/index-dom.spec.ts`
+
+# edit `src/routes/index-dom.spec.ts``
+# add `import { jest } from '@jest/globals'`
+# replace component `import Index from './Counter.svelte';`
+# change test, because of failing $app/stores mock
+test('should show the proper label', () => {
+      expect(renderedComponent.getByLabelText(/Decrease the counter by one/)).toBeInTheDocument();
+    });
+# check that the tests are passing
 npm run test
-# add cross-env
-npm install -D cross-env
-# prefix NODE_OPTIONS with cross-env in the package.json
 ```
 

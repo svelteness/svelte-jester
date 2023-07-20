@@ -1,13 +1,13 @@
 {
   "transform": {
     "^.+\\.js$": "babel-jest",
-    "^.+\\.ts$": "ts-jest",
     "^.+\\.svelte$": [
       "../../dist/transformer.mjs",
       {
         "preprocess": true
       }
-    ]
+    ],
+    "^.+\\.ts$": "ts-jest"
   },
   "moduleNameMapper": {
     "^\\$lib(.*)$": "<rootDir>/src/lib$1",
@@ -22,8 +22,8 @@
   ],
   "moduleFileExtensions": [
     "js",
-    "ts",
-    "svelte"
+    "svelte",
+    "ts"
   ],
   "setupFilesAfterEnv": [
     "@testing-library/jest-dom/extend-expect"
