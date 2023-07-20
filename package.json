@@ -55,7 +55,7 @@
   },
   "peerDependencies": {
     "jest": ">= 27",
-    "svelte": ">= 3"
+    "svelte": ">= 3 < 4"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^13.0.4",
