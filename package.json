@@ -17,13 +17,13 @@
   "engines": {
     "node": ">=14"
   },
-  "homepage": "https://github.com/mihar-22/svelte-jester#readme",
+  "homepage": "https://github.com/svelteness/svelte-jester#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mihar-22/svelte-jester"
+    "url": "https://github.com/svelteness/svelte-jester"
   },
   "bugs": {
-    "url": "https://github.com/mihar-22/svelte-jester/issues"
+    "url": "https://github.com/svelteness/svelte-jester/issues"
   },
   "keywords": [
     "svelte-jester",
