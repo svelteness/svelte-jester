@@ -6,7 +6,7 @@ Simply precompiles Svelte components before importing them into Jest tests.
 </p>
 
 <p>
-This version requires Jest >= 27 and defaults to ESM. If you want to use CJS, you need to specify the <strong>full path</strong> for the jest transformer in your jest config.
+This version requires Jest >= 27 and defaults to ESM. If you want to use CJS, you need to omit the `extensionsToTreatAsEsm` option in your jest config.
 </p>
 
 [![version][version-badge]][package]
