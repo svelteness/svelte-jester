@@ -7,6 +7,8 @@ import { getSvelteConfig } from './svelteconfig.js'
 
 const dynamicImport = async (filename) => import(pathToFileURL(filename).toString())
 
+const currentFileExtension = (global.__dirname !== undefined ? extname(__filename) : extname(pathToFileURL(import.meta.url).toString())).replace('.', '')
+
 /**
  * Jest will only call this method when running in ESM mode.
  */
