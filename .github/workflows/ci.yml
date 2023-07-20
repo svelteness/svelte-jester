@@ -1,5 +1,9 @@
 name: CI
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - master
+  pull_request:
 jobs:
   Tests:
     runs-on: ${{ matrix.os }}
@@ -9,14 +13,15 @@ jobs:
         os: [ubuntu-latest, windows-latest, macOS-latest]
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2.2.4
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: npm
-      - run: npm install
-      - run: npm test
+          cache: pnpm
+      - run: pnpm install
+      - run: pnpm test
         env:
           CI: true
-      - run: npm run e2e
+      - run: pnpm run e2e
         env:
           CI: true
