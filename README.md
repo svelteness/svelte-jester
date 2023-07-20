@@ -85,7 +85,7 @@ Add the following to your Jest config:
 ```json
 {
   "transform": {
-    "^.+\\.svelte$": "svelte-jester"
+    "^.+\\.svelte$": "svelte-jester/dist/transformer.cjs"
   },
   "moduleFileExtensions": ["js", "svelte"]
 }
@@ -219,7 +219,7 @@ path to the config file to the `preprocess` option thus:
 ```json
   "transform": {
     "^.+\\.svelte$": [
-      "svelte-jester",
+      "svelte-jester/dist/transformer.cjs",
       {
         "preprocess": true
       }
@@ -240,7 +240,7 @@ path to the config file to the `preprocess` option thus:
 ```json
   "transform": {
     "^.+\\.svelte$": [
-      "svelte-jester",
+      "svelte-jester/dist/transformer.cjs",
       {
         "preprocess": "/some/path/to/svelte.config.js"
       }
@@ -309,7 +309,7 @@ When `upward` is set it will stop at the first config file it finds above the fi
 ```json
 "transform": {
   "^.+\\.js$": "babel-jest",
-  "^.+\\.svelte$": ["svelte-jester", {
+  "^.+\\.svelte$": ["svelte-jester/dist/transformer.cjs", {
     "preprocess": false,
     "debug": false,
     "compilerOptions": {},
