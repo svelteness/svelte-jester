@@ -15,7 +15,8 @@
   "license": "MIT",
   "author": "Rahim Alwer <rahim_alwer@hotmail.com>",
   "engines": {
-    "node": ">=14"
+    "node": ">=14",
+    "pnpm": "^8.0.0"
   },
   "homepage": "https://github.com/mihar-22/svelte-jester#readme",
   "repository": {
@@ -42,16 +43,16 @@
     "build": "rollup -c rollup.config.cjs",
     "toc": "doctoc README.md",
     "lint": "standard --fix --env jest",
-    "test": "npm run build && cross-env NODE_OPTIONS=--experimental-vm-modules jest src/__tests__",
-    "e2e": "npm run e2e:svelte && npm run e2e:sveltekit",
-    "e2e:svelte": "cd e2e/svelte && npm install && npm run test",
-    "e2e:sveltekit": "cd e2e/sveltekit && npm install && npm run test",
-    "test:nocache": "npm install && jest --clearCache && npm run test -- --no-cache",
-    "test:watch": "npm test -- --watch",
-    "test:update": "npm test -- --updateSnapshot --coverage",
-    "setup": "npm install && npm run validate",
-    "validate": "npm run lint && npm run test:nocache",
-    "release": "npm run validate && standard-version"
+    "test": "pnpm run build && cross-env NODE_OPTIONS=--experimental-vm-modules jest src/__tests__",
+    "e2e": "pnpm run e2e:svelte && pnpm run e2e:sveltekit",
+    "e2e:svelte": "cd e2e/svelte && pnpm install && pnpm run test",
+    "e2e:sveltekit": "cd e2e/sveltekit && pnpm install && pnpm run test",
+    "test:nocache": "pnpm install && jest --clearCache && pnpm run test -- --no-cache",
+    "test:watch": "pnpm test -- --watch",
+    "test:update": "pnpm test -- --updateSnapshot --coverage",
+    "setup": "pnpm install && pnpm run validate",
+    "validate": "pnpm run lint && pnpm run test:nocache",
+    "release": "pnpm run validate && standard-version"
   },
   "peerDependencies": {
     "jest": ">= 27",
@@ -65,16 +66,17 @@
     "doctoc": "^2.2.1",
     "jest": "^29.6.1",
     "jest-circus": "^29.6.1",
-    "node-sass": "^9.0.0",
     "rollup": "^3.26.3",
     "rollup-plugin-copy-assets": "^2.0.3",
+    "sass": "^1.64.0",
     "standard": "^16.0.3",
-    "standard-version": "^9.3.0",
+    "standard-version": "^9.5.0",
     "svelte": "^3.59.2",
     "svelte-preprocess": "^5.0.4",
     "typescript": "^4.0.0"
   },
   "volta": {
     "node": "14.18.3"
-  }
+  },
+  "packageManager": "pnpm@8.6.5"
 }
