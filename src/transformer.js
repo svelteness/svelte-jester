@@ -65,7 +65,7 @@ const processSync = (source, filename, jestOptions) => {
   const preprocessor = require.resolve('./preprocess.js')
 
   const preprocessResult = execSync(
-        `node --experimental-vm-modules --unhandled-rejections=strict --abort-on-uncaught-exception "${preprocessor}"`,
+        `node --unhandled-rejections=strict --abort-on-uncaught-exception "${preprocessor}"`,
         {
           env: { ...process.env, source, filename, svelteConfig, showConsoleLog },
           maxBuffer: maxBuffer || 10 * 1024 * 1024
