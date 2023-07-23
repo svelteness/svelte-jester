@@ -1,20 +1,30 @@
 import { execSync } from 'child_process'
-import { basename } from 'path'
+import { basename, extname } from 'path'
 import { pathToFileURL } from 'url'
 import * as svelte from 'svelte/compiler'
 
 import { getSvelteConfig } from './svelteconfig.js'
 
 const dynamicImport = async (filename) => import(pathToFileURL(filename).toString())
+const currentFileExtension = (global.__dirname !== undefined ? extname(__filename) : extname(pathToFileURL(import.meta.url).toString())).replace('.', '')
 
 const IS_SVELTE_3 = svelte.VERSION.startsWith('3')
+const IS_COMMON_JS = typeof module !== 'undefined'
 
 /**
  * Jest will only call this method when running in ESM mode.
  */
 const processAsync = async (source, filename, jestOptions) => {
   const options = jestOptions && jestOptions.transformerConfig ? jestOptions.transformerConfig : {}
-  const { preprocess, rootMode } = options
+  const { preprocess, rootMode, debug } = options
+
+  if (IS_COMMON_JS) {
+    throw new Error('Running svelte-jester-transformer async in unsupported CJS mode')
+  }
+
+  if (debug) {
+    console.debug(`Running svelte-jester-transformer async in mode ${currentFileExtension}.`)
+  }
 
   if (!preprocess) {
     return compiler('esm', options, filename, source)
@@ -39,8 +49,18 @@ const processSync = (source, filename, jestOptions) => {
   if (!IS_SVELTE_3) {
     throw new Error('Jest is being called in CJS mode. You must use ESM mode in Svelte 4+')
   }
+
   const options = jestOptions && jestOptions.transformerConfig ? jestOptions.transformerConfig : {}
-  const { preprocess, rootMode, maxBuffer, showConsoleLog } = options
+  const { preprocess, rootMode, maxBuffer, showConsoleLog, debug } = options
+
+  if (!IS_COMMON_JS) {
+    throw new Error('Running svelte-jester-transformer sync in unsupported ESM mode')
+  }
+
+  if (debug) {
+    console.debug(`Running svelte-jester-transformer sync in mode ${currentFileExtension}.`)
+  }
+
   if (!preprocess) {
     return compiler('cjs', options, filename, source)
   }
