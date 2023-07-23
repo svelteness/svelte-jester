@@ -5,6 +5,10 @@
 Simply precompiles Svelte components before importing them into Jest tests.
 </p>
 
+<p>
+This version requires Jest >= 27 and defaults to ESM, which is required with Svelte 4+. If you're using Svelte 3 and want to use CJS, you need to specify the <strong>full path</strong> for the jest transformer in your jest config.
+</p>
+
 [![version][version-badge]][package]
 [![MIT License][license-badge]][license]
 
@@ -19,9 +23,13 @@ Simply precompiles Svelte components before importing them into Jest tests.
 
 - [Why not just use x?](#why-not-just-use-x)
 - [Installation](#installation)
-  - [Manual install](#manual-install)
-  - [Babel](#babel)
+  - [Manual installation](#manual-installation)
+    - [ESM version](#esm-version)
+    - [CJS (CommonJS) version](#cjs-commonjs-version)
+  - [Babel (only for CJS)](#babel-only-for-cjs)
   - [TypeScript](#typescript)
+    - [ESM version](#esm-version-1)
+    - [CJS version](#cjs-version)
   - [Preprocess](#preprocess)
 - [Options](#options)
   - [CJS mode options](#cjs-mode-options)
@@ -33,35 +41,57 @@ Simply precompiles Svelte components before importing them into Jest tests.
 
 ## Why not just use x?
 
-Seems like other libraries won't working with preprocessors, won't maintained actively or didn't
+Seems like other libraries won't be working with preprocessors, won't be maintained actively or didn't
 have proper licensing.
 
 ## Installation
 
-If you're using SvelteKit, you can setup and install with [svelte-add-jest](https://github.com/rossyman/svelte-add-jest) by running:
+If you're using SvelteKit, you can set it up and install it with [svelte-add-jest](https://github.com/rossyman/svelte-add-jest) by running:
 
 ```
 npx apply rossyman/svelte-add-jest
 ```
 
-### Manual install
+### Manual installation
 
-This library has `peerDependencies` listings for `svelte >= 3`.
+This library has `peerDependencies` listings for `svelte >= 3` and `jest >= 27`.
 
 `npm install svelte-jester -D`
 
-Add the following to your Jest config
+#### ESM version
+
+Add the following to your Jest config:
 
 ```json
 {
   "transform": {
     "^.+\\.svelte$": "svelte-jester"
   },
+  "moduleFileExtensions": ["js", "svelte"],
+  "extensionsToTreatAsEsm": ["svelte"]
+}
+```
+
+Run your tests with `NODE_OPTIONS=--experimental-vm-modules`. For Windows you need to add `cross-env` as well.
+
+```json
+  "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest src",
+```
+
+#### CJS (CommonJS) version
+
+Add the following to your Jest config:
+
+```json
+{
+  "transform": {
+    "^.+\\.svelte$": "svelte-jester/dist/transformer.cjs"
+  },
   "moduleFileExtensions": ["js", "svelte"]
 }
 ```
 
-### Babel
+### Babel (only for CJS)
 
 `npm install @babel/core @babel/preset-env babel-jest -D`
 
@@ -92,15 +122,17 @@ To enable TypeScript support you'll need to setup [`svelte-preprocess`](https://
    npm install typescript svelte-preprocess ts-jest -D
    ```
 
+#### ESM version
+
 1. Create a `svelte.config.js` at the root of your project:
 
    ```js
-   const sveltePreprocess = require("svelte-preprocess");
+  import preprocess from 'svelte-preprocess'
 
-   module.exports = {
-     preprocess: sveltePreprocess({
-       // ...
-     }),
+  /** @type {import('@sveltejs/kit').Config} */
+  export default config = {
+    preprocess: preprocess(),
+    // ...
    };
    ```
 
@@ -122,7 +154,17 @@ To enable TypeScript support you'll need to setup [`svelte-preprocess`](https://
     "js",
     "ts",
     "svelte"
-  ]
+  ],
+  "extensionsToTreatAsEsm": [
+    ".svelte",
+    ".ts"
+  ],
+  "globals": {
+    "ts-jest": {
+      "tsconfig": "tsconfig.spec.json",
+      "useESM": true
+    }
+  },
 ```
 
 However if you do not want to create a `svelte.config.js` at the root of your
@@ -133,6 +175,72 @@ path to the config file to the `preprocess` option thus:
   "transform": {
     "^.+\\.svelte$": [
       "svelte-jester",
+      {
+        "preprocess": "/some/path/to/svelte.config.js"
+      }
+    ],
+    "^.+\\.ts$": "ts-jest"
+  },
+  "moduleFileExtensions": [
+    "js",
+    "ts",
+    "svelte"
+  ],
+  "extensionsToTreatAsEsm": [
+    ".svelte",
+    ".ts"
+  ],
+  "globals": {
+    "ts-jest": {
+      "tsconfig": "tsconfig.spec.json",
+      "useESM": true
+    }
+  },
+```
+
+#### CJS version
+
+1. Create a `svelte.config.js` at the root of your project:
+
+   ```js
+   const sveltePreprocess = require("svelte-preprocess");
+
+   module.exports = {
+     preprocess: sveltePreprocess({
+       // ...
+     }),
+   };
+   ```
+
+   To learn what options you can pass to `sveltePreprocess`, please refer to the [documentation](https://github.com/sveltejs/svelte-preprocess/blob/master/docs/preprocessing.md#typescript).
+
+1. In your Jest config, enable preprocessing for `svelte-jester`, and add `ts-jest` as a transform:
+
+```json
+  "transform": {
+    "^.+\\.svelte$": [
+      "svelte-jester/dist/transformer.cjs",
+      {
+        "preprocess": true
+      }
+    ],
+    "^.+\\.ts$": "ts-jest"
+  },
+  "moduleFileExtensions": [
+    "js",
+    "ts",
+    "svelte"
+  ]
+```
+
+However if you do not want to create a `svelte.config.js` at the root of your
+project or you wish to use a custom config just for tests, you may pass the
+path to the config file to the `preprocess` option thus:
+
+```json
+  "transform": {
+    "^.+\\.svelte$": [
+      "svelte-jester/dist/transformer.cjs",
       {
         "preprocess": "/some/path/to/svelte.config.js"
       }
@@ -155,7 +263,7 @@ To do this, update the file glob above, and follow the instructions in the [ts-j
 
 Preprocessors are loaded from `svelte.config.js` or `svelte.config.cjs`.
 
-Add the following to your Jest config
+Add the following to your Jest config:
 
 ```json
 "transform": {
@@ -163,12 +271,14 @@ Add the following to your Jest config
 }
 ```
 
+For CJS, replace `"svelte-jester"` with `"svelte-jester/dist/transformer.cjs"`.
+
 Create a `svelte.config.js` file and configure it, see
 [svelte-preprocess](https://github.com/kaisermann/svelte-preprocess) for more information.
 
-In CJS mode, `svelte-jester` must start a new a process for each file needing to be preprocessed, which adds a performance overheads.
+In CJS mode, `svelte-jester` must start a new a process for each file needing to be preprocessed, which adds a performance overhead.
 
-In ESM mode, this isn't necessary. You can set `NODE_OPTIONS=--experimental-vm-modules` and `"extensionsToTreatAsEsm": [".svelte"]` to run in ESM mode. However, [mocking support is limited, experimental, and undocumented in ESM mode with `unstable_mockModule`](https://github.com/facebook/jest/issues/10025).
+In ESM mode, this isn't necessary. You can set `NODE_OPTIONS=--experimental-vm-modules` and `"extensionsToTreatAsEsm": [".svelte"]` to run in ESM mode. However, be aware that ESM support in Jest is still experimental as according to their [docs](https://jestjs.io/docs/ecmascript-modules). Follow the development along at https://github.com/facebook/jest/issues/9430.
 
 ## Options
 
@@ -199,7 +309,7 @@ When `upward` is set it will stop at the first config file it finds above the fi
 ```json
 "transform": {
   "^.+\\.js$": "babel-jest",
-  "^.+\\.svelte$": ["svelte-jester", { 
+  "^.+\\.svelte$": ["svelte-jester/dist/transformer.cjs", {
     "preprocess": false,
     "debug": false,
     "compilerOptions": {},

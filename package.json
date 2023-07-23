@@ -2,15 +2,9 @@
   "name": "svelte-jester",
   "version": "2.3.2",
   "description": "A Jest transformer for Svelte - compile your components before importing them into tests",
-  "main": "dist/transformer.cjs",
+  "type": "module",
   "module": "dist/transformer.mjs",
-  "exports": {
-    ".": {
-      "import": "./dist/transformer.mjs",
-      "require": "./dist/transformer.cjs"
-    },
-    "./package.json": "./package.json"
-  },
+  "exports": "./dist/transformer.mjs",
   "type": "module",
   "license": "MIT",
   "author": "Rahim Alwer <rahim_alwer@hotmail.com>",
