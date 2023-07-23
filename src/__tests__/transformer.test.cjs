@@ -1,13 +1,14 @@
-import { jest, expect, describe, it } from '@jest/globals'
-
 const { readFileSync } = require('fs')
 const { resolve } = require('path')
+
 const transformer = require('../../dist/transformer.cjs')
 
 const runTransformer = (filename, options) => {
   const path = require.resolve(`./fixtures/${filename}.svelte`)
   const source = readFileSync(path).toString()
-  const result = transformer.process(source, path, { transformerConfig: options })
+  const result = transformer.process(source, path, {
+    transformerConfig: { svelteVersion: '3', ...options }
+  })
   expect(result.code).toBeDefined()
   expect(result.code).toContain('SvelteComponent')
   expect(result.map).toBeDefined()
