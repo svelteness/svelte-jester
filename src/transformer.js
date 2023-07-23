@@ -1,7 +1,7 @@
 import { execSync } from 'child_process'
 import { basename, extname } from 'path'
 import { pathToFileURL } from 'url'
-import * as svelte from 'svelte/compiler'
+import { compile, preprocess as sveltePreprocess } from 'svelte/compiler'
 
 import { getSvelteConfig } from './svelteconfig.js'
 
@@ -32,7 +32,7 @@ const processAsync = async (source, filename, jestOptions) => {
 
   const svelteConfigPath = getSvelteConfig(rootMode, filename, preprocess)
   const svelteConfig = await dynamicImport(svelteConfigPath)
-  const processed = await svelte.preprocess(
+  const processed = await sveltePreprocess(
     source,
     svelteConfig.default.preprocess || {},
     { filename }
@@ -96,7 +96,7 @@ const compiler = (format, options = {}, filename, processedCode, processedMap) =
 
   let result
   try {
-    result = svelte.compile(processedCode, opts)
+    result = compile(processedCode, opts)
   } catch (error) {
     let msg = error.message
     if (error.frame) {
