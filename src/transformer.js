@@ -43,12 +43,12 @@ const processAsync = async (source, filename, jestOptions) => {
  * However, Jest calls this method in CJS mode.
  */
 const processSync = (source, filename, jestOptions) => {
-  if (!IS_SVELTE_3) {
+  const options = jestOptions && jestOptions.transformerConfig ? jestOptions.transformerConfig : {}
+  const { preprocess, rootMode, maxBuffer, showConsoleLog, debug, svelteVersion = '4' } = options
+
+  if (!isSvelte3(svelteVersion)) {
     throw new Error('Jest is being called in CJS mode. You must use ESM mode in Svelte 4+')
   }
-
-  const options = jestOptions && jestOptions.transformerConfig ? jestOptions.transformerConfig : {}
-  const { preprocess, rootMode, maxBuffer, showConsoleLog, debug } = options
 
   if (!IS_COMMON_JS) {
     throw new Error('Running svelte-jester-transformer sync in unsupported ESM mode')
