@@ -1,7 +1,7 @@
 import { readFileSync } from 'fs'
 import { dirname } from 'path'
 import { fileURLToPath } from 'url'
-import { jest } from '@jest/globals'
+import { jest, expect, describe, it } from '@jest/globals'
 
 import transformer from '../../dist/transformer.mjs'
 

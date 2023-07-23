@@ -1,3 +1,5 @@
+import { jest, expect, describe, it } from '@jest/globals'
+
 const { readFileSync } = require('fs')
 const { resolve } = require('path')
 const transformer = require('../../dist/transformer.cjs')
