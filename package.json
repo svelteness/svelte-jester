@@ -5,7 +5,6 @@
   "type": "module",
   "module": "./dist/transformer.mjs",
   "exports": "./dist/transformer.mjs",
-  "type": "module",
   "license": "MIT",
   "author": "Rahim Alwer <rahim_alwer@hotmail.com>",
   "engines": {
