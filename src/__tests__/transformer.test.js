@@ -1,7 +1,9 @@
 import { readFileSync } from 'fs'
 import { dirname } from 'path'
 import { fileURLToPath } from 'url'
+import { jest } from '@jest/globals'
 
+import { isSvelte3 } from '../utils.js'
 import transformer from '../../dist/transformer.mjs'
 
 // Node API __dirname is missing in ESM
@@ -63,7 +65,7 @@ describe('ESM transformer', () => {
 
   it('should accept compiler options', async () => {
     const code = await runTransformer('BasicComp', {
-      compilerOptions: { css: false }
+      compilerOptions: { css: isSvelte3() ? false : 'external' }
     })
     expect(code).not.toContain('add_css(target)')
     expect(code).not.toContain('.counter.active')
