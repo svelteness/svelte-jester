@@ -4,12 +4,9 @@ import { pathToFileURL } from 'url'
 import { compile, preprocess as sveltePreprocess } from 'svelte/compiler'
 
 import { getSvelteConfig } from './svelteconfig.js'
+import { dynamicImport, IS_COMMON_JS, isSvelte3 } from './utils.js'
 
-const dynamicImport = async (filename) => import(pathToFileURL(filename).toString())
 const currentFileExtension = (global.__dirname !== undefined ? extname(__filename) : extname(pathToFileURL(import.meta.url).toString())).replace('.', '')
-
-const IS_SVELTE_3 = svelte.VERSION.startsWith('3')
-const IS_COMMON_JS = typeof module !== 'undefined'
 
 /**
  * Jest will only call this method when running in ESM mode.
@@ -83,14 +80,14 @@ const processSync = (source, filename, jestOptions) => {
 const compiler = (format, options = {}, filename, processedCode, processedMap) => {
   const opts = {
     filename: basename(filename),
-    css: IS_SVELTE_3 ? true : 'injected',
+    css: isSvelte3(options.svelteVersion) ? true : 'injected',
     accessors: true,
     dev: true,
     sourcemap: processedMap,
     ...options.compilerOptions
   }
 
-  if (IS_SVELTE_3) {
+  if (isSvelte3(options.svelteVersion)) {
     opts.format = format
   }
 
