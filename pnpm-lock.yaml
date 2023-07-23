@@ -153,6 +153,9 @@ importers:
       jest:
         specifier: ^29.6.1
         version: 29.6.1
+      jest-environment-jsdom:
+        specifier: ^29.6.1
+        version: 29.6.1
       svelte:
         specifier: ^3.59.2
         version: 3.59.2
