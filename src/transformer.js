@@ -1,5 +1,5 @@
 import { execSync } from 'child_process'
-import { basename, extname } from 'path'
+import { basename } from 'path'
 import { pathToFileURL } from 'url'
 import * as svelte from 'svelte/compiler'
 
@@ -7,18 +7,12 @@ import { getSvelteConfig } from './svelteconfig.js'
 
 const dynamicImport = async (filename) => import(pathToFileURL(filename).toString())
 
-const currentFileExtension = (global.__dirname !== undefined ? extname(__filename) : extname(pathToFileURL(import.meta.url).toString())).replace('.', '')
-
 /**
  * Jest will only call this method when running in ESM mode.
  */
 const processAsync = async (source, filename, jestOptions) => {
   const options = jestOptions && jestOptions.transformerConfig ? jestOptions.transformerConfig : {}
-  const { preprocess, rootMode, debug } = options
-
-  if (debug) {
-    console.debug(`Running svelte-jester-transformer async in mode ${currentFileExtension}.`)
-  }
+  const { preprocess, rootMode } = options
 
   if (!preprocess) {
     return compiler('esm', options, filename, source)
@@ -41,12 +35,7 @@ const processAsync = async (source, filename, jestOptions) => {
  */
 const processSync = (source, filename, jestOptions) => {
   const options = jestOptions && jestOptions.transformerConfig ? jestOptions.transformerConfig : {}
-  const { preprocess, rootMode, maxBuffer, showConsoleLog, debug } = options
-
-  if (debug) {
-    console.debug(`Running svelte-jester-transformer sync in mode ${currentFileExtension}.`)
-  }
-
+  const { preprocess, rootMode, maxBuffer, showConsoleLog } = options
   if (!preprocess) {
     return compiler('cjs', options, filename, source)
   }
@@ -55,7 +44,7 @@ const processSync = (source, filename, jestOptions) => {
   const preprocessor = require.resolve('./preprocess.js')
 
   const preprocessResult = execSync(
-        `node --experimental-vm-modules --unhandled-rejections=strict --abort-on-uncaught-exception "${preprocessor}"`,
+        `node --unhandled-rejections=strict --abort-on-uncaught-exception "${preprocessor}"`,
         {
           env: { ...process.env, source, filename, svelteConfig, showConsoleLog },
           maxBuffer: maxBuffer || 10 * 1024 * 1024
