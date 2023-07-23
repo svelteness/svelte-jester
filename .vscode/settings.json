@@ -1,7 +1,4 @@
 {
-  // disable builtin validation
-  "javascript.validate.enable": false,
-
   "standard.autoFixOnSave": true,
 
   // SVELTE
