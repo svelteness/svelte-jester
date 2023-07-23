@@ -32,7 +32,7 @@ const processAsync = async (source, filename, jestOptions) => {
 }
 
 /**
- * Starts a new process, so is higher overhead than processAsync.
+ * Starts a new process, so it has a higher overhead than processAsync.
  * However, Jest calls this method in CJS mode.
  */
 const processSync = (source, filename, jestOptions) => {
