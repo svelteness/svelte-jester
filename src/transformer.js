@@ -7,7 +7,7 @@ import { getSvelteConfig } from './svelteconfig.js'
 
 const dynamicImport = async (filename) => import(pathToFileURL(filename).toString())
 
-const SVELTE_3 = svelte.VERSION.startsWith('3')
+const IS_SVELTE_3 = svelte.VERSION.startsWith('3')
 
 /**
  * Jest will only call this method when running in ESM mode.
@@ -36,7 +36,7 @@ const processAsync = async (source, filename, jestOptions) => {
  * However, Jest calls this method in CJS mode.
  */
 const processSync = (source, filename, jestOptions) => {
-  if (!SVELTE_3) {
+  if (!IS_SVELTE_3) {
     throw new Error('Jest is being called in CJS mode. You must use ESM mode in Svelte 4+')
   }
   const options = jestOptions && jestOptions.transformerConfig ? jestOptions.transformerConfig : {}
@@ -63,14 +63,14 @@ const processSync = (source, filename, jestOptions) => {
 const compiler = (format, options = {}, filename, processedCode, processedMap) => {
   const opts = {
     filename: basename(filename),
-    css: SVELTE_3 ? true : 'injected',
+    css: IS_SVELTE_3 ? true : 'injected',
     accessors: true,
     dev: true,
     sourcemap: processedMap,
     ...options.compilerOptions
   }
 
-  if (SVELTE_3) {
+  if (IS_SVELTE_3) {
     opts.format = format
   }
 
