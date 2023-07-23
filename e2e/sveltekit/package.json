@@ -8,7 +8,7 @@
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest src --config jest.config.json",
+		"test": "svelte-kit sync && cross-env NODE_OPTIONS=--experimental-vm-modules jest src --config jest.config.json",
 		"test:watch": "pnpm run test -- --watch"
 	},
 	"devDependencies": {
