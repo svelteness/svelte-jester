@@ -15,16 +15,16 @@
   "license": "MIT",
   "author": "Rahim Alwer <rahim_alwer@hotmail.com>",
   "engines": {
-    "node": ">=14",
+    "node": ">=16",
     "pnpm": "^8.0.0"
   },
-  "homepage": "https://github.com/mihar-22/svelte-jester#readme",
+  "homepage": "https://github.com/svelteness/svelte-jester#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mihar-22/svelte-jester"
+    "url": "https://github.com/svelteness/svelte-jester"
   },
   "bugs": {
-    "url": "https://github.com/mihar-22/svelte-jester/issues"
+    "url": "https://github.com/svelteness/svelte-jester/issues"
   },
   "keywords": [
     "svelte-jester",
@@ -43,20 +43,20 @@
     "build": "rollup -c rollup.config.cjs",
     "toc": "doctoc README.md",
     "lint": "standard --fix --env jest",
-    "test": "pnpm run build && cross-env NODE_OPTIONS=--experimental-vm-modules jest src/__tests__",
-    "e2e": "pnpm run e2e:svelte && pnpm run e2e:sveltekit",
-    "e2e:svelte": "cd e2e/svelte && pnpm install && pnpm run test",
-    "e2e:sveltekit": "cd e2e/sveltekit && pnpm install && pnpm run test",
-    "test:nocache": "pnpm install && jest --clearCache && pnpm run test -- --no-cache",
+    "test": "pnpm build && cross-env NODE_OPTIONS=--experimental-vm-modules jest src/__tests__",
+    "e2e": "pnpm e2e:svelte && pnpm e2e:sveltekit",
+    "e2e:svelte": "cd e2e/svelte && pnpm test",
+    "e2e:sveltekit": "cd e2e/sveltekit && pnpm test",
+    "test:nocache": "pnpm install && jest --clearCache && pnpm test -- --no-cache",
     "test:watch": "pnpm test -- --watch",
     "test:update": "pnpm test -- --updateSnapshot --coverage",
-    "setup": "pnpm install && pnpm run validate",
-    "validate": "pnpm run lint && pnpm run test:nocache",
-    "release": "pnpm run validate && standard-version"
+    "setup": "pnpm install && pnpm validate",
+    "validate": "pnpm lint && pnpm test:nocache",
+    "release": "pnpm validate && standard-version"
   },
   "peerDependencies": {
     "jest": ">= 27",
-    "svelte": ">= 3"
+    "svelte": ">= 3 < 4"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^15.1.0",
@@ -69,14 +69,11 @@
     "rollup": "^3.26.3",
     "rollup-plugin-copy-assets": "^2.0.3",
     "sass": "^1.64.0",
-    "standard": "^16.0.3",
+    "standard": "^17.1.0",
     "standard-version": "^9.5.0",
     "svelte": "^3.59.2",
     "svelte-preprocess": "^5.0.4",
-    "typescript": "^4.0.0"
-  },
-  "volta": {
-    "node": "14.18.3"
+    "typescript": "^5.1.6"
   },
   "packageManager": "pnpm@8.6.5"
 }

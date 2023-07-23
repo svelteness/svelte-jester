@@ -1,40 +1,37 @@
 {
-  "name": "sveltekit",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "svelte-kit dev",
-    "build": "svelte-kit build",
-    "preview": "svelte-kit preview",
-    "check": "svelte-check --tsconfig ./tsconfig.json",
-    "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
-    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest src",
-    "test:watch": "pnpm run test -- --watch"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.14.0",
-    "@babel/preset-env": "^7.14.0",
-    "@sveltejs/kit": "next",
-    "@testing-library/jest-dom": "^5.14.0",
-    "@testing-library/svelte": "^3.0.0",
-    "@types/cookie": "^0.4.0",
-    "@types/jest": "^27.0.0",
-    "@types/testing-library__jest-dom": "^5.14.0",
+	"name": "sveltekit",
+	"version": "0.0.1",
+	"type": "module",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"test": "svelte-kit sync && cross-env NODE_OPTIONS=--experimental-vm-modules jest src --config jest.config.json",
+		"test:watch": "pnpm run test -- --watch"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.14.0",
+		"@babel/preset-env": "^7.14.0",
+		"@fontsource/fira-mono": "^4.5.10",
+		"@neoconfetti/svelte": "^1.0.0",
+		"@sveltejs/adapter-auto": "^2.0.0",
+		"@sveltejs/kit": "^1.20.4",
+		"@testing-library/jest-dom": "^5.14.0",
+		"@testing-library/svelte": "^3.0.0",
+		"@types/cookie": "^0.5.1",
+		"@types/jest": "^27.0.0",
+		"@types/testing-library__jest-dom": "^5.14.0",
     "babel-jest": "^29.6.1",
-    "cross-env": "^7.0.3",
+		"cross-env": "^7.0.3",
     "jest": "^29.6.1",
-    "jest-environment-jsdom": "^29.6.1",
-    "svelte": "^3.49.0",
+		"svelte": "^3.59.2",
     "svelte-check": "^3.4.6",
     "svelte-jester": "workspace:^",
-    "svelte-preprocess": "^5.0.4",
     "ts-jest": "^29.1.1",
     "tslib": "^2.6.0",
-    "typescript": "^4.9.4"
-  },
-  "type": "module",
-  "dependencies": {
-    "@fontsource/fira-mono": "^4.2.2",
-    "@lukeed/uuid": "^2.0.0",
-    "cookie": "^0.4.1"
-  }
+		"typescript": "^4.9.5",
+		"vite": "^4.4.2"
+	}
 }

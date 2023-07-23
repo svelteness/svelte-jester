@@ -33,5 +33,6 @@
       "tsconfig": "tsconfig.spec.json",
       "useESM": true
     }
-  }
+  },
+  "testEnvironment": "jsdom"
 }
