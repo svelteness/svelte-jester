@@ -12,7 +12,7 @@
   "homepage": "https://github.com/svelteness/svelte-jester#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/svelteness/svelte-jester"
+    "url": "git+https://github.com/svelteness/svelte-jester.git"
   },
   "bugs": {
     "url": "https://github.com/svelteness/svelte-jester/issues"
