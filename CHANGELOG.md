@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.3.3](https://github.com/svelteness/svelte-jester/compare/v3.1.0...v2.3.3) (2023-07-24)
+
 ## [3.1.0](https://github.com/svelteness/svelte-jester/compare/v2.3.1...v3.1.0) (2023-07-24)
 
 
