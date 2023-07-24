@@ -287,6 +287,8 @@ They are loaded from `svelte.config.js` or `svelte.config.cjs`.
 
 `debug` (default: false): If you'd like to see the output of the compiled code then pass in `true`.
 
+`svelteVersion` (default: actual Version from Svelte package): If you'd like to override the svelteVersion for some reason.
+
 `compilerOptions` (default: {}): Use this to pass in
 [Svelte compiler options](https://svelte.dev/docs#svelte_compile).
 
