@@ -119,8 +119,8 @@ importers:
         specifier: ^7.14.0
         version: 7.15.6(@babel/core@7.14.0)
       '@fontsource/fira-mono':
-        specifier: ^4.5.10
-        version: 4.5.10
+        specifier: ^5.0.5
+        version: 5.0.5
       '@neoconfetti/svelte':
         specifier: ^1.0.0
         version: 1.0.0
@@ -2555,8 +2555,8 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
-  /@fontsource/fira-mono@4.5.10:
-    resolution: {integrity: sha512-bxUnRP8xptGRo8YXeY073DSpfK74XpSb0ZyRNpHV9WvLnJ7TwPOjZll8hTMin7zLC6iOp59pDZ8EQDj1gzgAQQ==}
+  /@fontsource/fira-mono@5.0.5:
+    resolution: {integrity: sha512-R5HaONNjI8zzZgjATOrtDhhl58U19OslqNOanPpiHqXV8XWKmFqRF1hIekrWemLfpSTK1WO3wyNcFMZMwkKhlA==}
     dev: true
 
   /@humanwhocodes/config-array@0.11.10:
