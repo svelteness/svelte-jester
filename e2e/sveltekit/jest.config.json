@@ -2,7 +2,7 @@
   "transform": {
     "^.+\\.js$": "babel-jest",
     "^.+\\.svelte$": [
-      "../../dist/transformer.mjs",
+      "svelte-jester",
       {
         "preprocess": true
       }
