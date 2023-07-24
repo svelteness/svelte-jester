@@ -2,6 +2,40 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.4.0](https://github.com/svelteness/svelte-jester/compare/v2.3.1...v2.4.0) (2023-07-24)
+
+
+### Features
+
+* add jest globals to standard ([be8c23d](https://github.com/svelteness/svelte-jester/commit/be8c23dcc8466c07dfcc2c82f568169fca13c819))
+* allow svelteVersion to be injected for tests ([5b12cc0](https://github.com/svelteness/svelte-jester/commit/5b12cc0d12d8758e4c49050510c26e7e27ca4852))
+* disallow calling ESM mode from processSync ([d6a381e](https://github.com/svelteness/svelte-jester/commit/d6a381e512415540c5ebd3df7c392a881603dbdd))
+* document option svelteVersion ([210591a](https://github.com/svelteness/svelte-jester/commit/210591a4a3c7aa6a4a2f2a108199359ab608c7ae))
+* extract functions into utils ([ea8b0c3](https://github.com/svelteness/svelte-jester/commit/ea8b0c32757f6b9710535c188bb32752abb45490))
+* remove * import for treeshaking ([d079756](https://github.com/svelteness/svelte-jester/commit/d079756fa8259837d380755628739c63965c2f6d))
+* remove globals ([15c5f5c](https://github.com/svelteness/svelte-jester/commit/15c5f5c06a9bc4113731670542a18cfaac677d34))
+* remove restriction on Svelte3 ([3051249](https://github.com/svelteness/svelte-jester/commit/3051249d16d6ad56f3483ee9ec9a852567348096))
+* run dependabot only on root package.json ([6abfb88](https://github.com/svelteness/svelte-jester/commit/6abfb88bef3945078b5819ed55f624a839e2f8ae))
+* split test call to not use NODE_OPTIONS for CJS ([7493725](https://github.com/svelteness/svelte-jester/commit/749372558562f3ad7f9599889deca0868f5f9dd2))
+* upgrade e2e packages ([1372d0f](https://github.com/svelteness/svelte-jester/commit/1372d0f8033114187987f9a1242561902b64a754))
+* upgrade e2e packages ([5d4d08c](https://github.com/svelteness/svelte-jester/commit/5d4d08c5371463acaa836bbe1761809c66143a53))
+* upgrade svelte to v4 ([227785e](https://github.com/svelteness/svelte-jester/commit/227785e113a96f7da8a1ef47c56c603eb51b814b))
+
+
+### Bug Fixes
+
+* add jest globals ([a047c45](https://github.com/svelteness/svelte-jester/commit/a047c451dcc2262077cfab4b3cd162f4ee7bdce2))
+* add missing jest import ([c88841d](https://github.com/svelteness/svelte-jester/commit/c88841d0ef019faf756e9b84966fcba19761de34))
+* add missing jest-environment ([66bad7b](https://github.com/svelteness/svelte-jester/commit/66bad7b505787c6affee13de88a78b763ac1db50))
+* add missing words to comment ([801162e](https://github.com/svelteness/svelte-jester/commit/801162e36537d9f132cccc33b182d0ff3fe0cac8))
+* enable validation for standardjs ([a028920](https://github.com/svelteness/svelte-jester/commit/a0289205b1a5e32aacc60f64c38461d7837cf7f7))
+* migrate deprecated tsconfig object ([875f27f](https://github.com/svelteness/svelte-jester/commit/875f27f9a033d1db9d8b488e9b36087e79bf1fb9))
+* remove duplicate line ([5cf2ca6](https://github.com/svelteness/svelte-jester/commit/5cf2ca695aa13302022063caa8dc408c54717dc6))
+* rename constant ([9243034](https://github.com/svelteness/svelte-jester/commit/92430340e32c1095ab2bf77f697f0bfe753e7732))
+* revert change from last PR breaking windows ([a4f1341](https://github.com/svelteness/svelte-jester/commit/a4f13418820b7b129c3905937728f1e4fce197f2))
+* use real svelte version as default ([847933e](https://github.com/svelteness/svelte-jester/commit/847933eecca579147b4972b517ad926d2d913715))
+* use same relative path ([6004a96](https://github.com/svelteness/svelte-jester/commit/6004a968087565979ad73eadf85d6b56dc9a30bf))
+
 ### [2.3.2](https://github.com/mihar-22/svelte-jester/compare/v2.3.1...v2.3.2) (2022-02-16)
 
 ### [2.3.1](https://github.com/mihar-22/svelte-jester/compare/v2.3.0...v2.3.1) (2022-02-01)
