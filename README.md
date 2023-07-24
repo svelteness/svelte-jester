@@ -126,15 +126,15 @@ To enable TypeScript support you'll need to setup [`svelte-preprocess`](https://
 
 1. Create a `svelte.config.js` at the root of your project:
 
-   ```js
-  import preprocess from 'svelte-preprocess'
+```js
+import preprocess from 'svelte-preprocess'
 
-  /** @type {import('@sveltejs/kit').Config} */
-  export default config = {
-    preprocess: preprocess(),
-    // ...
-   };
-   ```
+/** @type {import('@sveltejs/kit').Config} */
+export default config = {
+  preprocess: preprocess(),
+  // ...
+};
+```
 
    To learn what options you can pass to `sveltePreprocess`, please refer to the [documentation](https://github.com/sveltejs/svelte-preprocess/blob/master/docs/preprocessing.md#typescript).
 
