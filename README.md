@@ -343,6 +343,6 @@ Thanks to all contributors, inspired by:
 <!-- prettier-ignore-start -->
 [package]: https://www.npmjs.com/package/svelte-jester
 [version-badge]: https://img.shields.io/npm/v/svelte-jester
-[license]: https://github.com/mihar-22/svelte-jester/blob/master/LICENSE
-[license-badge]: https://img.shields.io/github/license/mihar-22/svelte-jester?color=b
+[license]: https://github.com/svelteness/svelte-jester/blob/master/LICENSE
+[license-badge]: https://img.shields.io/github/license/svelteness/svelte-jester?color=b
 <!-- prettier-ignore-end -->
