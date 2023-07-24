@@ -45,7 +45,8 @@
     "test:update": "pnpm test -- --updateSnapshot --coverage",
     "setup": "pnpm install && pnpm validate",
     "validate": "pnpm lint && pnpm test:nocache",
-    "release": "pnpm validate && standard-version"
+    "prerelease": "pnpm validate",
+    "release": "standard-version"
   },
   "peerDependencies": {
     "jest": ">= 27",
