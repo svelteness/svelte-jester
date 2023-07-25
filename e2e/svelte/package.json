@@ -23,7 +23,7 @@
     "rollup-plugin-css-only": "^4.3.0",
     "rollup-plugin-livereload": "^2.0.5",
     "rollup-plugin-svelte": "^7.1.6",
-    "svelte": "^3.59.2",
+    "svelte": "^4.1.1",
     "svelte-jester": "workspace:^",
     "svelte-preprocess": "^5.0.4"
   },
