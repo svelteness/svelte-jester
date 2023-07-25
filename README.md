@@ -68,7 +68,7 @@ Add the following to your Jest config:
     "^.+\\.svelte$": "svelte-jester"
   },
   "moduleFileExtensions": ["js", "svelte"],
-  "extensionsToTreatAsEsm": ["svelte"]
+  "extensionsToTreatAsEsm": [".svelte"]
 }
 ```
 
