@@ -148,7 +148,14 @@ export default config = {
         "preprocess": true
       }
     ],
-    "^.+\\.ts$": "ts-jest"
+    "^.+\\.ts$": [
+      "ts-jest",
+      {
+        "useESM": true
+        // optional: seperate tsconfig for tests
+        //"tsconfig": "tsconfig.spec.json",
+      }
+    ],
   },
   "moduleFileExtensions": [
     "js",
@@ -159,12 +166,6 @@ export default config = {
     ".svelte",
     ".ts"
   ],
-  "globals": {
-    "ts-jest": {
-      "tsconfig": "tsconfig.spec.json",
-      "useESM": true
-    }
-  },
 ```
 
 However if you do not want to create a `svelte.config.js` at the root of your
@@ -179,7 +180,14 @@ path to the config file to the `preprocess` option thus:
         "preprocess": "/some/path/to/svelte.config.js"
       }
     ],
-    "^.+\\.ts$": "ts-jest"
+    "^.+\\.ts$": [
+      "ts-jest",
+      {
+        "useESM": true
+        // optional: seperate tsconfig for tests
+        //"tsconfig": "tsconfig.spec.json",
+      }
+    ],
   },
   "moduleFileExtensions": [
     "js",
@@ -190,12 +198,6 @@ path to the config file to the `preprocess` option thus:
     ".svelte",
     ".ts"
   ],
-  "globals": {
-    "ts-jest": {
-      "tsconfig": "tsconfig.spec.json",
-      "useESM": true
-    }
-  },
 ```
 
 #### CJS version
