@@ -1,6 +1,6 @@
 {
   "name": "svelte-jester",
-  "version": "2.3.2",
+  "version": "3.0.0",
   "description": "A Jest transformer for Svelte - compile your components before importing them into tests",
   "type": "module",
   "exports": "./dist/transformer.mjs",
@@ -12,7 +12,7 @@
   "homepage": "https://github.com/svelteness/svelte-jester#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/svelteness/svelte-jester"
+    "url": "git+https://github.com/svelteness/svelte-jester.git"
   },
   "bugs": {
     "url": "https://github.com/svelteness/svelte-jester/issues"
@@ -45,7 +45,12 @@
     "test:update": "pnpm test -- --updateSnapshot --coverage",
     "setup": "pnpm install && pnpm validate",
     "validate": "pnpm lint && pnpm test:nocache",
-    "release": "pnpm validate && standard-version"
+    "release": "standard-version"
+  },
+  "standard-version": {
+    "scripts": {
+      "prerelease": "pnpm validate"
+    }
   },
   "peerDependencies": {
     "jest": ">= 27",
@@ -69,11 +74,11 @@
   },
   "packageManager": "pnpm@8.6.5",
   "standard": {
-      "globals": [
-          "jest",
-          "it",
-          "expect",
-          "describe"
-      ]
+    "globals": [
+      "jest",
+      "it",
+      "expect",
+      "describe"
+    ]
   }
 }

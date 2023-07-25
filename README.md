@@ -287,6 +287,8 @@ They are loaded from `svelte.config.js` or `svelte.config.cjs`.
 
 `debug` (default: false): If you'd like to see the output of the compiled code then pass in `true`.
 
+`svelteVersion` (default: actual Version from Svelte package): If you'd like to override the svelteVersion for some reason.
+
 `compilerOptions` (default: {}): Use this to pass in
 [Svelte compiler options](https://svelte.dev/docs#svelte_compile).
 
@@ -341,6 +343,6 @@ Thanks to all contributors, inspired by:
 <!-- prettier-ignore-start -->
 [package]: https://www.npmjs.com/package/svelte-jester
 [version-badge]: https://img.shields.io/npm/v/svelte-jester
-[license]: https://github.com/mihar-22/svelte-jester/blob/master/LICENSE
-[license-badge]: https://img.shields.io/github/license/mihar-22/svelte-jester?color=b
+[license]: https://github.com/svelteness/svelte-jester/blob/master/LICENSE
+[license-badge]: https://img.shields.io/github/license/svelteness/svelte-jester?color=b
 <!-- prettier-ignore-end -->
