@@ -136,7 +136,7 @@ export default config = {
 };
 ```
 
-   To learn what options you can pass to `sveltePreprocess`, please refer to the [documentation](https://github.com/sveltejs/svelte-preprocess/blob/master/docs/preprocessing.md#typescript).
+   To learn what options you can pass to `sveltePreprocess`, please refer to the [documentation](https://github.com/sveltejs/svelte-preprocess/blob/main/docs/preprocessing.md#typescript).
 
 1. In your Jest config, enable preprocessing for `svelte-jester`, and add `ts-jest` as a transform:
 
@@ -212,7 +212,7 @@ path to the config file to the `preprocess` option thus:
    };
    ```
 
-   To learn what options you can pass to `sveltePreprocess`, please refer to the [documentation](https://github.com/sveltejs/svelte-preprocess/blob/master/docs/preprocessing.md#typescript).
+   To learn what options you can pass to `sveltePreprocess`, please refer to the [documentation](https://github.com/sveltejs/svelte-preprocess/blob/main/docs/preprocessing.md#typescript).
 
 1. In your Jest config, enable preprocessing for `svelte-jester`, and add `ts-jest` as a transform:
 
@@ -343,6 +343,6 @@ Thanks to all contributors, inspired by:
 <!-- prettier-ignore-start -->
 [package]: https://www.npmjs.com/package/svelte-jester
 [version-badge]: https://img.shields.io/npm/v/svelte-jester
-[license]: https://github.com/svelteness/svelte-jester/blob/master/LICENSE
+[license]: https://github.com/svelteness/svelte-jester/blob/main/LICENSE
 [license-badge]: https://img.shields.io/github/license/svelteness/svelte-jester?color=b
 <!-- prettier-ignore-end -->
