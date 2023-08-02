@@ -4081,8 +4081,8 @@ packages:
       '@types/node': 20.4.2
       jest-get-type: 29.4.3
       jest-matcher-utils: 29.6.1
-      jest-message-util: 29.6.1
-      jest-util: 29.6.1
+      jest-message-util: 29.6.2
+      jest-util: 29.6.2
     dev: true
 
   /expect@29.6.2:
