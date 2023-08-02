@@ -4936,10 +4936,10 @@ packages:
       co: 4.6.0
       dedent: 0.7.0
       is-generator-fn: 2.1.0
-      jest-each: 29.6.1
+      jest-each: 29.6.2
       jest-matcher-utils: 29.6.1
       jest-message-util: 29.6.1
-      jest-runtime: 29.6.1
+      jest-runtime: 29.6.2
       jest-snapshot: 29.6.1
       jest-util: 29.6.1
       p-limit: 3.1.0
@@ -5101,7 +5101,7 @@ packages:
       '@jest/types': 29.6.1
       '@types/jsdom': 20.0.1
       '@types/node': 20.4.2
-      jest-mock: 29.6.1
+      jest-mock: 29.6.2
       jest-util: 29.6.1
       jsdom: 20.0.3
     transitivePeerDependencies:
