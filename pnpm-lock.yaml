@@ -6843,6 +6843,14 @@ packages:
       fsevents: 2.3.2
     dev: true
 
+  /rollup@3.27.0:
+    resolution: {integrity: sha512-aOltLCrYZ0FhJDm7fCqwTjIUEVjWjcydKBV/Zeid6Mn8BWgDCUBBWT5beM5ieForYNo/1ZHuGJdka26kvQ3Gzg==}
+    engines: {node: '>=14.18.0', npm: '>=8.0.0'}
+    hasBin: true
+    optionalDependencies:
+      fsevents: 2.3.2
+    dev: true
+
   /run-parallel@1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
     dependencies:
@@ -7877,7 +7885,7 @@ packages:
     dependencies:
       esbuild: 0.18.15
       postcss: 8.4.26
-      rollup: 3.26.3
+      rollup: 3.27.0
       sass: 1.64.1
     optionalDependencies:
       fsevents: 2.3.2
