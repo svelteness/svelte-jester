@@ -85,7 +85,7 @@ Add the following to your Jest config:
 ```json
 {
   "transform": {
-    "^.+\\.svelte$": "svelte-jester/dist/transformer.cjs"
+    "^.+\\.svelte$": "./node_modules/svelte-jester/dist/transformer.cjs"
   },
   "moduleFileExtensions": ["js", "svelte"]
 }
@@ -126,47 +126,47 @@ To enable TypeScript support you'll need to setup [`svelte-preprocess`](https://
 
 1. Create a `svelte.config.js` at the root of your project:
 
-```js
-import preprocess from 'svelte-preprocess'
+   ```js
+   import preprocess from 'svelte-preprocess'
 
-/** @type {import('@sveltejs/kit').Config} */
-export default config = {
-  preprocess: preprocess(),
-  // ...
-};
-```
+   /** @type {import('@sveltejs/kit').Config} */
+   export default config = {
+     preprocess: preprocess(),
+     // ...
+   };
+   ```
 
    To learn what options you can pass to `sveltePreprocess`, please refer to the [documentation](https://github.com/sveltejs/svelte-preprocess/blob/main/docs/preprocessing.md#typescript).
 
 1. In your Jest config, enable preprocessing for `svelte-jester`, and add `ts-jest` as a transform:
 
-```json
-  "transform": {
-    "^.+\\.svelte$": [
-      "svelte-jester",
-      {
-        "preprocess": true
-      }
-    ],
-    "^.+\\.ts$": [
-      "ts-jest",
-      {
-        "useESM": true
-        // optional: seperate tsconfig for tests
-        //"tsconfig": "tsconfig.spec.json",
-      }
-    ],
-  },
-  "moduleFileExtensions": [
-    "js",
-    "ts",
-    "svelte"
-  ],
-  "extensionsToTreatAsEsm": [
-    ".svelte",
-    ".ts"
-  ],
-```
+   ```json
+   "transform": {
+     "^.+\\.svelte$": [
+       "svelte-jester",
+       {
+         "preprocess": true
+       }
+     ],
+     "^.+\\.ts$": [
+       "ts-jest",
+       {
+         "useESM": true
+         // optional: seperate tsconfig for tests
+         //"tsconfig": "tsconfig.spec.json",
+       }
+     ],
+   },
+   "moduleFileExtensions": [
+     "js",
+     "ts",
+     "svelte"
+   ],
+   "extensionsToTreatAsEsm": [
+     ".svelte",
+     ".ts"
+   ],
+   ```
 
 However if you do not want to create a `svelte.config.js` at the root of your
 project or you wish to use a custom config just for tests, you may pass the
@@ -218,22 +218,22 @@ path to the config file to the `preprocess` option thus:
 
 1. In your Jest config, enable preprocessing for `svelte-jester`, and add `ts-jest` as a transform:
 
-```json
-  "transform": {
-    "^.+\\.svelte$": [
-      "svelte-jester/dist/transformer.cjs",
-      {
-        "preprocess": true
-      }
-    ],
-    "^.+\\.ts$": "ts-jest"
-  },
-  "moduleFileExtensions": [
-    "js",
-    "ts",
-    "svelte"
-  ]
-```
+   ```json
+   "transform": {
+     "^.+\\.svelte$": [
+       "./node_modules/svelte-jester/dist/transformer.cjs",
+       {
+         "preprocess": true
+       }
+     ],
+     "^.+\\.ts$": "ts-jest"
+   },
+   "moduleFileExtensions": [
+     "js",
+     "ts",
+     "svelte"
+   ]
+   ```
 
 However if you do not want to create a `svelte.config.js` at the root of your
 project or you wish to use a custom config just for tests, you may pass the
@@ -242,7 +242,7 @@ path to the config file to the `preprocess` option thus:
 ```json
   "transform": {
     "^.+\\.svelte$": [
-      "svelte-jester/dist/transformer.cjs",
+      "./node_modules/svelte-jester/dist/transformer.cjs",
       {
         "preprocess": "/some/path/to/svelte.config.js"
       }
@@ -273,7 +273,7 @@ Add the following to your Jest config:
 }
 ```
 
-For CJS, replace `"svelte-jester"` with `"svelte-jester/dist/transformer.cjs"`.
+For CJS, replace `"svelte-jester"` with `"./node_modules/svelte-jester/dist/transformer.cjs"`.
 
 Create a `svelte.config.js` file and configure it, see
 [svelte-preprocess](https://github.com/kaisermann/svelte-preprocess) for more information.
@@ -313,7 +313,7 @@ When `upward` is set it will stop at the first config file it finds above the fi
 ```json
 "transform": {
   "^.+\\.js$": "babel-jest",
-  "^.+\\.svelte$": ["svelte-jester/dist/transformer.cjs", {
+  "^.+\\.svelte$": ["./node_modules/svelte-jester/dist/transformer.cjs", {
     "preprocess": false,
     "debug": false,
     "compilerOptions": {},
