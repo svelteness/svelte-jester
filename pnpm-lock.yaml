@@ -77,8 +77,8 @@ importers:
         specifier: ^5.17.0
         version: 5.17.0
       '@testing-library/svelte':
-        specifier: ^3.2.2
-        version: 3.2.2(svelte@3.59.2)
+        specifier: ^4.0.3
+        version: 4.0.3(svelte@3.59.2)
       babel-jest:
         specifier: ^29.6.1
         version: 29.6.1(@babel/core@7.22.10)
@@ -3299,20 +3299,6 @@ packages:
       - supports-color
     dev: true
 
-  /@testing-library/dom@8.20.1:
-    resolution: {integrity: sha512-/DiOQ5xBxgdYRC8LNk7U+RWat0S3qRLeIw3ZIkMQ9kkVlRmwD/Eg8k8CqIpD6GW7u20JIUOfMKbxtiLutpjQ4g==}
-    engines: {node: '>=12'}
-    dependencies:
-      '@babel/code-frame': 7.22.10
-      '@babel/runtime': 7.22.6
-      '@types/aria-query': 5.0.1
-      aria-query: 5.1.3
-      chalk: 4.1.2
-      dom-accessibility-api: 0.5.16
-      lz-string: 1.5.0
-      pretty-format: 27.5.1
-    dev: true
-
   /@testing-library/dom@9.3.1:
     resolution: {integrity: sha512-0DGPd9AR3+iDTjGoMpxIkAsUihHZ3Ai6CneU6bRRrffXMgzCdlNk43jTrD2/5LT6CBb3MWTP8v510JzYtahD2w==}
     engines: {node: '>=14'}
@@ -3342,13 +3328,13 @@ packages:
       redent: 3.0.0
     dev: true
 
-  /@testing-library/svelte@3.2.2(svelte@3.59.2):
-    resolution: {integrity: sha512-IKwZgqbekC3LpoRhSwhd0JswRGxKdAGkf39UiDXTywK61YyLXbCYoR831e/UUC6EeNW4hiHPY+2WuovxOgI5sw==}
+  /@testing-library/svelte@4.0.3(svelte@3.59.2):
+    resolution: {integrity: sha512-GldAnyGEOn5gMwME+hLVQrnfuKZFB+it5YOMnRBHX+nqeHMsSa18HeqkdvGqtqLpvn81xV7R7EYFb500ngUfXA==}
     engines: {node: '>= 10'}
     peerDependencies:
-      svelte: 3.x
+      svelte: ^3 || ^4
     dependencies:
-      '@testing-library/dom': 8.20.1
+      '@testing-library/dom': 9.3.1
       svelte: 3.59.2
     dev: true
 
