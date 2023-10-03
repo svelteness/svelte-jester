@@ -8153,8 +8153,8 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /rollup@3.28.0:
-    resolution: {integrity: sha512-d7zhvo1OUY2SXSM6pfNjgD5+d0Nz87CUp4mt8l/GgVP3oBsPwzNvSzyu1me6BSG9JIgWNTVcafIXBIyM8yQ3yw==}
+  /rollup@3.29.4:
+    resolution: {integrity: sha512-oWzmBZwvYrU0iJHtDmhsm662rC15FRXmcjCk1xD771dFDx5jJ02ufAQQTn0etB2emNk4J9EZg/yWKpsn9BWGRw==}
     engines: {node: '>=14.18.0', npm: '>=8.0.0'}
     hasBin: true
     optionalDependencies:
@@ -9208,7 +9208,7 @@ packages:
     dependencies:
       esbuild: 0.18.15
       postcss: 8.4.26
-      rollup: 3.28.0
+      rollup: 3.29.4
       sass: 1.66.1
     optionalDependencies:
       fsevents: 2.3.2
@@ -9244,7 +9244,7 @@ packages:
     dependencies:
       esbuild: 0.18.15
       postcss: 8.4.27
-      rollup: 3.28.0
+      rollup: 3.29.4
       sass: 1.66.1
     optionalDependencies:
       fsevents: 2.3.2
