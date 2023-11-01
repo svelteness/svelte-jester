@@ -17,7 +17,7 @@ importers:
         version: 15.1.0(rollup@3.26.3)
       '@sveltejs/adapter-static':
         specifier: ^2.0.2
-        version: 2.0.3(@sveltejs/kit@1.27.0)
+        version: 2.0.3(@sveltejs/kit@1.27.2)
       '@types/jest':
         specifier: ^29.5.3
         version: 29.5.3
@@ -3285,12 +3285,12 @@ packages:
       import-meta-resolve: 3.0.0
     dev: true
 
-  /@sveltejs/adapter-static@2.0.3(@sveltejs/kit@1.27.0):
+  /@sveltejs/adapter-static@2.0.3(@sveltejs/kit@1.27.2):
     resolution: {integrity: sha512-VUqTfXsxYGugCpMqQv1U0LIdbR3S5nBkMMDmpjGVJyM6Q2jHVMFtdWJCkeHMySc6mZxJ+0eZK3T7IgmUCDrcUQ==}
     peerDependencies:
       '@sveltejs/kit': ^1.5.0
     dependencies:
-      '@sveltejs/kit': 1.27.0(svelte@3.59.2)(vite@4.5.0)
+      '@sveltejs/kit': 1.27.2(svelte@3.59.2)(vite@4.5.0)
     dev: true
 
   /@sveltejs/kit@1.22.3(svelte@4.1.1)(vite@4.4.7):
@@ -3320,8 +3320,8 @@ packages:
       - supports-color
     dev: true
 
-  /@sveltejs/kit@1.27.0(svelte@3.59.2)(vite@4.5.0):
-    resolution: {integrity: sha512-a1wPIq2uO3RsTmV+KbA4venOgCJDbfHTXFe+g7eJR3N8l46DSuulUONJ1qnk2EnZWYC1Uj3Wbp3US0WFocIzXg==}
+  /@sveltejs/kit@1.27.2(svelte@3.59.2)(vite@4.5.0):
+    resolution: {integrity: sha512-2w2VbPpK8DI3QCSVa2UNAv5sKNks1LT8GsEdpk41ffOyO2znGx2ZwcRWacsqlvh3d9lncZuDdANvCbTbuKvy3Q==}
     engines: {node: ^16.14 || >=18}
     hasBin: true
     requiresBuild: true
