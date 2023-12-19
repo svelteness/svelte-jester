@@ -58,7 +58,7 @@
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^15.1.0",
-    "@sveltejs/adapter-static": "^2.0.2",
+    "@sveltejs/adapter-static": "^3.0.0",
     "@types/jest": "^29.5.3",
     "cross-env": "^7.0.3",
     "doctoc": "^2.2.1",
