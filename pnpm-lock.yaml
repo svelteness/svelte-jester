@@ -402,8 +402,8 @@ packages:
       semver: 6.3.1
     dev: true
 
-  /@babel/helper-define-polyfill-provider@0.4.3(@babel/core@7.22.9):
-    resolution: {integrity: sha512-WBrLmuPP47n7PNwsZ57pqam6G/RGo1vw/87b0Blc53tZNGZ4x7YvZ6HgQe2vo1W/FR20OgjeZuGXzudPiXHFug==}
+  /@babel/helper-define-polyfill-provider@0.4.4(@babel/core@7.22.9):
+    resolution: {integrity: sha512-QcJMILQCu2jm5TFPGA3lCpJJTeEP+mqeXooG/NZbg/h5FTFi6V0+99ahlRsW8/kRLyb24LZVCCiclDedhLKcBA==}
     peerDependencies:
       '@babel/core': ^7.4.0 || ^8.0.0-0 <8.0.0
     dependencies:
@@ -417,8 +417,8 @@ packages:
       - supports-color
     dev: true
 
-  /@babel/helper-define-polyfill-provider@0.4.3(@babel/core@7.23.6):
-    resolution: {integrity: sha512-WBrLmuPP47n7PNwsZ57pqam6G/RGo1vw/87b0Blc53tZNGZ4x7YvZ6HgQe2vo1W/FR20OgjeZuGXzudPiXHFug==}
+  /@babel/helper-define-polyfill-provider@0.4.4(@babel/core@7.23.6):
+    resolution: {integrity: sha512-QcJMILQCu2jm5TFPGA3lCpJJTeEP+mqeXooG/NZbg/h5FTFi6V0+99ahlRsW8/kRLyb24LZVCCiclDedhLKcBA==}
     peerDependencies:
       '@babel/core': ^7.4.0 || ^8.0.0-0 <8.0.0
     dependencies:
@@ -4029,7 +4029,7 @@ packages:
     dependencies:
       '@babel/compat-data': 7.23.5
       '@babel/core': 7.22.9
-      '@babel/helper-define-polyfill-provider': 0.4.3(@babel/core@7.22.9)
+      '@babel/helper-define-polyfill-provider': 0.4.4(@babel/core@7.22.9)
       semver: 6.3.1
     transitivePeerDependencies:
       - supports-color
@@ -4042,7 +4042,7 @@ packages:
     dependencies:
       '@babel/compat-data': 7.23.5
       '@babel/core': 7.23.6
-      '@babel/helper-define-polyfill-provider': 0.4.3(@babel/core@7.23.6)
+      '@babel/helper-define-polyfill-provider': 0.4.4(@babel/core@7.23.6)
       semver: 6.3.1
     transitivePeerDependencies:
       - supports-color
@@ -4054,7 +4054,7 @@ packages:
       '@babel/core': ^7.4.0 || ^8.0.0-0 <8.0.0
     dependencies:
       '@babel/core': 7.22.9
-      '@babel/helper-define-polyfill-provider': 0.4.3(@babel/core@7.22.9)
+      '@babel/helper-define-polyfill-provider': 0.4.4(@babel/core@7.22.9)
       core-js-compat: 3.33.2
     transitivePeerDependencies:
       - supports-color
@@ -4066,7 +4066,7 @@ packages:
       '@babel/core': ^7.4.0 || ^8.0.0-0 <8.0.0
     dependencies:
       '@babel/core': 7.23.6
-      '@babel/helper-define-polyfill-provider': 0.4.3(@babel/core@7.23.6)
+      '@babel/helper-define-polyfill-provider': 0.4.4(@babel/core@7.23.6)
       core-js-compat: 3.33.2
     transitivePeerDependencies:
       - supports-color
@@ -4078,7 +4078,7 @@ packages:
       '@babel/core': ^7.4.0 || ^8.0.0-0 <8.0.0
     dependencies:
       '@babel/core': 7.22.9
-      '@babel/helper-define-polyfill-provider': 0.4.3(@babel/core@7.22.9)
+      '@babel/helper-define-polyfill-provider': 0.4.4(@babel/core@7.22.9)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -4089,7 +4089,7 @@ packages:
       '@babel/core': ^7.4.0 || ^8.0.0-0 <8.0.0
     dependencies:
       '@babel/core': 7.23.6
-      '@babel/helper-define-polyfill-provider': 0.4.3(@babel/core@7.23.6)
+      '@babel/helper-define-polyfill-provider': 0.4.4(@babel/core@7.23.6)
     transitivePeerDependencies:
       - supports-color
     dev: true
