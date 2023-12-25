@@ -16,7 +16,7 @@
 		"@babel/preset-env": "^7.22.9",
 		"@fontsource/fira-mono": "^5.0.5",
 		"@neoconfetti/svelte": "^2.0.0",
-		"@sveltejs/adapter-auto": "^2.1.0",
+		"@sveltejs/adapter-auto": "^3.0.1",
 		"@sveltejs/kit": "^1.22.3",
 		"@testing-library/jest-dom": "^5.17.0",
 		"@testing-library/svelte": "^4.0.3",
