@@ -81,3 +81,17 @@ test('should show the proper label', () => {
 npm run test
 ```
 
+## Svelte 5 (ESM)
+
+A minimal Svelte 5 test to ensure Svelte 5 components and `.svelte.js` modules work with Jest.
+
+### Bootstrapping the project
+
+No special steps were taken to create this suite. It only contains a few components and their associated tests.
+
+### Run the tests
+
+```shell
+pnpm build
+pnpm e2e:svelte-5
+```
