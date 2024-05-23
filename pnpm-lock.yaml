@@ -119,11 +119,11 @@ importers:
         specifier: ^29.7.0
         version: 29.7.0
       svelte:
-        specifier: ^5.0.0-next.136
-        version: 5.0.0-next.136
+        specifier: ^5.0.0-next.139
+        version: 5.0.0-next.139
       svelte-jester:
         specifier: workspace:*
-        version: file:(jest@29.7.0)(svelte@5.0.0-next.136)
+        version: file:(jest@29.7.0)(svelte@5.0.0-next.139)
     dependenciesMeta:
       svelte-jester:
         injected: true
@@ -4107,16 +4107,16 @@ packages:
   /acorn-globals@7.0.1:
     resolution: {integrity: sha512-umOSDSDrfHbTNPuNpC2NSnnA3LUrqpevPb4T9jRx4MagXNS0rs+gwiTcAvqCRmsD6utzsrzNt+ebm00SNWiC3Q==}
     dependencies:
-      acorn: 8.10.0
+      acorn: 8.11.3
       acorn-walk: 8.2.0
     dev: true
 
-  /acorn-jsx@5.3.2(acorn@8.10.0):
+  /acorn-jsx@5.3.2(acorn@8.11.3):
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
     peerDependencies:
       acorn: ^6.0.0 || ^7.0.0 || ^8.0.0
     dependencies:
-      acorn: 8.10.0
+      acorn: 8.11.3
     dev: true
 
   /acorn-typescript@1.4.13(acorn@8.11.3):
@@ -4760,7 +4760,7 @@ packages:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.4.15
       '@types/estree': 1.0.5
-      acorn: 8.10.0
+      acorn: 8.11.3
       estree-walker: 3.0.3
       periscopic: 3.1.0
     dev: true
@@ -5778,8 +5778,8 @@ packages:
     resolution: {integrity: sha512-oruZaFkjorTpF32kDSI5/75ViwGeZginGGy2NoOSg3Q9bnwlnmDm4HLnkl0RE3n+njDXR037aY1+x58Z/zFdwQ==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dependencies:
-      acorn: 8.10.0
-      acorn-jsx: 5.3.2(acorn@8.10.0)
+      acorn: 8.11.3
+      acorn-jsx: 5.3.2(acorn@8.11.3)
       eslint-visitor-keys: 3.4.1
     dev: true
 
@@ -8113,7 +8113,7 @@ packages:
     dependencies:
       '@types/estree': 1.0.5
       estree-walker: 3.0.3
-      is-reference: 3.0.1
+      is-reference: 3.0.2
     dev: true
 
   /picocolors@1.0.0:
@@ -9199,8 +9199,8 @@ packages:
       periscopic: 3.1.0
     dev: true
 
-  /svelte@5.0.0-next.136:
-    resolution: {integrity: sha512-M3jHAIfWZ7K+hjZdvu2p53ZtWE843yubxJfjxeQw9XiwMYG5z6quCA5u8r23GrxAp20JBl36B6ucbZvLUf0Z/g==}
+  /svelte@5.0.0-next.139:
+    resolution: {integrity: sha512-g9u7sQjIFdmacxMstZyq1z8jh+CYJjqJzTJ111jFjW4znUKsKmv7Gd2Lwq5n+t6/VxF/HnZ3+/7i6yAEZ2Bg9g==}
     engines: {node: '>=18'}
     dependencies:
       '@ampproject/remapping': 2.2.1
@@ -9935,7 +9935,7 @@ packages:
     resolution: {integrity: sha512-V50KMwwzqJV0NpZIZFwfOD5/lyny3WlSzRiXgA0G7VUnRlqttta1L6UQIHzd6EuBY/cHGfwTIck7w1yH6Q5zUw==}
     dev: true
 
-  file:(jest@29.7.0)(svelte@5.0.0-next.136):
+  file:(jest@29.7.0)(svelte@5.0.0-next.139):
     resolution: {directory: '', type: directory}
     id: 'file:'
     name: svelte-jester
@@ -9945,5 +9945,5 @@ packages:
       svelte: '>= 3'
     dependencies:
       jest: 29.7.0
-      svelte: 5.0.0-next.136
+      svelte: 5.0.0-next.139
     dev: true
