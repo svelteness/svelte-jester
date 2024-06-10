@@ -7,9 +7,9 @@ export const IS_COMMON_JS = typeof module !== 'undefined'
 
 export const isSvelte3 = (version = SvelteCompiler.VERSION) => version.startsWith('3')
 
-export const DEFAULT_SVELTE_MODULE_INFIX = ['.svelte.']
+const DEFAULT_SVELTE_MODULE_INFIX = ['.svelte.']
 
-export const DEFAULT_SVELTE_MODULE_EXT = ['.js', '.ts']
+const DEFAULT_SVELTE_MODULE_EXT = ['.js', '.ts']
 
 export const isSvelteModule = (filename) =>
   typeof SvelteCompiler.compileModule === 'function' &&
