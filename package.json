@@ -79,7 +79,8 @@
       "jest",
       "it",
       "expect",
-      "describe"
+      "describe",
+      "$state"
     ]
   }
 }
