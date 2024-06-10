@@ -1,4 +1,3 @@
-import { test, afterEach } from '@jest/globals'
 import { mount, unmount, tick } from 'svelte'
 
 import Subject from './legacy.svelte'
@@ -18,7 +17,7 @@ test('render', () => {
 
   const button = document.querySelector('button')
 
-  expect(button).toBeInstanceOf(HTMLButtonElement)
+  expect(button).toHaveRole('button')
 })
 
 test('interaction', async () => {
