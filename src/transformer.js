@@ -1,10 +1,10 @@
 import { execSync } from 'child_process'
 import { basename, extname } from 'path'
 import { pathToFileURL } from 'url'
-import { compile, preprocess as sveltePreprocess } from 'svelte/compiler'
+import * as SvelteCompiler from 'svelte/compiler'
 
 import { getSvelteConfig } from './svelteconfig.js'
-import { dynamicImport, IS_COMMON_JS, isSvelte3 } from './utils.js'
+import { dynamicImport, IS_COMMON_JS, isSvelte3, isSvelteModule } from './utils.js'
 
 const currentFileExtension = (global.__dirname !== undefined ? extname(__filename) : extname(pathToFileURL(import.meta.url).toString())).replace('.', '')
 
@@ -29,7 +29,7 @@ const processAsync = async (source, filename, jestOptions) => {
 
   const svelteConfigPath = getSvelteConfig(rootMode, filename, preprocess)
   const svelteConfig = await dynamicImport(svelteConfigPath)
-  const processed = await sveltePreprocess(
+  const processed = await SvelteCompiler.preprocess(
     source,
     svelteConfig.default.preprocess || {},
     { filename }
@@ -91,6 +91,8 @@ const compiler = (format, options = {}, filename, processedCode, processedMap) =
     opts.format = format
   }
 
+  const compile = isSvelteModule(filename) ? compileModule : compileComponent
+
   let result
   try {
     result = compile(processedCode, opts)
@@ -113,6 +115,18 @@ const compiler = (format, options = {}, filename, processedCode, processedMap) =
     code: result.js.code + esInterop,
     map: JSON.stringify(result.js.map)
   }
+}
+
+const compileComponent = (processedCode, opts) => {
+  return SvelteCompiler.compile(processedCode, opts)
+}
+
+const compileModule = (processedCode, opts) => {
+  return SvelteCompiler.compileModule(processedCode, {
+    filename: opts.filename,
+    dev: opts.dev,
+    generate: opts.ssr ? 'server' : 'client'
+  })
 }
 
 export default {
