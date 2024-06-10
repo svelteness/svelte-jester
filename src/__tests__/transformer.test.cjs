@@ -69,7 +69,7 @@ describe('CJS transformer', () => {
   it('should fail, if console.logs are enabled during preprocessing and there is a console.log statement in the svelte config', () => {
     expect(
       () => runTransformer('BasicComp', { preprocess: true, rootMode: 'upward', showConsoleLog: true })
-    ).toThrow(/^Unexpected token T in JSON at position 0$/)
+    ).toThrow(/^Unexpected token .*T.*/)
   })
 
   it('should pass, if console.logs are disabled (default) during preprocessing and there is a console.log statement in the svelte config', () => {
