@@ -1,38 +1,38 @@
-import { test, afterEach } from "@jest/globals";
-import { mount, unmount, tick } from "svelte";
+import { test, afterEach } from '@jest/globals'
+import { mount, unmount, tick } from 'svelte'
 
-import Subject from "./modern.svelte";
+import Subject from './modern.svelte'
 
-let component;
+let component
 
 afterEach(() => {
-  unmount(component);
-  component = undefined;
-});
+  unmount(component)
+  component = undefined
+})
 
-test("render", () => {
+test('render', () => {
   component = mount(Subject, {
     target: document.body,
-    props: { name: "alice" },
-  });
+    props: { name: 'alice' }
+  })
 
-  const button = document.querySelector("button");
+  const button = document.querySelector('button')
 
-  expect(button).toBeInstanceOf(HTMLButtonElement);
-});
+  expect(button).toBeInstanceOf(HTMLButtonElement)
+})
 
-test("interaction", async () => {
+test('interaction', async () => {
   component = mount(Subject, {
     target: document.body,
-    props: { name: "alice" },
-  });
+    props: { name: 'alice' }
+  })
 
-  const button = document.querySelector("button");
+  const button = document.querySelector('button')
 
-  button.click();
-  await tick();
+  button.click()
+  await tick()
 
-  const message = document.querySelector("p");
+  const message = document.querySelector('p')
 
-  expect(message.textContent).toMatch(/hello alice/iu);
-});
+  expect(message.textContent).toMatch(/hello alice/iu)
+})

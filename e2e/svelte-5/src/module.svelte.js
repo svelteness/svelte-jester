@@ -1,13 +1,13 @@
 export const createCounter = () => {
-  let count = $state(0);
+  let count = $state(0)
 
   return {
-    get count() {
-      return count;
+    get count () {
+      return count
     },
 
-    increment() {
-      count = count + 1;
-    },
-  };
-};
+    increment () {
+      count = count + 1
+    }
+  }
+}
