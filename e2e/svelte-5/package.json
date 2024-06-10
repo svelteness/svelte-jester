@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "pnpm install && NODE_OPTIONS=\"--experimental-vm-modules --no-warnings\" jest --coverage",
+    "test": "pnpm install && NODE_OPTIONS=\"--experimental-vm-modules --no-warnings\" jest --coverage --no-cache",
     "test:watch": "pnpm run test --watch"
   },
   "devDependencies": {
