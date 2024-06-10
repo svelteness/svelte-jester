@@ -14,4 +14,4 @@ export const DEFAULT_SVELTE_MODULE_EXT = ['.js', '.ts']
 export const isSvelteModule = (filename) =>
   typeof SvelteCompiler.compileModule === 'function' &&
   DEFAULT_SVELTE_MODULE_INFIX.some((infix) => filename.includes(infix)) &&
-  DEFAULT_SVELTE_MODULE_EXT.some((ext) => filename.endsWith(ext));
+  DEFAULT_SVELTE_MODULE_EXT.some((ext) => filename.endsWith(ext))

@@ -92,7 +92,7 @@ const compiler = (format, options = {}, filename, processedCode, processedMap) =
   }
 
   const compile = isSvelteModule(filename) ? compileModule : compileComponent
-  
+
   let result
   try {
     result = compile(processedCode, opts)
@@ -125,7 +125,7 @@ const compileModule = (processedCode, opts) => {
   return SvelteCompiler.compileModule(processedCode, {
     filename: opts.filename,
     dev: opts.dev,
-    generate: opts.ssr ? 'server' : 'client',
+    generate: opts.ssr ? 'server' : 'client'
   })
 }
 
