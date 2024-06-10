@@ -37,14 +37,15 @@
     "test": "pnpm test:esm && pnpm test:cjs",
     "test:esm": "pnpm build && cross-env NODE_OPTIONS=--experimental-vm-modules jest src/__tests__/transformer.test.js",
     "test:cjs": "pnpm build && jest src/__tests__/transformer.test.cjs",
-    "e2e": "pnpm e2e:svelte && pnpm e2e:sveltekit",
+    "e2e": "pnpm e2e:svelte && pnpm e2e:sveltekit && pnpm e2e:svelte-5",
     "e2e:svelte": "cd e2e/svelte && pnpm test",
     "e2e:sveltekit": "cd e2e/sveltekit && pnpm test",
+    "e2e:svelte-5": "cd e2e/svelte-5 && pnpm test",
     "test:nocache": "pnpm install && jest --clearCache && pnpm test -- --no-cache",
     "test:watch": "pnpm test -- --watch",
     "test:update": "pnpm test -- --updateSnapshot --coverage",
     "setup": "pnpm install && pnpm validate",
-    "validate": "pnpm lint && pnpm test:nocache",
+    "validate": "pnpm lint && pnpm test:nocache && pnpm e2e",
     "release": "standard-version"
   },
   "standard-version": {
@@ -78,7 +79,8 @@
       "jest",
       "it",
       "expect",
-      "describe"
+      "describe",
+      "$state"
     ]
   }
 }
