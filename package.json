@@ -45,7 +45,7 @@
     "test:watch": "pnpm test -- --watch",
     "test:update": "pnpm test -- --updateSnapshot --coverage",
     "setup": "pnpm install && pnpm validate",
-    "validate": "pnpm lint && pnpm test:nocache",
+    "validate": "pnpm lint && pnpm test:nocache && pnpm e2e",
     "release": "standard-version"
   },
   "standard-version": {
