@@ -2,6 +2,48 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.1.0](https://github.com/svelteness/svelte-jester/compare/v3.0.0...v5.1.0) (2024-06-14)
+
+
+### Features
+
+* add $state rune to globals ([586a6d8](https://github.com/svelteness/svelte-jester/commit/586a6d84948cfb43ffd76264bcb4310a580f7d6f))
+* add coverage ([e6679d0](https://github.com/svelteness/svelte-jester/commit/e6679d0931fe7102a4f9f8c5a8917bdae27e7dcc))
+* add e2e test for svelte 4 ([80941b6](https://github.com/svelteness/svelte-jester/commit/80941b64e4a3ac9dfb6d49612e879660936929fe))
+* add jest-dom ([5f1d5f5](https://github.com/svelteness/svelte-jester/commit/5f1d5f53eb2a34ae21d8f3a367ae0973568f9d48))
+* add RELEASE documentation ([c69d0e9](https://github.com/svelteness/svelte-jester/commit/c69d0e9dc3c7069005c539892ccd2f9e4abed049))
+* add svelte4 test project ([d9f4f2c](https://github.com/svelteness/svelte-jester/commit/d9f4f2cc0977f893d0ec0775b6628158c48325a6))
+* add test case ([109a0b4](https://github.com/svelteness/svelte-jester/commit/109a0b414cdefa642be89db3ea111ef58fc695fc))
+* add test dependencies ([08f2821](https://github.com/svelteness/svelte-jester/commit/08f282150c654cc4f099f421cf161e4fbd4245ce))
+* add test dependencies, setup and scripts ([71076e5](https://github.com/svelteness/svelte-jester/commit/71076e559d18e5ee2a8fd1c7e55cf263d4cea06d))
+* enable import ([f9a947d](https://github.com/svelteness/svelte-jester/commit/f9a947d18255ef4cbe36239e936f705908d32cc2))
+* lock version to 3 ([c9839cd](https://github.com/svelteness/svelte-jester/commit/c9839cde1572480385026b975564a0fc137c1d0b))
+* rename svelte test folder to svelte-3 ([25709ca](https://github.com/svelteness/svelte-jester/commit/25709ca9553b6ef61e3bd4457d5c1772ca0bf2ad))
+* replace cross-env with pnpm shell emulation ([25afa84](https://github.com/svelteness/svelte-jester/commit/25afa847d1d9fb1dd8554fde64a1196f099db634))
+* run e2e tests during validation ([9a1cb23](https://github.com/svelteness/svelte-jester/commit/9a1cb2366211e3f8a006029dcf1aa5cb95c133ca))
+* set version to 5.0.0 ([44d54c0](https://github.com/svelteness/svelte-jester/commit/44d54c07985ab7707e7d4528ad83694e44757732))
+* **svelte5:** add support for Svelte 5 modules ([ed57c66](https://github.com/svelteness/svelte-jester/commit/ed57c66bb5d7cdeff838ef08a91c730b528e7dfd))
+* test only supported engines ([3f77257](https://github.com/svelteness/svelte-jester/commit/3f77257ccd4fcc73aa6c760d66f38a6bbbe825f8))
+
+
+### Bug Fixes
+
+* add npmrc with shell emulation for all e2e folders ([fc3f525](https://github.com/svelteness/svelte-jester/commit/fc3f525768d92b1e8d13b0182ed90bccdf91d35b))
+* add option no-cache ([1248b36](https://github.com/svelteness/svelte-jester/commit/1248b3678118251ff03f46331bc994162d2e3966))
+* bring back cross-env ([759d4cb](https://github.com/svelteness/svelte-jester/commit/759d4cb888edf958dc7be7603ed6700cd891898e))
+* enable tests ([8356e0f](https://github.com/svelteness/svelte-jester/commit/8356e0fe6b254919e52c287ecb7d8900f89d11fb))
+* fix merge lockfile ([17caa9a](https://github.com/svelteness/svelte-jester/commit/17caa9a6bff3d2ea8034facf435fa8c483bc9d50))
+* formatting ([d28dfb8](https://github.com/svelteness/svelte-jester/commit/d28dfb881cb29d8591c748be85a4fdacb8adf152))
+* let tests complete on node 16 - 22 ([a9b21e1](https://github.com/svelteness/svelte-jester/commit/a9b21e12d97e5a11d0c0085d82345a9cb8e7b6ef))
+* pass linter ([2f89077](https://github.com/svelteness/svelte-jester/commit/2f89077f2748a499714f01e2d797df17b4f6419e))
+* pnpm handles argument passing ([0b2dd99](https://github.com/svelteness/svelte-jester/commit/0b2dd99b82bf5cebd58b1da2054d6734568083a3))
+* reduce visibility of const ([250441a](https://github.com/svelteness/svelte-jester/commit/250441a429a2feb13f339a55394263e1542a889a))
+* remove missing vite logo ([b7a54cb](https://github.com/svelteness/svelte-jester/commit/b7a54cbc4b467982ddc0633b893c790ee6be70c6))
+* remove obsolete step ([01c82c7](https://github.com/svelteness/svelte-jester/commit/01c82c712ba44e9180a159d5b6a444a4bb248894))
+* remove unused npmrc ([cea907d](https://github.com/svelteness/svelte-jester/commit/cea907d016f2662d7b54a1956c882d0b90d77a28))
+* rewrite url as suggested by npm ([ec050b6](https://github.com/svelteness/svelte-jester/commit/ec050b65fd23f89323703b5660c99854cabfc34a))
+* use different matcher to pass linter ([df6d2a3](https://github.com/svelteness/svelte-jester/commit/df6d2a3515ef5d9595eeab04ffd6a49c42234f62))
+
 ## [3.0.0](https://github.com/svelteness/svelte-jester/compare/v2.3.1...v3.0.0) (2023-07-24)
 
 
