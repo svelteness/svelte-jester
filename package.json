@@ -6,7 +6,7 @@
   "exports": "./dist/transformer.mjs",
   "license": "MIT",
   "engines": {
-    "node": ">=16",
+    "node": ">=18",
     "pnpm": "^8.0.0"
   },
   "homepage": "https://github.com/svelteness/svelte-jester#readme",
