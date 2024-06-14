@@ -6,8 +6,8 @@
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "start": "sirv public --no-clear",
-    "test": "jest src --no-cache",
-    "test:watch": "pnpm run test -- --watch"
+    "test": "jest src --no-cache --coverage",
+    "test:watch": "pnpm run test --watch"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.22.9",
@@ -23,7 +23,7 @@
     "rollup-plugin-css-only": "^4.3.0",
     "rollup-plugin-livereload": "^2.0.5",
     "rollup-plugin-svelte": "^7.1.6",
-    "svelte": "^3.59.2",
+    "svelte": "<4",
     "svelte-jester": "workspace:^",
     "svelte-preprocess": "^5.0.4"
   },
