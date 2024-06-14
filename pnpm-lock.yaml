@@ -21,6 +21,9 @@ importers:
       '@types/jest':
         specifier: ^29.5.3
         version: 29.5.3
+      cross-env:
+        specifier: ^7.0.3
+        version: 7.0.3
       doctoc:
         specifier: ^2.2.1
         version: 2.2.1
