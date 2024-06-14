@@ -7,7 +7,7 @@
     "dev": "rollup -c -w",
     "start": "sirv public --no-clear",
     "test": "jest src --no-cache --coverage",
-    "test:watch": "pnpm run test -- --watch"
+    "test:watch": "pnpm run test --watch"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.22.9",
