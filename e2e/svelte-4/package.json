@@ -19,7 +19,7 @@
     "jest-svg-transformer": "https://github.com/Em-Ant/jest-transformer-svg",
     "svelte": "<5",
     "svelte-jester": "workspace:^",
-    "vite": "^5.2.0"
+    "vite": "^8.3.5"
   },
   "jest": {
     "transform": {
